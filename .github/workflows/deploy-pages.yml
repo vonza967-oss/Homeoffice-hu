@@ -25,10 +25,10 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: .image-cache
-          key: product-images-${{ hashFiles('catalog.json', 'scripts/build.cjs') }}
+          key: product-images-${{ hashFiles('catalog.json', 'catalog-expansion.json', 'image-sources.json', 'scripts/build.cjs') }}
       - run: npm install --no-audit --no-fund
       - run: npm test
-      - name: Build and validate original manufacturer photographs
+      - name: Build and validate original product photographs
         run: npm run build
       - run: npx playwright install --with-deps chromium
       - name: Desktop and mobile interaction and image checks
