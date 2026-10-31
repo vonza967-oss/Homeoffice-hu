@@ -1,0 +1,43 @@
+name: Inspect manufacturer photography
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/inspect-photographs.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Download original gallery options for visual inspection
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs/promises'),sharp=require('sharp');
+          const photos={
+            'port-945584':'https://satechi.com/cdn/shop/files/thunderbolt-4-slim-hub-pro-hubs-satechi-945584.png?v=1718731626&width=1200',
+            'port-293226':'https://satechi.com/cdn/shop/files/thunderbolt-4-slim-hub-pro-hubs-satechi-293226.png?v=1718667114&width=1200',
+            'port-119563':'https://satechi.com/cdn/shop/files/thunderbolt-4-slim-hub-pro-hubs-satechi-119563.png?v=1718667745&width=1200',
+            'charge-300949':'https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-300949.png?v=1740681837&width=1200',
+            'charge-406144':'https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-406144.png?v=1740681837&width=1200',
+            'charge-635447':'https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-635447.png?v=1740681837&width=1200',
+            'charge-179843':'https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-179843.png?v=1740681837&width=1200',
+            'curve-gallery3':'https://twelvesouth.eu/cdn/shop/files/curve-flex_pdp_image_3.webp?v=1780923551',
+            'curve-gallery4':'https://twelvesouth.eu/cdn/shop/files/curve-flex_pdp_image_4.webp?v=1782395597',
+            'beam-front':'https://image.benq.com/is/image/benqco/black-front-nocable?wid=1200&fmt=png-alpha',
+            'beam-side':'https://image.benq.com/is/image/benqco/black-side?wid=1200&fmt=png-alpha'
+          };
+          (async()=>{await fs.mkdir('photo-review',{recursive:true});const results=[];
+          await Promise.all(Object.entries(photos).map(async([id,url])=>{try{const r=await fetch(url,{signal:AbortSignal.timeout(25000)});if(!r.ok)throw Error('HTTP '+r.status);const b=Buffer.from(await r.arrayBuffer());const m=await sharp(b).metadata();if(!m.width)throw Error('Invalid image');await sharp(b).resize(600,600,{fit:'contain',background:'#fff'}).flatten({background:'#fff'}).png().toFile('photo-review/'+id+'.png');results.push({id,url,ok:true});}catch(e){results.push({id,url,ok:false,error:String(e)});}}));
+          await fs.writeFile('photo-review/sources.json',JSON.stringify(results,null,2));console.log(results);})();
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: original-gallery-review
+          path: photo-review
+          retention-days: 3
