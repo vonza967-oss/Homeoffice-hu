@@ -1,12 +1,16 @@
 # Homeoffice Studio
 
-A complete monochrome reconstruction of the Hungarian Homeoffice concept: 20 real product references, manufacturer photography, short display aliases, detailed original identity on click, categories, accent-insensitive search, favorites and a local demo cart.
+A complete monochrome reconstruction of the Hungarian Homeoffice concept: 28 distinct manufacturer product references across eight categories, original photography, short display aliases, original maker/model and factual details on click. Includes accent-insensitive search, category/wood filters, favorites, direct product links and a persistent local demo cart.
 
 Live concept: https://vonza967-oss.github.io/Homeoffice-hu/
 
 ## Run
-Node 22+: `npm install`, `npm test`, `npm run build`, `npm start`. The build requires internet access to retrieve exactly sourced photographs. `npx playwright install chromium` then `npm run qa` checks images and interaction paths on desktop and mobile.
+Node 22+: `npm install`, `npm test`, `npm run build`, `npm start`. The build needs internet to retrieve the explicitly sourced photographs. Install Chromium with `npx playwright install chromium`, then `npm run qa`.
 
-`catalog.json` records every maker, model, factual description, original product page and source image. No retail price, stock, delivery or product-quality guarantee is invented. Aliases are clearly identified as presentation names. Rights to photographs stay with their original owners; permission is needed before commercial reuse. This independent visual demo is not affiliated with the reference brands and cannot accept an order or payment.
+`catalog.json` contains every original manufacturer, model, description, product URL and image URL. `styles.css` and `refinements.css` define the neutral visual system. The build optimizes original photos into self-hosted WebP assets; visitors do not depend on external image hotlinks.
 
-The Pages workflow first validates and optimizes all photographs, tests the app, and records desktop/mobile screenshots plus a machine-readable report in its `homeoffice-visual-qa` artifact. Only successful runs deploy `_site`. No external product-image hotlinks are needed by visitors.
+## Verification
+The single Pages workflow gates publication on source tests, successful image downloads and browser checks. QA covers all 28 detail dialogs, all eight categories, search, empty states, favorites, cart quantity/removal/persistence, focus restoration, Escape and direct product URLs. Viewports: 1440, 768, 390 and 320 pixels. The workflow saves screenshots and JSON evidence in `homeoffice-visual-qa`. After deployment it verifies the exact commit through the public `version.json`, repeats browser checks on the public URL and saves `homeoffice-live-qa`.
+
+## Demo scope
+This is a non-commercial visual concept, not a live store. No retail price, stock, shipping, warranty, independent quality guarantee, supplier agreement or brand affiliation is implied. Aliases are presentation names only. Original manufacturer identities remain visible in the details. Rights to photography remain with the original owners; commercial reuse requires permission. No checkout, payment, customer data collection or analytics is enabled. Favorites and cart stay in this browser's localStorage.
