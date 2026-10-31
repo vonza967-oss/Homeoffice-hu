@@ -2,7 +2,7 @@
 const products = window.CATALOG.products;
 const $ = selector => document.querySelector(selector);
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const groups = {chairs:'Székek',desks:'Asztalok',stands:'Állványok',docks:'Dokkolók',tech:'Eszközök',network:'Hálózat',details:'Kiegészítők',light:'Világítás'};
+const groups = {chairs:'Székek',desks:'Asztalok',stands:'Állványok',docks:'Dokkolók',tech:'Eszközök',network:'Hálózat',details:'Kiegészítők',light:'Világítás',focus:'Fókusz',active:'Aktív munka'};
 const byId = new Map(products.map(p => [p.id,p]));
 const normalize = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const icon = {
@@ -31,9 +31,9 @@ function picture(p, eager=false) {
 }
 function render() {
  const needle=normalize(query);
- const list=products.filter(p=>(filter==='all'||p.group===filter)&&(!material||p.material===material)&&(!onlyFavorites||favorites.includes(p.id))&&normalize([p.name,p.maker,p.model,groups[p.group],p.description].join(' ')).includes(needle));
+ const list=products.filter(p=>(filter==='all'||(filter==='creative'?p.creative:p.group===filter))&&(!material||p.material===material)&&(!onlyFavorites||favorites.includes(p.id))&&normalize([p.name,p.maker,p.model,groups[p.group],p.description,p.creative?'ötletes kreatív különleges megoldás':''].join(' ')).includes(needle));
  $('#grid').innerHTML=list.length ? list.map((p,i)=>'<article class="product-card"><button class="product-open" data-open="'+p.id+'" aria-label="'+esc(p.name)+' részletei"><span class="product-photo">'+picture(p,i<4)+'<span class="product-plus" aria-hidden="true">'+icon.plus+'</span></span><span class="product-name">'+esc(p.name)+'</span></button></article>').join('') : '<div class="empty"><p>'+(onlyFavorites?'Még nincs kedvenc ebben a válogatásban.':'Nincs találat erre a keresésre.')+'</p><button class="line-link" data-reset>Vissza az összes termékhez</button></div>';
- $('#resultCount').textContent=onlyFavorites?'Kedvenceid · '+list.length+' tárgy':material?'A fa melege · '+list.length+' tárgy':query||filter!=='all'?list.length+' tárgy':products.length+' tárgy. Egy szemlélet.';
+ $('#resultCount').textContent=onlyFavorites?'Kedvenceid · '+list.length+' termék':material?'A fa melege · '+list.length+' termék':query||filter!=='all'?list.length+' termék':products.length+' termék. Egy szemlélet.';
  sync();
 }
 function show(dialog) {
@@ -52,7 +52,7 @@ function detail(id, updateURL=true) {
   beforeProductHash=location.hash.startsWith('#product/')?'#collection':location.hash||'#collection';
   history.pushState(null,'','#product/'+id);
  }
- $('#productContent').innerHTML='<div class="product-layout"><div class="detail-photo">'+picture(p,true)+'</div><div class="detail-copy"><div class="detail-kind">'+esc(groups[p.group])+'</div><h2 id="productTitle">'+esc(p.name)+'</h2><div class="detail-maker">'+esc(p.maker+' · '+p.model)+'</div><p class="detail-description">'+esc(p.description)+'</p><ul class="facts">'+p.facts.map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul><div class="detail-actions"><button class="solid" data-add="'+p.id+'">Demókosárba '+icon.plus+'</button><button class="favorite-action" data-favorite="'+p.id+'" aria-pressed="'+favorites.includes(p.id)+'" aria-label="Kedvenc állapot váltása">'+icon.heart+'</button></div><a class="source-link" href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer">Eredeti gyártói termékoldal <span aria-hidden="true">↗</span></a><p class="detail-note">A '+esc(p.name)+' saját bemutatónév. A termék és a fotó forrása: '+esc(p.maker)+'. Nem rendelhető termékajánlat. A környezetben szereplő eszközök és dekoráció nem feltétlenül tartozékok.</p></div></div>';
+ $('#productContent').innerHTML='<div class="product-layout"><div class="detail-photo">'+picture(p,true)+'</div><div class="detail-copy"><div class="detail-kind">'+esc(groups[p.group])+'</div><h2 id="productTitle">'+esc(p.name)+'</h2><div class="detail-maker">'+esc(p.maker+' · '+p.model)+'</div><p class="detail-description">'+esc(p.description)+'</p><ul class="facts">'+p.facts.map(f=>'<li>'+esc(f)+'</li>').join('')+'</ul><div class="detail-actions"><button class="solid" data-add="'+p.id+'">Demókosárba '+icon.plus+'</button><button class="favorite-action" data-favorite="'+p.id+'" aria-pressed="'+favorites.includes(p.id)+'" aria-label="Kedvenc állapot váltása">'+icon.heart+'</button></div><a class="source-link" href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer">'+esc(p.sourceLabel||'Eredeti termékoldal')+' <span aria-hidden="true">↗</span></a><p class="detail-note">Eredeti modell: '+esc(p.maker+' '+p.model)+'. A fotó forrása a hivatkozott termékoldal. Nem rendelhető termékajánlat. A környezetben szereplő eszközök és dekoráció nem feltétlenül tartozékok.</p></div></div>';
  show($('#productDialog'));
  $('#productDialog').scrollTop=0;
 }
