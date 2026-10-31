@@ -1,16 +1,11 @@
-# Homeoffice.hu — Codex fejlesztői utasítások
+# Homeoffice.hu · fejlesztői szabályok (Codex)
 
-- Magyar nyelvű prémium, minimalista home office webshop. Referencia: a gyökér `index.html` működő, egydokumentumos demó.
-- **Az új alkalmazást ne hozd létre éles kereskedelmi rendszerként.** Fizetést, rendelést, valódi ügyféladat-gyűjtést és éles deployt ne aktiválj külön felhasználói jóváhagyás nélkül.
-- 45 termék: 9 Alibaba-beszállítói referencia (nem ellenőrzött dropshipping ajánlat), 36 fiktív koncepció. 9 kategória, 3 kollekció: Minimal Setup, Warm Wood, Dark Workspace.
-- A képek mind koncepcióillusztrációk, nem ellenőrzött gyártói termékfotók. Árak demonstrációs összegek, nem valódi ajánlatok. Valós `price` mező maradjon null a tényleges beszállítói/adó/logisztikai ellenőrzésig.
-- Ne találj ki szállítási időt, készletet, garanciát, termékértékelést, céges adatokat vagy végleges jogi dokumentumokat.
-- Preferált cél stack: Next.js App Router + TypeScript + Tailwind. Migrálj inkrementálisan, ellenőrizd a régi és új UI-t funkciónként.
-- A meglévő `index.html` változatot tartsd meg `reference/legacy-demo.html` néven az áttérés során. Új kód mellett automatizált teszteket adj hozzá.
-- Funkciók: reszponzív kezdőlap, keresés/rendezés, 9 kategória, 3 kollekció, 45 termékoldal, kedvencek, böngészőben tárolt demókosár, 404, akadálymentes mobilmenü.
-- Ne csatlakoztass Supabase/Shopify/Stripe rendszert előzetes igény nélkül.
-- Az `npm test` parancsnak sikeresnek kell lennie; ellenőrizd desktop és mobil böngészőben is a felületet, ha a futtatókörnyezet támogatja.
-
-## Első Codex feladat
-
-"Olvasd el az AGENTS.md-t és a README-t. Futtasd az npm test-et. Vizsgáld meg a működő index.html webshopot. Készíts fokozatos migrációt Next.js + TypeScript + Tailwind alapokra, az eredeti design és minden katalógusfunkció megőrzésével. Ne kapcsolj be valódi checkoutot. Tesztelj, majd nyiss pull requestet."
+- A gyökér `index.html` a jelenlegi működő, magyar nyelvű prémium statikus koncepció. Őrizd meg a visszafogott tipográfiát, nagy vizuális felületeket, reszponzív elrendezést és a független Homeoffice márkaidentitást. Ne másold az Apple logóját vagy oldalát.
+- A katalógus jelenleg **11 valódi Alibaba-hivatkozásból** áll, eredeti, külső CDN-ről hivatkozott beszállítói termékképekkel és magyar szerkesztett leírásokkal. Ne állíts valótlan adatot vagy tartozékot egy termékhez; minden adatot a forráslinken ellenőrizz.
+- Eredeti termékfotók: használatuk jogszerűségét éles kereskedelem előtt tisztázni kell. Külső kép nem garantáltan tartós.
+- A feltüntetett USD ár Alibaba B2B referencia, nem hazai fogyasztói ajánlat. Ne találj ki végleges HUF árat, ÁFÁ-t, logisztikát, jótállást, értékelést vagy készletet.
+- **Tilos élesíteni rendelést, fizetést, személyesadat-gyűjtést a felhasználó kifejezett jóváhagyása nélkül.** A demókosár csak localStorage.
+- Funkciók: reszponzív kezdőlap, kategóriaszűrés, keresés, termékmodál, kedvencek, demókosár, eredeti termékforrások megnyitása. Mindet ellenőrizd változtatás után.
+- A `main` ágról a `.github/workflows/deploy-pages.yml` teszi közzé az oldalt; ne hozz létre versengő Pages-telepítéseket.
+- Futtasd az `npm test`-et. Érdemi UI-módosítás után desktop- és mobilböngészős teszt ajánlott.
+- Lehetséges későbbi stack: Next.js + TypeScript + Tailwind, de migráció csak tervvel, az aktuális arculat és viselkedés megőrzésével.
