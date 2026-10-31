@@ -6,6 +6,9 @@ on:
     paths: ['.github/workflows/inspect-photographs.yml', 'catalog-expansion.json', 'image-sources.json', 'scripts/qa.cjs', 'refinements.css']
 permissions:
   contents: read
+concurrency:
+  group: catalog-review-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   inspect:
     runs-on: ubuntu-24.04
@@ -23,26 +26,6 @@ jobs:
       - run: npm test
       - name: Validate and optimize all source photographs
         run: npm run build
-      - name: Review quieter original product photographs
-        run: |
-          node <<'NODE'
-          const fs=require('node:fs/promises'),sharp=require('sharp');
-          const options={
-           'slope-0':'https://cdn.shopify.com/s/files/1/1221/2798/files/fluidstance-accessories-slope-desk-whiteboard-39459927916790.jpg?v=1757465768',
-           'slope-4':'https://cdn.shopify.com/s/files/1/1221/2798/files/Basic_Slope.jpg?v=1778740042',
-           'lift-1':'https://cdn.shopify.com/s/files/1/1221/2798/files/LL5A7461_copy.jpg?v=1773689409',
-           'lift-2':'https://cdn.shopify.com/s/files/1/1221/2798/files/LL5A7567_copy.jpg?v=1778719625',
-           'lift-3':'https://cdn.shopify.com/s/files/1/1221/2798/files/LL5A7358.jpg?v=1778719575',
-           'lift-4':'https://cdn.shopify.com/s/files/1/1221/2798/files/LL5A7380_copy.jpg?v=1778719674',
-           'backpack-0':'https://cdn.shopify.com/s/files/1/0588/8275/2720/products/BackPack_StudioDisplay_ChildHero_b55ffa8e-4cc1-49e4-9768-96a807b91334.jpg?v=1675865360',
-           'riser-0':'https://cdn.shopify.com/s/files/1/0588/8275/2720/files/twes_12-2142_01_b50f38ee-abb7-4863-b021-2df4d4fed746.webp?v=1774018946',
-           'cube-1':'https://cdn.shopify.com/s/files/1/1520/4366/files/thunderbolt-5-cubedock-with-ssd-enclosure-satechi-481517.webp?v=1776755777',
-           'cube-6':'https://cdn.shopify.com/s/files/1/1520/4366/files/thunderbolt-5-cubedock-with-ssd-enclosure-docking-satechi-425647.webp?v=1770161408',
-           'analog-1':'https://cdn.shopify.com/s/files/1/0167/4484/files/new-daily-walnut-4.jpg?v=1772037595',
-           'analog-2':'https://cdn.shopify.com/s/files/1/0167/4484/files/kit-contents-analog-walnut.jpg?v=1772037595'
-          };
-          (async()=>{await fs.mkdir('gallery',{recursive:true});const results=await Promise.all(Object.entries(options).map(async([id,url])=>{try{const r=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!r.ok)throw Error(r.status);const b=Buffer.from(await r.arrayBuffer());await sharp(b).resize(500,500,{fit:'contain',background:'#fff'}).flatten({background:'#fff'}).png().toFile('gallery/'+id+'.png');return {id,url,ok:true}}catch(e){return{id,url,ok:false,error:String(e)}}}));await fs.writeFile('gallery/results.json',JSON.stringify(results,null,2));})();
-          NODE
       - run: npx playwright install --with-deps chromium
       - name: Inspect every product, category and desktop/mobile flow
         run: npm run qa
@@ -54,6 +37,5 @@ jobs:
           path: |
             _site
             qa
-            gallery
           include-hidden-files: true
           retention-days: 3
