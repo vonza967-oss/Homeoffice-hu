@@ -1,9 +1,14 @@
 {
   "curve": [
-    "https://cdn.shopify.com/s/files/1/0094/1621/2537/files/TS_CurveFlex_Front_Empty_Black_HiRes.jpg?v=1769626928&width=1000",
-    "https://cdn.shopify.com/s/files/1/0094/1621/2537/files/TS_CurveFlex_Front_Empty_Black_HiRes_750x.jpg?v=1769626928",
-    "https://www.twelvesouth.com/cdn/shop/files/TS_CurveFlex_Front_Empty_Black_HiRes.jpg?width=1000",
-    "https://twelvesouth.eu/cdn/shop/products/CurveFlex_ChildImage_Black_1200x1200.jpg?v=1660656059",
-    "https://twelvesouth.eu/cdn/shop/products/CurveFlex_ChildImage_Black.jpg?width=1000"
+    "https://twelvesouth.eu/cdn/shop/products/CurveFlex_ChildImage_Black_1200x1200.jpg?v=1660656059"
+  ],
+  "port": [
+    "https://satechi.com/cdn/shop/files/thunderbolt-4-slim-hub-pro-hubs-satechi-945584.png?v=1718731626&width=1200"
+  ],
+  "charge": [
+    "https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-406144.png?v=1740681837&width=1200"
+  ],
+  "beam": [
+    "https://image.benq.com/is/image/benqco/black-front-nocable?wid=1200&fmt=png-alpha"
   ]
 }
