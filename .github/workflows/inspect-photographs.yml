@@ -1,4 +1,4 @@
-name: Inspect manufacturer photography
+name: Inspect catalog and photography
 on:
   workflow_dispatch:
   push:
@@ -8,24 +8,30 @@ permissions:
 jobs:
   inspect:
     runs-on: ubuntu-24.04
-    timeout-minutes: 6
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Read public manufacturer catalogs and export current source
-        run: |
-          node <<'NODE'
-          const fs=require('node:fs/promises'),path=require('node:path');
-          const brands={oakywood:'https://oakywood.shop',balolo:'https://www.balolo.de',orbitkey:'https://www.orbitkey.com',satechi:'https://satechi.com',twelvesouth:'https://twelvesouth.eu',ugmonk:'https://ugmonk.com',fluidstance:'https://fluidstance.com',ergonofis:'https://ergonofis.com'};
-          (async()=>{await fs.mkdir('candidate-review/feeds',{recursive:true});await fs.mkdir('candidate-review/source/scripts',{recursive:true});await fs.mkdir('candidate-review/source/tests',{recursive:true});await fs.mkdir('candidate-review/source/.github/workflows',{recursive:true});
-          for(const f of ['index.html','styles.css','refinements.css','app.js','catalog.json','image-sources.json','package.json','AGENTS.md','README.md','scripts/build.cjs','scripts/qa.cjs','scripts/serve.cjs','tests/catalog.test.cjs','.github/workflows/deploy-pages.yml']){try{await fs.copyFile(f,path.join('candidate-review/source',f));}catch(e){console.log(f,String(e));}}
-          const results=await Promise.all(Object.entries(brands).map(async([key,base])=>{try{const r=await fetch(base+'/products.json?limit=250',{headers:{'User-Agent':'Mozilla/5.0','Accept':'application/json'},signal:AbortSignal.timeout(45000)});if(!r.ok)throw Error('HTTP '+r.status);const data=await r.json();await fs.writeFile('candidate-review/feeds/'+key+'.json',JSON.stringify({base,products:data.products},null,2));return {key,ok:true,count:data.products?.length};}catch(e){return {key,ok:false,error:String(e)};}}));await fs.writeFile('candidate-review/results.json',JSON.stringify(results,null,2));console.log(results);})().catch(e=>{console.error(e);process.exitCode=1});
-          NODE
-      - uses: actions/upload-artifact@v4
+      - uses: actions/cache@v4
         with:
-          name: manufacturer-catalog-candidates
-          path: candidate-review
+          path: .image-cache
+          key: catalog-review-${{ hashFiles('catalog.json', 'catalog-expansion.json', 'image-sources.json', 'scripts/build.cjs') }}
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      - name: Validate and optimize all source photographs
+        run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Inspect every product, category and desktop/mobile flow
+        run: npm run qa
+      - name: Export built catalog and browser evidence for visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalog-expansion-review
+          path: |
+            _site
+            qa
           include-hidden-files: true
           retention-days: 3
