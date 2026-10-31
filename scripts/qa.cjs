@@ -6,8 +6,16 @@ const catalog=require('./catalog.cjs').loadCatalog();
 const url=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function loadImages(page){
+ await page.evaluate(()=>document.querySelectorAll('img').forEach(i=>{i.loading='eager';}));
+ // Chromium schedules lazy-to-eager requests asynchronously; wait for them before decode.
+ try {
+  await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0),{},{timeout:30000});
+ } catch(error) {
+  const states=await page.locator('img').evaluateAll(images=>images.map(i=>({src:i.src,complete:i.complete,width:i.naturalWidth})));
+  await fs.writeFile(path.join(qa,'image-failure.json'),JSON.stringify(states,null,2));
+  throw error;
+ }
  await page.evaluate(async()=>{
-  document.querySelectorAll('img').forEach(i=>{i.loading='eager';});
   await Promise.all([...document.images].map(i=>i.decode()));
   await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
  });
