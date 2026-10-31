@@ -15,7 +15,7 @@ async function main(){
  await fs.mkdir(path.join(out,'assets'),{recursive:true});await fs.mkdir(cache,{recursive:true});await fs.mkdir(path.join(root,'qa'),{recursive:true});
  const report=[],jobs=[...catalog.products,...catalog.scenes],resolved=new Map();let next=0;
  async function work(){while(next<jobs.length){
-  const p=jobs[next++],isProduct=catalog.products.includes(p),candidates=[p.image,...(alternatives[p.id]||[])];
+  const p=jobs[next++],isProduct=catalog.products.includes(p),candidates=[...(alternatives[p.id]||[]),p.image];
   const file=path.join(cache,crypto.createHash('sha256').update(pipelineVersion+JSON.stringify(candidates)).digest('hex')+'.webp');
   let buffer,selected=p.image;
   try{buffer=await fs.readFile(file);selected=await fs.readFile(file+'.source','utf8');}catch{buffer=null;}
