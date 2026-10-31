@@ -1,28 +1,25 @@
-# Homeoffice.hu — prémium home office webshop (demó)
+# Homeoffice.hu · valós termékes prémium koncepció
 
-Ez a repository egy **önálló, egyfájlos, azonnal megnyitható interaktív prototípus**. A Lovable-kódtól független vizuális kiindulás a későbbi Codex-fejlesztéshez.
+Magyar nyelvű, egyfájlos, reszponzív bemutatókatalógus. Publikus előnézet: https://vonza967-oss.github.io/Homeoffice-hu/
 
-## Indítás
-Nyisd meg az `index.html`-t böngészőben, vagy Node.js 18+ esetén:
+## Mi található benne?
+- 11 konkrét Alibaba-termék, mindegyik saját forráslinkkel és a beszállítói terméklaphoz kötött eredeti képpel.
+- Magyar, a beszállítói adatok alapján szerkesztett leírások; az Alibaba USD nagykereskedelmi kiindulóára és MOQ szerepel.
+- Apple-hangulatú, de önálló arculat: tipográfia, nagy légies terek, fókuszált termékkártyák, sötét hero.
+- Kategóriaszűrés, keresés, termékrészletek, kedvencek, böngészőben tárolt demókosár.
+- Nem lehet rendelni vagy fizetni; ügyféladatokat nem gyűjt.
 
+## Futtatás
 ```bash
 npm run dev
 # http://127.0.0.1:3000
-```
-
-A demó **45 terméket, 9 kategóriát és 3 stíluskollekciót** tartalmaz. Működik a keresés, rendezés, kategória- és termékoldal, kedvencek, demókosár és a mobilnavigáció. A képek beágyazott SVG koncepcióillusztrációk.
-
-**Nem éles webshop.** A 9 Alibaba-link csupán beszállítói lead, a többi 36 termék koncepció. Az árak nem végleges ajánlatok. Rendelés, fizetés, hírlevél-adatgyűjtés, és valódi vásárlói adatok kezelése nincs bekapcsolva.
-
-## Következő lépés Codexszel
-A `docs/CODEX_START.md` részletezi a következő feladatot. A `AGENTS.md` tartalmazza a kötelező projektkorlátokat. A mostani `index.html` a referencia-implementáció: **ne töröld vagy írd át egyetlen lépésben**, amíg az új Next.js/TypeScript app funkcionális és vizuális paritása nincs ellenőrizve.
-
-## Tesztek
-
-```bash
 npm test
 ```
 
-A tesztek a beágyazott katalógus és a demó-funkciók invariánsait ellenőrzik. A teljes böngészős E2E tesztelés továbbra is ajánlott.
+## Források és képek
+A fotók az Alibaba CDN-ről jönnek, tehát külső kapcsolat szükséges; ha egy beszállító eltávolítja vagy tiltja a képet, az oldalon forráslinkes helyettesítés jelenik meg. A képek nyilvános elérhetősége **nem jelent automatikus újrafelhasználási engedélyt**. Éles kereskedelmi használathoz képhasználati jog és beszállítói megállapodás kell.
 
-A Homeoffice.hu domain nincs csatlakoztatva.
+Az árak nagykereskedelmi referenciák (nem hazai fogyasztói eladási árak). Készletet, árfrissességet, jótállást, EU-megfelelőséget, áfát és szállítást még ellenőrizni kell.
+
+## Publikálás
+A `.github/workflows/deploy-pages.yml` statikus GitHub Pages telepítést végez a `main` ágról. A saját homeoffice.hu domaint még nem kötöttük ide. A kód forrása az `index.html`. Lásd `AGENTS.md` és `docs/CODEX_START.md`.
