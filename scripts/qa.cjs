@@ -67,6 +67,8 @@ async function captureFull(page,name){
   }
   await page.locator('[data-filter="creative"]').click();
   assert.equal(await page.locator('.product-card').count(),catalog.products.filter(p=>p.creative).length);
+  await loadImages(page);await pause(130);
+  await page.screenshot({path:path.join(qa,'creative.png')});
   checks.push('Creative solutions filter selects actual multifunctional and distinctive products');
   await page.locator('[data-filter="all"]').click();
   for(const p of catalog.products){
@@ -79,7 +81,7 @@ async function captureFull(page,name){
    await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
   }
   checks.push('All category filters and all '+catalog.products.length+' product dialogs, original sources and visible image decodes passed');
-  await page.locator('.product-open[data-open="aero"]').click();
+  await page.locator('.product-open[data-open="aero"]').click();await loadImages(page);
   await page.screenshot({path:path.join(qa,'detail.png')});
   await page.locator('[data-favorite="aero"]').click();await page.locator('[data-add="aero"]').click();
   await page.keyboard.press('Escape');await pause(50);
@@ -110,6 +112,7 @@ async function captureFull(page,name){
   const clipped=await mobile.locator('.product-name').evaluateAll(nodes=>nodes.filter(n=>n.scrollWidth>n.clientWidth+1||n.scrollHeight>n.clientHeight+1).map(n=>n.textContent));assert.deepEqual(clipped,[],'Long product names must never clip');
   await mobile.locator('[data-filter="creative"]').click();
   assert.equal(await mobile.locator('.product-card').count(),catalog.products.filter(p=>p.creative).length);
+  await loadImages(mobile);await pause(130);
   await mobile.screenshot({path:path.join(qa,'mobile-creative.png')});
   await mobile.locator('[data-filter="all"]').click();
   await mobile.locator('.product-open[data-open="link"]').click();await loadImages(mobile);
