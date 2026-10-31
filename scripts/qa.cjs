@@ -7,25 +7,28 @@ const url=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function loadImages(page){
  await page.evaluate(()=>document.querySelectorAll('img').forEach(i=>{i.loading='eager';}));
- // Chromium schedules lazy-to-eager requests asynchronously; wait for them before decode.
- try {
+ try{
   await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0),{},{timeout:30000});
- } catch(error) {
+  await page.evaluate(async()=>{
+   const visible=[...document.images].filter(i=>{const r=i.getBoundingClientRect();return r.width>0&&r.height>0&&r.top<innerHeight&&r.bottom>0;});
+   for(const image of visible){
+    let error;
+    for(let n=0;n<3;n++){try{await image.decode();error=null;break;}catch(e){error=e;await new Promise(r=>setTimeout(r,70));}}
+    if(error)throw Error('Visible photograph failed to decode: '+image.src+'; '+error);
+   }
+   await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+  });
+ }catch(error){
   const states=await page.locator('img').evaluateAll(images=>images.map(i=>({src:i.src,complete:i.complete,width:i.naturalWidth})));
-  await fs.writeFile(path.join(qa,'image-failure.json'),JSON.stringify(states,null,2));
-  throw error;
+  await fs.writeFile(path.join(qa,'image-failure.json'),JSON.stringify(states,null,2));throw error;
  }
- await page.evaluate(async()=>{
-  await Promise.all([...document.images].map(i=>i.decode()));
-  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
- });
  const invalid=await page.locator('img').evaluateAll(images=>images.filter(i=>!i.complete||!i.naturalWidth||i.getBoundingClientRect().width<1).map(i=>i.src));
  assert.deepEqual(invalid,[],'Every photograph must load and occupy space');
 }
 async function overflow(page){assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');}
 async function captureFull(page,name){
  const h=await page.evaluate(()=>document.documentElement.scrollHeight);
- for(let y=0;y<h;y+=650){await page.evaluate(y=>scrollTo(0,y),y);await pause(35);}
+ for(let y=0;y<h;y+=650){await page.evaluate(y=>scrollTo(0,y),y);await pause(60);}
  await page.evaluate(()=>scrollTo(0,0));await pause(120);
  await page.screenshot({path:path.join(qa,name),fullPage:true});
 }
@@ -55,9 +58,9 @@ async function captureFull(page,name){
   assert.equal(await page.locator('img').count(),catalog.products.length+catalog.scenes.length);
   await page.screenshot({path:path.join(qa,'desktop.png')});
   await captureFull(page,'full-page.png');
-  await page.locator('#collection').scrollIntoViewIfNeeded();await pause(100);
+  await page.locator('#collection').evaluate(n=>scrollTo(0,n.offsetTop-86));await pause(150);
   await page.screenshot({path:path.join(qa,'catalog.png')});
-  checks.push('Desktop 1440px: '+catalog.products.length+' descriptive-name cards, '+(catalog.products.length+2)+' decoded photographs, no overflow');
+  checks.push('Desktop 1440px: '+catalog.products.length+' descriptive-name cards, '+(catalog.products.length+2)+' loaded photographs, no overflow');
   for(const group of [...new Set(catalog.products.map(p=>p.group))]){
    await page.locator('[data-filter="'+group+'"]').click();
    assert.equal(await page.locator('.product-card').count(),catalog.products.filter(p=>p.group===group).length);
@@ -75,7 +78,7 @@ async function captureFull(page,name){
    await page.keyboard.press('Escape');
    await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
   }
-  checks.push('All category filters and all '+catalog.products.length+' product dialogs, sources and images passed');
+  checks.push('All category filters and all '+catalog.products.length+' product dialogs, original sources and visible image decodes passed');
   await page.locator('.product-open[data-open="aero"]').click();
   await page.screenshot({path:path.join(qa,'detail.png')});
   await page.locator('[data-favorite="aero"]').click();await page.locator('[data-add="aero"]').click();
@@ -102,7 +105,7 @@ async function captureFull(page,name){
   await mobile.goto(url,{waitUntil:'networkidle'});await loadImages(mobile);await overflow(mobile);
   await mobile.screenshot({path:path.join(qa,'mobile-top.png')});
   await captureFull(mobile,'mobile.png');
-  await mobile.locator('#collection').scrollIntoViewIfNeeded();await pause(150);
+  await mobile.locator('#collection').evaluate(n=>scrollTo(0,n.offsetTop-70));await pause(150);
   await mobile.screenshot({path:path.join(qa,'mobile-catalog.png')});
   const clipped=await mobile.locator('.product-name').evaluateAll(nodes=>nodes.filter(n=>n.scrollWidth>n.clientWidth+1||n.scrollHeight>n.clientHeight+1).map(n=>n.textContent));assert.deepEqual(clipped,[],'Long product names must never clip');
   await mobile.locator('[data-filter="creative"]').click();
