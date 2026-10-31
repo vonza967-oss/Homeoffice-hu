@@ -1,41 +1,6 @@
-const {test} = require('node:test');
-const assert = require('node:assert/strict');
-const {readFileSync} = require('node:fs');
-const {join} = require('node:path');
-const html=readFileSync(join(__dirname,'..','index.html'),'utf8');
-const match=html.match(/const products=(\[[^\n]+\]);/);
-const products=match?JSON.parse(match[1]):[];
-
-test('Single-file storefront renders Hungarian Homeoffice branding',()=>{
- assert.match(html,/^<!doctype html>/i);
- assert.match(html,/homeoffice/i);
- assert.match(html,/<\/html>\s*$/);
- assert.match(html,/lang="hu"/);
-});
-test('All catalog entries are sourced real Alibaba products',()=>{
- assert.equal(products.length,11);
- assert.equal(new Set(products.map(p=>p.id)).size,products.length);
- for(const p of products){
-  assert.match(p.link,/^https:\/\/www\.alibaba\.com\//);
-  assert.match(p.image,/^https:\/\/[^/]*alicdn\.com\//);
-  assert.ok(p.name&&p.cat&&p.desc&&p.facts.length>=2);
-  assert.match(p.price,/USD/);
-  assert.ok(p.moq);
- }
-});
-test('Images, filtering, product detail and demo cart hooks are present',()=>{
- for(const id of ['grid','filters','search','modal','cartTrigger','cartCount']){
-  assert.match(html,new RegExp('id="'+id+'"'));
- }
- assert.match(html,/data-open/);
- assert.match(html,/data-filter/);
- assert.match(html,/data-add/);
- assert.match(html,/bindImages/);
-});
-test('Demo only, no production order or personal-data capture',()=>{
- assert.match(html,/KONCEPCIÓBEMUTATÓ/);
- assert.match(html,/nem rendelhető demó/);
- assert.match(html,/Nincs rendelés, fizetés/);
- assert.doesNotMatch(html,/<form[^>]+action=/i);
- assert.doesNotMatch(html,/stripe\.com|checkout\.stripe/i);
-});
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');const root=path.join(__dirname,'..');const {products,scenes}=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8'));const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+test('20 unique sourced references with original identities and restrained finishes',()=>{assert.equal(products.length,20);assert.equal(new Set(products.map(p=>p.id)).size,20);assert.equal(new Set(products.map(p=>p.source)).size,20);for(const p of products){assert.match(p.id,/^[a-z]+$/);assert.ok(p.name.length<=12);assert.ok(p.model&&p.maker&&p.description&&p.facts.length===3);assert.ok(['black','white','gray','wood'].includes(p.material));assert.match(p.source,/^https:\/\//);assert.match(p.image,/^https:\/\//);assert.equal(p.price,undefined)}assert.equal(scenes.length,2)});
+test('Every requested family is represented',()=>{const cats=new Set(products.map(p=>p.group));for(const c of ['chairs','desks','stands','tech','details','light'])assert.ok(cats.has(c));assert.equal(products.filter(p=>p.group==='chairs').length,3);assert.equal(products.filter(p=>p.group==='desks').length,2)});
+test('Actual HTML controls and concept disclosure are retained',()=>{assert.match(html,/lang="hu"/);for(const id of ['grid','search','filters','productDialog','cartDialog','cartCount','favoritesTrigger'])assert.ok(html.includes('id="'+id+'"'));assert.match(html,/Nem rendelhető demó/);assert.match(html,/nincs rendelés, fizetés/);assert.doesNotMatch(html,/<form[^>]*action=/i)});
+test('Browser script syntax is valid and product cards contain no descriptions or prices',()=>{const js=fs.readFileSync(path.join(root,'app.js'),'utf8');new vm.Script(js);const card=js.slice(js.indexOf('function render()'),js.indexOf('function show('));assert.ok(card.includes('product-name'));assert.ok(!card.includes('p.price'));assert.ok(!card.includes('detail-description'));assert.ok(js.includes('showModal'));});

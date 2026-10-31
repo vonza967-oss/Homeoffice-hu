@@ -1,39 +1,49 @@
-name: Deploy Homeoffice.hu demo to GitHub Pages
-
+name: Build, inspect and publish Homeoffice Studio
 on:
   push:
     branches: [main]
   workflow_dispatch:
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 concurrency:
   group: github-pages
   cancel-in-progress: true
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Prepare public site (demo only)
-        run: |
-          mkdir -p _site
-          cp index.html _site/index.html
-          touch _site/.nojekyll
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload public site
-        uses: actions/upload-pages-artifact@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/cache@v4
+        with:
+          path: .image-cache
+          key: product-images-${{ hashFiles('catalog.json') }}
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      - name: Build and validate all original product photographs
+        run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Desktop and mobile interaction and image checks
+        run: npm run qa
+      - name: Save inspectable browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homeoffice-visual-qa
+          path: qa
+          retention-days: 7
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: _site
-      - name: Deploy
+      - name: Publish verified concept
         id: deployment
         uses: actions/deploy-pages@v4

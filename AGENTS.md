@@ -1,11 +1,11 @@
-# Homeoffice.hu · fejlesztői szabályok (Codex)
+# Homeoffice Studio
 
-- A gyökér `index.html` a jelenlegi működő, magyar nyelvű prémium statikus koncepció. Őrizd meg a visszafogott tipográfiát, nagy vizuális felületeket, reszponzív elrendezést és a független Homeoffice márkaidentitást. Ne másold az Apple logóját vagy oldalát.
-- A katalógus jelenleg **11 valódi Alibaba-hivatkozásból** áll, eredeti, külső CDN-ről hivatkozott beszállítói termékképekkel és magyar szerkesztett leírásokkal. Ne állíts valótlan adatot vagy tartozékot egy termékhez; minden adatot a forráslinken ellenőrizz.
-- Eredeti termékfotók: használatuk jogszerűségét éles kereskedelem előtt tisztázni kell. Külső kép nem garantáltan tartós.
-- A feltüntetett USD ár Alibaba B2B referencia, nem hazai fogyasztói ajánlat. Ne találj ki végleges HUF árat, ÁFÁ-t, logisztikát, jótállást, értékelést vagy készletet.
-- **Tilos élesíteni rendelést, fizetést, személyesadat-gyűjtést a felhasználó kifejezett jóváhagyása nélkül.** A demókosár csak localStorage.
-- Funkciók: reszponzív kezdőlap, kategóriaszűrés, keresés, termékmodál, kedvencek, demókosár, eredeti termékforrások megnyitása. Mindet ellenőrizd változtatás után.
-- A `main` ágról a `.github/workflows/deploy-pages.yml` teszi közzé az oldalt; ne hozz létre versengő Pages-telepítéseket.
-- Futtasd az `npm test`-et. Érdemi UI-módosítás után desktop- és mobilböngészős teszt ajánlott.
-- Lehetséges későbbi stack: Next.js + TypeScript + Tailwind, de migráció csak tervvel, az aktuális arculat és viselkedés megőrzésével.
+This is a Hungarian, non-commercial product-reference storefront, not a shop. User-authorized redesign replaces the old 11-item Alibaba concept with 20 premium-brand references from original manufacturer pages. Never claim these are secured suppliers, rebranded actual stock, independently tested goods, or available for purchase.
+
+- Independent Homeoffice identity; monochrome interface with natural walnut photography only. No Apple logo, generic stock illustrations, fake ratings, prices, warranty or health promises.
+- Cards contain only an original photograph and short concept alias. Preserve maker/model/source and factual descriptions in the accessible detail dialog.
+- Source data: catalog.json. HTML/CSS/application code are independent, no framework migration required.
+- Build downloads exact manufacturer photographs and creates self-hosted WebP images. Rights remain with the original owners; real commercial reuse requires authorization.
+- Never enable real payments, orders, accounts, analytics or data collection. Demo cart/favorites only use localStorage.
+- npm test; npm run build; npm run qa. The one Pages workflow gates deployment on working original images and desktop/mobile Playwright checks. Inspect its visual-qa screenshots as well as test results.
+- Preserve focus management, dialog Escape, reduced motion, mobile overflow protection and source attribution.

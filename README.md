@@ -1,25 +1,12 @@
-# Homeoffice.hu · valós termékes prémium koncepció
+# Homeoffice Studio
 
-Magyar nyelvű, egyfájlos, reszponzív bemutatókatalógus. Publikus előnézet: https://vonza967-oss.github.io/Homeoffice-hu/
+A complete monochrome reconstruction of the Hungarian Homeoffice concept: 20 real product references, manufacturer photography, short display aliases, detailed original identity on click, categories, accent-insensitive search, favorites and a local demo cart.
 
-## Mi található benne?
-- 11 konkrét Alibaba-termék, mindegyik saját forráslinkkel és a beszállítói terméklaphoz kötött eredeti képpel.
-- Magyar, a beszállítói adatok alapján szerkesztett leírások; az Alibaba USD nagykereskedelmi kiindulóára és MOQ szerepel.
-- Apple-hangulatú, de önálló arculat: tipográfia, nagy légies terek, fókuszált termékkártyák, sötét hero.
-- Kategóriaszűrés, keresés, termékrészletek, kedvencek, böngészőben tárolt demókosár.
-- Nem lehet rendelni vagy fizetni; ügyféladatokat nem gyűjt.
+Live concept: https://vonza967-oss.github.io/Homeoffice-hu/
 
-## Futtatás
-```bash
-npm run dev
-# http://127.0.0.1:3000
-npm test
-```
+## Run
+Node 22+: `npm install`, `npm test`, `npm run build`, `npm start`. The build requires internet access to retrieve exactly sourced photographs. `npx playwright install chromium` then `npm run qa` checks images and interaction paths on desktop and mobile.
 
-## Források és képek
-A fotók az Alibaba CDN-ről jönnek, tehát külső kapcsolat szükséges; ha egy beszállító eltávolítja vagy tiltja a képet, az oldalon forráslinkes helyettesítés jelenik meg. A képek nyilvános elérhetősége **nem jelent automatikus újrafelhasználási engedélyt**. Éles kereskedelmi használathoz képhasználati jog és beszállítói megállapodás kell.
+`catalog.json` records every maker, model, factual description, original product page and source image. No retail price, stock, delivery or product-quality guarantee is invented. Aliases are clearly identified as presentation names. Rights to photographs stay with their original owners; permission is needed before commercial reuse. This independent visual demo is not affiliated with the reference brands and cannot accept an order or payment.
 
-Az árak nagykereskedelmi referenciák (nem hazai fogyasztói eladási árak). Készletet, árfrissességet, jótállást, EU-megfelelőséget, áfát és szállítást még ellenőrizni kell.
-
-## Publikálás
-A `.github/workflows/deploy-pages.yml` statikus GitHub Pages telepítést végez a `main` ágról. A saját homeoffice.hu domaint még nem kötöttük ide. A kód forrása az `index.html`. Lásd `AGENTS.md` és `docs/CODEX_START.md`.
+The Pages workflow first validates and optimizes all photographs, tests the app, and records desktop/mobile screenshots plus a machine-readable report in its `homeoffice-visual-qa` artifact. Only successful runs deploy `_site`. No external product-image hotlinks are needed by visitors.

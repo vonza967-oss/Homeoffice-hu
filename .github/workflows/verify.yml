@@ -1,7 +1,10 @@
-name: Verify Homeoffice.hu demo
+name: Verify Homeoffice source
 on:
   push:
+    branches: [main]
   pull_request:
+permissions:
+  contents: read
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -9,6 +12,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
-      - name: Validate demo catalog and safety invariants
-        run: npm test
+          node-version: 22
+      - run: npm test

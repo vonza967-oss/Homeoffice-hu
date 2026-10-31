@@ -1,14 +1,6 @@
 {
-  "name": "homeoffice-hu-demo",
-  "version": "0.1.0",
-  "private": true,
-  "description": "Standalone Hungarian premium home office webshop concept",
-  "scripts": {
-    "dev": "node server.cjs",
-    "start": "node server.cjs",
-    "test": "node --test tests/*.test.cjs"
-  },
-  "engines": {
-    "node": ">=18"
-  }
+ "name":"homeoffice-studio","version":"3.0.0","private":true,
+ "description":"Monochrome Hungarian product-reference concept with verified local photography",
+ "scripts":{"test":"node --test tests/*.test.cjs","build":"node scripts/build.cjs","start":"node scripts/serve.cjs","dev":"node scripts/serve.cjs","qa":"node scripts/qa.cjs"},
+ "engines":{"node":">=22"},"devDependencies":{"playwright":"1.56.1","sharp":"0.34.4"}
 }
