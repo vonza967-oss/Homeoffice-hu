@@ -1,14 +1,9 @@
 {
-  "curve": [
-    "https://twelvesouth.eu/cdn/shop/products/CurveFlex_ChildImage_Black_1200x1200.jpg?v=1660656059"
-  ],
-  "port": [
-    "https://satechi.com/cdn/shop/files/thunderbolt-4-slim-hub-pro-hubs-satechi-945584.png?v=1718731626&width=1200"
-  ],
-  "charge": [
-    "https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-406144.png?v=1740681837&width=1200"
-  ],
-  "beam": [
-    "https://image.benq.com/is/image/benqco/black-front-nocable?wid=1200&fmt=png-alpha"
-  ]
+  "curve": ["https://twelvesouth.eu/cdn/shop/products/CurveFlex_ChildImage_Black_1200x1200.jpg?v=1660656059"],
+  "port": ["https://satechi.com/cdn/shop/files/thunderbolt-4-slim-hub-pro-hubs-satechi-945584.png?v=1718731626&width=1200"],
+  "charge": ["https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-406144.png?v=1740681837&width=1200"],
+  "beam": ["https://image.benq.com/is/image/benqco/black-front-nocable?wid=1200&fmt=png-alpha"],
+  "whiteboardriser": ["https://cdn.shopify.com/s/files/1/1221/2798/files/LL5A7358.jpg?v=1778719575"],
+  "displaybackshelf": ["https://cdn.shopify.com/s/files/1/0588/8275/2720/products/BackPack_StudioDisplay_ChildHero_b55ffa8e-4cc1-49e4-9768-96a807b91334.jpg?v=1675865360"],
+  "analogtasks": ["https://cdn.shopify.com/s/files/1/0167/4484/files/new-daily-walnut-4.jpg?v=1772037595"]
 }
