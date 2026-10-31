@@ -10,7 +10,7 @@ async function surfaceColor(buffer){
  return Math.min(...rgb)>205&&Math.max(...rgb)-Math.min(...rgb)<20?{r:rgb[0],g:rgb[1],b:rgb[2]}:'#ffffff';
 }
 async function main(){
- const catalog=JSON.parse(await fs.readFile(path.join(root,'catalog.json'),'utf8'));
+ const catalog=require('./catalog.cjs').loadCatalog();
  const alternatives=JSON.parse(await fs.readFile(path.join(root,'image-sources.json'),'utf8'));
  await fs.mkdir(path.join(out,'assets'),{recursive:true});await fs.mkdir(cache,{recursive:true});await fs.mkdir(path.join(root,'qa'),{recursive:true});
  const report=[],jobs=[...catalog.products,...catalog.scenes],resolved=new Map();let next=0;
