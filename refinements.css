@@ -2,8 +2,9 @@
 :root{--ink:#202020;--muted:#707070;--soft:#f5f5f5;--line:#e5e5e5}
 html,body{max-width:100%;overflow-x:clip}
 .hero{background:#f5f5f5}.hero h1 span{color:#858585}.hero-foot{color:#777}.hero-scene>img{filter:grayscale(1)}
-/* The stand is black; monochrome presentation quiets the laptop screen in its context photo. */
-img[src$="/curve.webp"]{filter:grayscale(1)}
+/* These products are black, white or silver. Monochrome presentation quiets
+   the unrelated screens, background props and award graphic in source photos. */
+img[src$="/curve.webp"],img[src$="/tabletarm.webp"],img[src$="/ventedriser.webp"],img[src$="/cubedock.webp"],img[src$="/displaybackshelf.webp"],img[src$="/whiteboardriser.webp"]{filter:grayscale(1)}
 .brand span{color:#858585}.spaces{background:#222}.space-copy p{color:#bbb}.closing>p span{color:#858585}
 .product-grid{gap:44px 24px}.product-photo{background:#f3f3f3}.product-photo img{width:100%;height:100%;mix-blend-mode:normal}
 .product-name{font-size:17px;letter-spacing:-.02em}.product-open:focus-visible{outline-offset:5px}
@@ -16,7 +17,6 @@ img[src$="/curve.webp"]{filter:grayscale(1)}
 footer{background:#f5f5f5;color:#666}footer>p{border-color:#e2e2e2}.close{background:#eee}
 @media(max-width:1100px){.filters{gap:23px}.filters button{font-size:12px}}
 @media(max-width:700px){.product-grid{gap:30px 14px}.product-name{font-size:15px}.product-photo img{width:100%;height:100%}.filters{gap:24px}.filters button{font-size:12px;min-height:52px}.detail-photo{padding:0;height:43dvh}.detail-photo img{height:100%;max-height:none}.product-dialog .close{top:14px;margin:14px 14px -58px auto}.search-panel input{font-size:20px}}
-
 /* Descriptive names stay readable without adding card copy or truncation. */
 .product-name{font-size:16px;line-height:1.45;font-weight:500;min-height:2.9em;overflow-wrap:anywhere;max-width:100%;display:block}
 .product-open{text-align:left;width:100%}.product-card{min-width:0}
