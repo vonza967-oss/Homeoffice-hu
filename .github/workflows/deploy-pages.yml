@@ -12,7 +12,6 @@ concurrency:
   cancel-in-progress: true
 jobs:
   deploy:
-    # Playwright 1.56.1 does not support the newer ubuntu-latest image.
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     environment:
@@ -26,10 +25,10 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: .image-cache
-          key: product-images-${{ hashFiles('catalog.json') }}
+          key: product-images-${{ hashFiles('catalog.json', 'scripts/build.cjs') }}
       - run: npm install --no-audit --no-fund
       - run: npm test
-      - name: Build and validate all original product photographs
+      - name: Build and validate original manufacturer photographs
         run: npm run build
       - run: npx playwright install --with-deps chromium
       - name: Desktop and mobile interaction and image checks
@@ -48,3 +47,16 @@ jobs:
       - name: Publish verified concept
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify public URL and exact deployed commit in a real browser
+        env:
+          SITE_URL: https://vonza967-oss.github.io/Homeoffice-hu/
+          QA_DIR: qa-live
+        run: npm run qa
+      - name: Save live website evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homeoffice-live-qa
+          path: qa-live
+          if-no-files-found: ignore
+          retention-days: 7
