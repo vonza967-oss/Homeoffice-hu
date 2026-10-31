@@ -2,7 +2,7 @@
 const {chromium}=require('playwright');
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict'),{spawn}=require('node:child_process');
 const root=path.join(__dirname,'..'),qa=path.resolve(root,process.env.QA_DIR||'qa');
-const catalog=require('../catalog.json');
+const catalog=require('./catalog.cjs').loadCatalog();
 const url=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
 const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function loadImages(page){
@@ -16,7 +16,6 @@ async function loadImages(page){
 }
 async function overflow(page){assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'No horizontal overflow');}
 async function captureFull(page,name){
- // Decode is not the same as painting: scroll through the page before a full capture.
  const h=await page.evaluate(()=>document.documentElement.scrollHeight);
  for(let y=0;y<h;y+=650){await page.evaluate(y=>scrollTo(0,y),y);await pause(35);}
  await page.evaluate(()=>scrollTo(0,0));await pause(120);
@@ -35,7 +34,7 @@ async function captureFull(page,name){
     await pause(4000);
    }
    assert.equal(version?.commit,process.env.GITHUB_SHA,'Live site must serve this commit; '+(lastError||''));
-   checks.push('Public version.json matches the deployed commit and 28-product catalog');
+   checks.push('Public version.json matches the deployed commit and '+catalog.products.length+'-product catalog');
   }
   browser=await chromium.launch({headless:true});
   const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1,reducedMotion:'reduce'});
@@ -43,18 +42,21 @@ async function captureFull(page,name){
   page.on('console',msg=>{if(msg.type()==='error')errors.push(msg.text())});
   const r=await page.goto(url,{waitUntil:'networkidle'});assert.equal(r.status(),200);
   assert.match(await page.title(),/Homeoffice/);await loadImages(page);await overflow(page);
-  assert.equal(await page.locator('.product-card').count(),28);
+  assert.equal(await page.locator('.product-card').count(),catalog.products.length);
   assert.equal(await page.locator('.product-card p').count(),0);
-  assert.equal(await page.locator('img').count(),30);
+  assert.equal(await page.locator('img').count(),catalog.products.length+catalog.scenes.length);
   await page.screenshot({path:path.join(qa,'desktop.png')});
   await captureFull(page,'full-page.png');
   await page.locator('#collection').scrollIntoViewIfNeeded();await pause(100);
   await page.screenshot({path:path.join(qa,'catalog.png')});
-  checks.push('Desktop 1440px: 28 name-only cards, 30 decoded photographs, no overflow');
+  checks.push('Desktop 1440px: '+catalog.products.length+' descriptive-name cards, '+(catalog.products.length+2)+' decoded photographs, no overflow');
   for(const group of [...new Set(catalog.products.map(p=>p.group))]){
    await page.locator('[data-filter="'+group+'"]').click();
    assert.equal(await page.locator('.product-card').count(),catalog.products.filter(p=>p.group===group).length);
   }
+  await page.locator('[data-filter="creative"]').click();
+  assert.equal(await page.locator('.product-card').count(),catalog.products.filter(p=>p.creative).length);
+  checks.push('Creative solutions filter selects actual multifunctional and distinctive products');
   await page.locator('[data-filter="all"]').click();
   for(const p of catalog.products){
    await page.locator('.product-open[data-open="'+p.id+'"]').click();
@@ -65,7 +67,7 @@ async function captureFull(page,name){
    await page.keyboard.press('Escape');
    await page.waitForFunction(()=>!document.querySelector('dialog[open]'));
   }
-  checks.push('All 8 category filters and all 28 product detail dialogs, original sources and images passed');
+  checks.push('All category filters and all '+catalog.products.length+' product dialogs, sources and images passed');
   await page.locator('.product-open[data-open="aero"]').click();
   await page.screenshot({path:path.join(qa,'detail.png')});
   await page.locator('[data-favorite="aero"]').click();await page.locator('[data-add="aero"]').click();
@@ -78,14 +80,14 @@ async function captureFull(page,name){
   await page.locator('#favoritesTrigger').click();
   await page.locator('#searchTrigger').click();await page.locator('#search').fill('dokkolo');assert.ok(await page.locator('.product-card').count()>=2);
   await page.locator('#search').fill('not-a-product-zz');assert.equal(await page.locator('.product-card').count(),0);
-  await page.locator('[data-reset]').click();assert.equal(await page.locator('.product-card').count(),28);
+  await page.locator('[data-reset]').click();assert.equal(await page.locator('.product-card').count(),catalog.products.length);
   await page.keyboard.press('Escape');
   await page.locator('[data-material="wood"]').click();assert.equal(await page.locator('.product-card').count(),catalog.products.filter(p=>p.material==='wood').length);
   await page.locator('#reset').click();await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('#cartCount').innerText(),'2');
   await page.locator('#cartTrigger').click();await page.locator('[data-remove="aero"]').click();assert.equal(await page.locator('.cart-row').count(),0);
   await page.locator('[data-browse]').click();assert.equal(await page.locator('dialog[open]').count(),0);
   checks.push('Search with/without accents, empty state reset, wood filter, favorites, cart quantity/removal, persistence, Escape and focus restoration passed');
-  await page.goto(url+'#product/port',{waitUntil:'networkidle'});assert.equal(await page.locator('#productTitle').innerText(),'Port');await page.keyboard.press('Escape');
+  await page.goto(url+'#product/port',{waitUntil:'networkidle'});assert.equal(await page.locator('#productTitle').innerText(),catalog.products.find(p=>p.id==='port').name);await page.keyboard.press('Escape');
   assert.deepEqual(errors,[],'No browser runtime or console errors');
   const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true,reducedMotion:'reduce'});
   mobile.on('pageerror',e=>errors.push(String(e)));
@@ -94,8 +96,13 @@ async function captureFull(page,name){
   await captureFull(mobile,'mobile.png');
   await mobile.locator('#collection').scrollIntoViewIfNeeded();await pause(150);
   await mobile.screenshot({path:path.join(qa,'mobile-catalog.png')});
+  const clipped=await mobile.locator('.product-name').evaluateAll(nodes=>nodes.filter(n=>n.scrollWidth>n.clientWidth+1||n.scrollHeight>n.clientHeight+1).map(n=>n.textContent));assert.deepEqual(clipped,[],'Long product names must never clip');
+  await mobile.locator('[data-filter="creative"]').click();
+  assert.equal(await mobile.locator('.product-card').count(),catalog.products.filter(p=>p.creative).length);
+  await mobile.screenshot({path:path.join(qa,'mobile-creative.png')});
+  await mobile.locator('[data-filter="all"]').click();
   await mobile.locator('.product-open[data-open="link"]').click();await loadImages(mobile);
-  assert.equal(await mobile.locator('#productTitle').innerText(),'Link');
+  assert.equal(await mobile.locator('#productTitle').innerText(),catalog.products.find(p=>p.id==='link').name);
   await mobile.screenshot({path:path.join(qa,'mobile-detail.png')});
   await mobile.locator('.source-link').scrollIntoViewIfNeeded();
   assert.equal(await mobile.locator('#productDialog [data-close]').isVisible(),true);
