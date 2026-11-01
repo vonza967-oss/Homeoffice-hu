@@ -35,7 +35,7 @@ async function retiredAbsent(page){
    assert.ok(deployed,'Exact commit published');checks.push('Public version.json matches this commit');
   }
   await page.goto(base,{waitUntil:'networkidle'});
-  assert.match(await page.title(),/Homeoffice/);assert.match(await page.locator('h1').innerText(),/A munkatered/);
+  assert.match(await page.title(),/Homeoffice/);assert.match(await page.locator('h1').innerText(),/AZ OTTHONI MUNKA/);
   assert.equal(await page.locator('.feature-grid .tile').count(),3);assert.equal(await page.locator('#grid').count(),0);
   assert.equal(await page.locator('#discoveryRail').count(),0);await retiredAbsent(page);
   assert.ok((await page.locator('.shop-invitation .pill').innerText()).includes(String(productCount)));
