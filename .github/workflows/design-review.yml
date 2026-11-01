@@ -2,27 +2,36 @@ name: Review product-led page design
 on:
   push:
     branches: [product-led-homepage]
-    paths: ['.github/workflows/design-review.yml']
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: product-led-review
+  cancel-in-progress: true
 jobs:
   reference:
     runs-on: ubuntu-24.04
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - uses: actions/cache@v4
+        with:
+          path: .image-cache
+          key: product-led-${{ hashFiles('catalog*.json', 'image-sources.json', 'scripts/build.cjs', 'scripts/campaign.cjs') }}
       - run: npm install --no-audit --no-fund
-      - run: node scripts/campaign.cjs
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run qa
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: campaign-photographs
+          name: product-led-review
           path: |
-            _site/assets
-            qa/campaign-assets.json
-            scripts/campaign.cjs
+            _site
+            qa
+          include-hidden-files: true
           retention-days: 3
