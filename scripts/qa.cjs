@@ -3,6 +3,7 @@ const {chromium}=require('playwright');
 const fs=require('node:fs/promises'),path=require('node:path'),assert=require('node:assert/strict'),{spawn}=require('node:child_process');
 const root=path.join(__dirname,'..'),qa=path.resolve(root,process.env.QA_DIR||'qa');
 const catalog=require('./catalog.cjs').loadCatalog(),base=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
+const productCount=catalog.products.length;
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 const categoryCount=group=>catalog.products.filter(p=>group==='creative'?p.creative:p.group===group).length;
 async function images(page){
@@ -28,23 +29,34 @@ async function shot(page,name){await images(page);await page.screenshot({path:pa
   await page.goto(base,{waitUntil:'networkidle'});
   assert.match(await page.title(),/Homeoffice/);assert.match(await page.locator('h1').innerText(),/A munkatered/);
   assert.equal(await page.locator('.feature-grid .tile').count(),6);assert.equal(await page.locator('#grid').count(),0,'Homepage must not contain the catalog grid');
+  assert.ok((await page.locator('.shop-invitation .pill').innerText()).includes(String(productCount)));
   await overflow(page);await shot(page,'home-desktop');await page.screenshot({path:path.join(qa,'home-full.png'),fullPage:true});
   await page.locator('.feature-desk').evaluate(el=>el.scrollIntoView({block:'start'}));await shot(page,'desk-campaign');
   await page.locator('.feature-grid').evaluate(el=>el.scrollIntoView({block:'start'}));await shot(page,'feature-panels');
-  await page.locator('.feature-setup .pill').first().click();await page.waitForURL('**/shop.html');assert.equal(await page.locator('.product-card').count(),76);await page.goto(base,{waitUntil:'networkidle'});
+  await page.locator('.feature-setup .pill').first().click();await page.waitForURL('**/shop.html');assert.equal(await page.locator('.product-card').count(),productCount);await page.goto(base,{waitUntil:'networkidle'});
   await page.locator('#searchTrigger').click();await page.locator('#search').fill('dokkolo');assert.ok(await page.locator('.quick-result').count()>0);
   await page.locator('.quick-result').first().click();assert.ok(await page.locator('#productDialog').isVisible());await page.keyboard.press('Escape');
   checks.push('Home: compact navigation, 2 full-width product campaigns plus the home office setup hero, 6 paired panels, original images, details and quick search');
-  await page.goto(base+'shop.html',{waitUntil:'networkidle'});await images(page);assert.equal(await page.locator('.product-card').count(),76);await shot(page,'store-desktop');
+  await page.goto(base+'shop.html',{waitUntil:'networkidle'});await images(page);assert.equal(await page.locator('.product-card').count(),productCount);await shot(page,'store-desktop');
+  assert.ok((await page.locator('.store-tools').innerText()).includes(productCount+' valódi termék'));
+  assert.ok((await page.locator('meta[name="description"]').getAttribute('content')).includes(productCount+' valódi termék'));
+  assert.equal(await page.locator('[data-open="speakershelf"]').count(),0);
+  await page.locator('[data-filter="stands"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('stands'));
+  assert.equal(await page.locator('[data-open="speakershelf"]').count(),0);await shot(page,'stands-desktop');
+  await page.locator('[data-filter="all"]').click();
+  await page.locator('#searchTrigger').click();await page.locator('#search').fill('hangfalpolc');
+  assert.equal(await page.locator('.product-card').count(),0);assert.equal(await page.locator('.quick-result').count(),0);
+  await page.keyboard.press('Escape');await page.locator('[data-reset]').click();
+  checks.push('Retired speaker shelf is absent from full catalog, stands and search; published totals match active products');
   for(const group of ['all','creative',...new Set(catalog.products.map(p=>p.group))]){
-   await page.locator('[data-filter="'+group+'"]').click();assert.equal(await page.locator('.product-card').count(),group==='all'?76:categoryCount(group));
+   await page.locator('[data-filter="'+group+'"]').click();assert.equal(await page.locator('.product-card').count(),group==='all'?productCount:categoryCount(group));
   }
   await page.locator('[data-filter="all"]').click();
   for(const p of catalog.products){
    await page.locator('.product-open[data-open="'+p.id+'"]').click();assert.equal(await page.locator('#productTitle').innerText(),p.name);
    assert.equal(await page.locator('.source-link').getAttribute('href'),p.source);await images(page);await page.keyboard.press('Escape');assert.equal(await page.locator('dialog[open]').count(),0);
   }
-  checks.push('Store: all 76 product details, original source links, 10 categories and creative filter pass');
+  checks.push('Store: all '+productCount+' product details, original source links, 10 categories and creative filter pass');
   await page.locator('.product-open[data-open="aero"]').click();await page.locator('[data-favorite="aero"]').click();await page.locator('[data-add="aero"]').click();await page.keyboard.press('Escape');
   await page.locator('#cartTrigger').click();assert.equal(await page.locator('.cart-row').count(),1);await page.locator('[data-qty="aero"][data-step="1"]').click();assert.equal(await page.locator('#cartCount').innerText(),'2');await page.keyboard.press('Escape');
   await page.locator('#favoritesTrigger').click();assert.equal(await page.locator('.product-card').count(),1);await page.locator('#favoritesTrigger').click();
@@ -65,11 +77,13 @@ async function shot(page,name){await images(page);await page.screenshot({path:pa
     assert.equal(await p.locator('.product-card').count(),categoryCount('chairs'));
    }
    await p.goto(base+'shop.html',{waitUntil:'networkidle'});await images(p);await overflow(p);if(width===390)await shot(p,'store-mobile');
+   await p.locator('[data-filter="stands"]').click();assert.equal(await p.locator('.product-card').count(),categoryCount('stands'));assert.equal(await p.locator('[data-open="speakershelf"]').count(),0);if(width===390)await shot(p,'stands-mobile');
+   await p.locator('[data-filter="all"]').click();
    await p.locator('.product-open[data-open="link"]').click();await images(p);await overflow(p);if(width===390)await shot(p,'product-mobile');
    await p.locator('#productDialog [data-close]').click();assert.equal(await p.locator('dialog[open]').count(),0);await p.close();
   }
-  assert.deepEqual(errors,[]);checks.push('1024/768/390/320px: home, store, images, mobile menu, product dialogs and no horizontal overflow');
-  await fs.writeFile(path.join(qa,'report.json'),JSON.stringify({success:true,url:base,commit:process.env.GITHUB_SHA||'local',products:76,checks,errors},null,2));console.log(JSON.stringify({success:true,checks}));
+  assert.deepEqual(errors,[]);checks.push('1024/768/390/320px: home, store, stands removal, images, mobile menu, product dialogs and no horizontal overflow');
+  await fs.writeFile(path.join(qa,'report.json'),JSON.stringify({success:true,url:base,commit:process.env.GITHUB_SHA||'local',products:productCount,checks,errors},null,2));console.log(JSON.stringify({success:true,checks}));
  }catch(e){await fs.writeFile(path.join(qa,'failure.txt'),String(e.stack||e));throw e}
  finally{if(browser)await browser.close();if(server)server.kill()}
 })().catch(e=>{console.error(e);process.exitCode=1});
