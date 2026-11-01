@@ -1,0 +1,40 @@
+name: Review product-led page design
+on:
+  push:
+    branches: [product-led-homepage]
+    paths: ['.github/workflows/design-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Inspect the requested reference at desktop and mobile sizes
+        run: |
+          mkdir -p design-review/source
+          cp -r scripts tests design-review/source/
+          cp *.json *.html *.js *.css AGENTS.md README.md design-review/source/
+          node <<'NODE'
+          const {chromium}=require('playwright');
+          const fs=require('node:fs/promises');
+          (async()=>{const b=await chromium.launch();const p=await b.newPage({viewport:{width:1440,height:900},reducedMotion:'reduce'});
+          const results=[];
+          for(const [name,url] of [['apple-home','https://www.apple.com/'],['apple-store','https://www.apple.com/store']]){
+            try{await p.goto(url,{waitUntil:'domcontentloaded',timeout:45000});await p.waitForTimeout(6000);await p.screenshot({path:'design-review/'+name+'.png'});await p.screenshot({path:'design-review/'+name+'-full.png',fullPage:true});results.push({url,title:await p.title(),ok:true});}catch(e){results.push({url,error:String(e)});}
+          }
+          await fs.writeFile('design-review/references.json',JSON.stringify(results,null,2));await b.close();})();
+          NODE
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: product-led-design-references
+          path: design-review
+          retention-days: 3
