@@ -10,11 +10,10 @@ async function buildCampaign(){
   {id:'rise',name:'campaign-desk',width:1500,height:1000,background:'#efefef'},
   {id:'aero',name:'campaign-chair',width:1100,height:1200,background:'#fafafa',urls:['https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/aeron_chair/2026_06/ig_prd_ovw_aeron_chair_06.jpg']},
   {id:'link',name:'campaign-dock',width:1400,height:650,background:'#ffffff'},
-  {id:'keys',name:'campaign-keyboard',width:1400,height:700,background:'#f5f5f7'},
-  {id:'chargingorganizer',name:'campaign-organizer',width:1100,height:800,background:'#ebebeb'}
+  {id:'keys',name:'campaign-keyboard',width:1400,height:700,background:'#f5f5f7'}
  ];
  const report=[];
- for(const job of jobs){
+ for(const job of jobs.filter(job=>byId.has(job.id))){
   const p=byId.get(job.id),urls=[...(job.urls||[]),p.image];
   const key=crypto.createHash('sha256').update(JSON.stringify(job)+p.image).digest('hex');
   const file=path.join(cache,'campaign-v1-'+key+'.webp');let buffer,source;
