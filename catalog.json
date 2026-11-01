@@ -1,34 +1,470 @@
 {
-"reviewedAt":"2026-10-31",
-"products":[
-{"id":"aero","name":"Aero","group":"chairs","maker":"Herman Miller","model":"Aeron","material":"black","image":"https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/aeron_chair/2026_06/ig_prd_ovw_aeron_chair_06.jpg.rendition.480.480.jpg","source":"https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/","description":"Hálós ülőfelületű, állítható munkaszék. A fekete megjelenésű Aeron a válogatás ergonomikus alapdarabja.","facts":["8Z Pellicle hálós felület","Állítható munkaszék","A pontos felszereltség változatonként eltér"]},
-{"id":"rise","name":"Rise","group":"desks","maker":"Oakywood","model":"Standing Desk Pro","material":"wood","image":"https://oakywood.shop/cdn/shop/files/standingdeskpro-walnut-black-01-szare.jpg?width=1400","source":"https://oakywood.shop/products/standing-desk-pro","description":"Elektromosan állítható íróasztal diófa lappal és fekete vázzal. A nyitóképen a modell fekete változata látható; a pontos kivitel a gyártói konfigurátorban választható ki.","facts":["Diófa asztallap","Elektromos magasságállítás","Fekete fém váz"]},
-{"id":"link","name":"Link","group":"docks","maker":"Satechi","model":"Thunderbolt 4 Multimedia Pro Dock","material":"gray","image":"https://satechi.com/cdn/shop/products/thunderbolt-4-multimedia-pro-dock-satechi-902948.jpg?v=1762441341&width=1200","source":"https://satechi.com/products/thunderbolt-4-multimedia-pro-dock","description":"Asztali Thunderbolt 4 dokkoló, amely egy helyre rendezi a kijelzők és a kiegészítők csatlakozásait. Visszafogott fémház, rendezett munkafelület.","facts":["Thunderbolt 4 csatlakozás","USB, hálózat és kártyaolvasó","A kijelzőtámogatás a számítógéptől is függ"]},
-{"id":"line","name":"Line","group":"stands","maker":"Oakywood","model":"Desk Shelf","material":"wood","image":"https://oakywood.shop/cdn/shop/files/12_1800px_fe21bc19-4540-44ac-a4df-514b48293184.webp?width=1200","source":"https://oakywood.shop/products/desk-shelf-dual-monitor-stand","description":"Diófa monitorpolc fekete fémlábakkal. Megemeli a kijelzőt, alatta pedig helyet hagy a billentyűzetnek és a kisebb eszközöknek.","facts":["Fa polclap és fém lábak","Asztali monitorpolc","A fotón látható eszközök nem tartozékok"]},
-{"id":"sail","name":"Sail","group":"chairs","maker":"Herman Miller","model":"Sayl","material":"black","image":"https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/sayl_chairs/ig_prd_ovw_sayl_chairs_07.jpg.rendition.480.480.jpg","source":"https://www.hermanmiller.com/products/seating/office-chairs/sayl-chairs/","description":"Jellegzetes, nyitott háttámlájú munkaszék. A Sayl könnyed szerkezete karaktert ad a térnek anélkül, hogy elnehezítené azt.","facts":["Rugalmas, nyitott háttámla","Állítható ülésmagasság","Fekete termékreferencia"]},
-{"id":"form","name":"Form","group":"desks","maker":"Oakywood","model":"Classic Desk","material":"wood","image":"https://oakywood.shop/cdn/shop/products/220812_Oakywood_D5_0614_307b33d2-ca58-4934-bdfa-16aa253fa445.jpg?width=1200","source":"https://oakywood.shop/products/wooden-classic-desk","description":"Diófa íróasztal karcsú, ferdén álló lábakkal. Egyszerű vonalak, természetes anyag, fix magasság.","facts":["Tömör diófa kivitel","Fix magasságú íróasztal","A méret és felület a konfigurációtól függ"]},
-{"id":"flow","name":"Flow","group":"tech","maker":"Logitech","model":"MX Master 3S","material":"gray","image":"https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png","source":"https://www.logitech.com/en-us/shop/p/mx-master-3s","description":"Grafitszürke vezeték nélküli egér, formázott kéztámasszal és MagSpeed görgetőkerékkel. Precíz vezérlés egy visszafogott munkakörnyezethez.","facts":["MagSpeed görgetőkerék","8000 DPI érzékelő","A csomag tartalma régiónként eltérhet"]},
-{"id":"curve","name":"Curve","group":"stands","maker":"Twelve South","model":"Curve Flex","material":"black","image":"https://www.twelvesouth.com/cdn/shop/files/TS_CurveFlex_Front_Empty_Black_HiRes_750x.jpg?v=1769626928","source":"https://www.twelvesouth.com/products/curve-flex-for-macbook","description":"Matt fekete, összecsukható laptopállvány. A magasság és a dőlésszög külön állítható, így könnyen a munkatérhez igazítható.","facts":["Állítható magasság és dőlésszög","Összecsukható alumíniumszerkezet","A laptop nem tartozék"]},
-{"id":"contour","name":"Contour","group":"chairs","maker":"Herman Miller","model":"Embody","material":"black","image":"https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/embody_chairs/ig_prd_ovw_embody_chairs_10.jpg.rendition.480.480.jpg","source":"https://www.hermanmiller.com/products/seating/office-chairs/embody-chairs/","description":"Állítható munkaszék karakteres háttámlával és tagolt támasztószerkezettel. A fekete Embody hangsúlyos, mégis visszafogott darab.","facts":["Állítható háttámla","Formázott ülőfelület","A bemutatott változat fekete"]},
-{"id":"move","name":"Move","group":"desks","maker":"Oakywood","model":"Standing Desk Touch","material":"black","image":"https://oakywood.shop/cdn/shop/files/configurator_roundsteep_black_view_01_black_a.jpg?width=1400","source":"https://oakywood.shop/products/wooden-standing-desk","description":"Letisztult, fekete ülő-álló íróasztal elektromos magasságállítással. Egységes, sötét felülete a munkára irányítja a figyelmet.","facts":["Elektromos állítás","Érintéses vezérlés","Fekete asztallap és váz"]},
-{"id":"type","name":"Type","group":"tech","maker":"Satechi","model":"SM1 Slim Mechanical Keyboard","material":"gray","image":"https://satechi.com/cdn/shop/files/sm1-slim-mechanical-backlit-bluetooth-keyboard-keyboards-satechi-305662.png?v=1743714698&width=1200","source":"https://satechi.com/products/sm1-slim-mechanical-backlit-bluetooth-keyboard","description":"Kompakt, alacsony profilú mechanikus billentyűzet. A visszafogott billentyűk és az egyszerű ház a munkatér részeként hatnak.","facts":["Alacsony profilú mechanikus kapcsolók","Vezetékes és vezeték nélküli használat","A fotó nem magyar billentyűkiosztást mutat"]},
-{"id":"beam","name":"Beam","group":"light","maker":"BenQ","model":"ScreenBar Pro","material":"black","image":"https://image.benq.com/is/image/benqco/screenbar-pro-v3-1?wid=1200&fmt=png-alpha","source":"https://www.benq.com/en-us/lighting/monitor-light/screenbar-pro.html","description":"Monitorra illeszthető asztali fényrúd. Helytakarékos megoldás, állítható megvilágítással és visszafogott fekete kialakítással.","facts":["50 cm széles lámpatest","USB-C tápellátás","A kompatibilitást a monitor méretei alapján kell ellenőrizni"]},
-{"id":"arc","name":"Arc","group":"stands","maker":"Oakywood","model":"Laptop Stand","material":"wood","image":"https://oakywood.shop/cdn/shop/products/220812_Oakywood_D5_0941.jpg?width=1200","source":"https://oakywood.shop/products/solid-wood-laptop-stand","description":"Diófa felületű laptopállvány fekete fémtartóval. Egyszerű forma, megemelt képernyő és több szabad hely az asztalon.","facts":["Fa és porfestett fém","Döntött laptopfelület","Laptop nélkül értendő"]},
-{"id":"bridge","name":"Bridge","group":"docks","maker":"Satechi","model":"Dual Dock Stand","material":"gray","image":"https://satechi.com/cdn/shop/products/dual-dock-stand-docking-station-with-nvme-ssd-enclosure-satechi-205400.jpg?v=1762441341&width=1200","source":"https://satechi.com/products/dual-dock-stand-docking-station-with-nvme-ssd-enclosure","description":"Laptop alá helyezhető dokkoló, beépített SSD-foglalattal. Egy tárgyban egyesíti a csatlakozók bővítését és az emelt használati pozíciót.","facts":["Két USB-C host csatlakozó","Belső SSD-foglalat","SSD és laptop nélkül értendő"]},
-{"id":"soft","name":"Soft","group":"details","maker":"Oakywood","model":"Felt & Cork Desk Mat","material":"gray","image":"https://oakywood.shop/cdn/shop/products/IMG_0086.jpg?width=1200","source":"https://oakywood.shop/products/felt-cork-desk-mat","description":"Antracitszürke gyapjúfilc asztali alátét parafa alsó réteggel. Puha, egységes felület a napi munkához.","facts":["Merinógyapjú filc","Parafa alsó réteg","Többféle méretben készül"]},
-{"id":"loop","name":"Loop","group":"details","maker":"Oakywood","model":"2-in-1 Headphone Stand","material":"wood","image":"https://oakywood.shop/cdn/shop/files/IMG_0019_2_0e7427a7-93c2-4d5c-bc1a-87b3093b2c8b.jpg?width=1200","source":"https://oakywood.shop/products/2-in-1-headphone-stand","description":"Fejhallgatótartó diófa talppal, fekete tartóelemmel és vezeték nélküli töltőfelülettel. Egy rendezett hely a mindennap használt eszközöknek.","facts":["Fa talp és fém tartó","Vezeték nélküli töltés","A fejhallgató és a telefon nem tartozék"]},
-{"id":"keys","name":"Keys","group":"tech","maker":"Logitech","model":"MX Keys S","material":"gray","image":"https://resource.logitech.com/w_1200,h_1028,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-s/migration-assets-for-delorean-2025/gallery/mx-keys-s-top-view-graphite-us.png","source":"https://www.logitech.com/en-us/shop/p/mx-keys-s.920-011558","description":"Grafitszürke, teljes méretű vezeték nélküli billentyűzet. Alacsony profilú billentyűk, numerikus rész és automatikusan alkalmazkodó háttérvilágítás.","facts":["Teljes méretű kiosztás numerikus résszel","Vezeték nélküli kapcsolat és háttérvilágítás","A fotón amerikai kiosztás látható"]},
-{"id":"port","name":"Port","group":"docks","maker":"Satechi","model":"Thunderbolt 4 Slim Hub Pro","material":"gray","image":"https://satechi.com/cdn/shop/files/thunderbolt-4-slim-hub-pro-hubs-satechi-129884.png?v=1718667745&width=1200","source":"https://satechi.com/products/thunderbolt-4-slim-hub-pro","description":"Kompakt Thunderbolt 4 elosztó alumíniumházban. További csatlakozókat ad a kompatibilis számítógéphez, nagy asztali egység nélkül.","facts":["Thunderbolt 4, legfeljebb 40 Gbit/s","Legfeljebb 96 W hosttöltés","A kijelzőtámogatás a számítógéptől függ"]},
-{"id":"glow","name":"Glow","group":"light","maker":"BenQ","model":"e-Reading Desk Lamp","material":"gray","image":"https://image.benq.com/is/image/benqco/silver-6?wid=1200&fmt=png-alpha","source":"https://www.benq.eu/en-eu/lighting/e-reading-desk-lamp/e-reading.html","description":"Ezüstszínű asztali lámpa ívelt fejjel és mozgatható karral. Fényereje és színhőmérséklete a munkához igazítható.","facts":["Állítható fényerő és színhőmérséklet","Környezeti fényt érzékelő automatika","Fém lengőkar, asztali talp"]},
-{"id":"mesh","name":"Mesh","group":"network","maker":"TP-Link","model":"Deco XE75 Pro","material":"white","image":"https://static.tp-link.com/upload/image-line/overview_01_normal_20220621025023r.jpg","source":"https://www.tp-link.com/us/deco-mesh-wifi/product-family/deco-xe75-pro/","description":"Letisztult, fehér mesh Wi-Fi rendszer fekete felső felülettel. Több egység közösen biztosíthat vezeték nélküli lefedettséget az otthoni munkához.","facts":["Háromsávos Wi-Fi 6E","2,5 Gbit/s Ethernet-csatlakozó","A fotón háromegységes összeállítás látható"]},
-{"id":"twin","name":"Twin","group":"stands","maker":"Oakywood","model":"Dual Laptop Dock","material":"wood","image":"https://oakywood.shop/cdn/shop/files/002_77dfa361-ee26-4ec1-b000-6203d3997bac.jpg?width=1200","source":"https://oakywood.shop/products/dual-vertical-laptop-stand","description":"Diófa állvány két laptop vagy tablet függőleges tárolásához. Kevesebb elfoglalt asztalfelület, gondosan elhelyezett eszközök.","facts":["Két állítható tárolóhely","Filccel védett érintkezőfelületek","Passzív állvány, nem elektronikus dokkoló"]},
-{"id":"charge","name":"Charge","group":"tech","maker":"Satechi","model":"3-in-1 Foldable Qi2 Wireless Charging Stand","material":"gray","image":"https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-603261.png?v=1740689418&width=1200","source":"https://satechi.com/products/3-in-1-foldable-qi2-wireless-charging-stand","description":"Összecsukható, háromrészes vezeték nélküli töltőállvány. Kompatibilis telefon, óra és fülhallgató töltését rendezi egyetlen helyre.","facts":["Qi2 mágneses töltőfelület","Összecsukható alumíniumkialakítás","A telefon, az óra és a fülhallgató nem tartozék"]},
-{"id":"pad","name":"Pad","group":"details","maker":"Oakywood","model":"Felt & Cork Mouse Pad","material":"gray","image":"https://oakywood.shop/cdn/shop/products/IMG_0030_f838ed3b-a1e9-4438-a410-f5bbc0a3c8fc.jpg?width=1200","source":"https://oakywood.shop/products/felt-cork-mouse-pad","description":"Antracit filc egéralátét parafa alappal. Kis helyigényű, puha felület a mindennapi munkához.","facts":["Gyapjúfilc felső réteg","Parafa alsó réteg","Antracit színváltozat"]},
-{"id":"float","name":"Float","group":"stands","maker":"Grovemade","model":"Single Monitor Arm","material":"black","image":"https://grovemade.com/shop-static/shop/variant/grovemade-monitor-arm-galA-D1.jpg?_v=1715374848.8885708","source":"https://grovemade.com/product/monitor-arm/?initial=978","description":"Matt fekete asztali monitorkar rugós rásegítéssel. Megemeli a képernyőt, és szabadon hagyja az alatta lévő munkafelületet.","facts":["17–35 hüvelykes kijelzőkhöz","VESA 75 × 75 és 100 × 100","Beépített kábelvezetés; monitor nélkül"]},
-{"id":"volt","name":"Volt","group":"tech","maker":"Satechi","model":"165W USB-C 4-Port PD GaN Charger","material":"gray","image":"https://satechi.com/cdn/shop/products/165w-usb-c-4-port-pd-gan-charger-wall-chargers-satechi-us-414152.jpg?v=1762441064&width=1200","source":"https://satechi.com/products/165w-usb-c-4-port-pd-gan-charger","description":"Négy USB-C csatlakozós asztali GaN töltő. Több különálló adapter helyett egyetlen visszafogott egység.","facts":["Négy USB-C PD port","Legfeljebb 165 W összteljesítmény","A teljesítmény a csatlakoztatott eszközök között oszlik meg"]},
-{"id":"focus","name":"Focus","group":"tech","maker":"Logitech","model":"MX Brio","material":"gray","image":"https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/mx-brio/buy/migration-assets-for-delorean-2025/gallery/mx-brio-3qtr-front-right-pale-gray.png","source":"https://www.logitech.com/de-ch/shop/p/mx-brio-4k-webcam","description":"Világosszürke webkamera a videóbeszélgetésekhez. A nagy optika és a kompakt fémes forma letisztult megjelenést ad a kijelző fölött.","facts":["4K felbontás 30 képkocka/másodperc mellett","1080p felbontás 60 képkocka/másodperc mellett","Világosszürke változat"]},
-{"id":"nest","name":"Nest","group":"details","maker":"Oakywood","model":"Valet Tray","material":"wood","image":"https://oakywood.shop/cdn/shop/files/valettray-walnut-small-01.webp?width=1200","source":"https://oakywood.shop/products/valet-tray","description":"Kis diófa rendszerezőtálca a mindennap kéznél tartott tárgyaknak. Természetes felület és visszafogott perem, felesleges részletek nélkül.","facts":["Tömör diófa","Parafa alsó felület","Modulárisan egymásra helyezhető kialakítás"]},
-{"id":"signal","name":"Signal","group":"network","maker":"TP-Link","model":"RE815XE","material":"white","image":"https://static.tp-link.com/upload/image-line/RE815XE_F_normal_20211227064817d.png","source":"https://www.tp-link.com/uk/home-networking/range-extender/re815xe/","description":"Fehér, háromsávos Wi-Fi 6E jelismétlő. A munkatér hálózati elérését bővítheti anélkül, hogy újabb kábelt kellene az asztalhoz vezetni.","facts":["Háromsávos Wi-Fi 6E","Ethernet-csatlakozó","A régiós kivitel és a routerkompatibilitás ellenőrzendő"]}
-],
-"scenes":[{"id":"hero","image":"https://oakywood.shop/cdn/shop/files/ZASOBY-0105-Z2001957-V2.jpg?width=1800","source":"https://oakywood.shop/products/standing-desk-pro","credit":"Oakywood Standing Desk Pro"},{"id":"space","image":"https://oakywood.shop/cdn/shop/files/standingdeskpro-lifestyle2.jpg?width=1800","source":"https://oakywood.shop/products/standing-desk-pro","credit":"Oakywood Standing Desk Pro"}]
+  "reviewedAt": "2026-10-31",
+  "products": [
+    {
+      "id": "aero",
+      "name": "Aero",
+      "group": "chairs",
+      "maker": "Herman Miller",
+      "model": "Aeron",
+      "material": "black",
+      "image": "https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/aeron_chair/2026_06/ig_prd_ovw_aeron_chair_06.jpg.rendition.480.480.jpg",
+      "source": "https://www.hermanmiller.com/products/seating/office-chairs/aeron-chair/",
+      "description": "Hálós ülőfelületű, állítható munkaszék. A fekete megjelenésű Aeron a válogatás ergonomikus alapdarabja.",
+      "facts": [
+        "8Z Pellicle hálós felület",
+        "Állítható munkaszék",
+        "A pontos felszereltség változatonként eltér"
+      ]
+    },
+    {
+      "id": "rise",
+      "name": "Rise",
+      "group": "desks",
+      "maker": "Oakywood",
+      "model": "Standing Desk Pro",
+      "material": "wood",
+      "image": "https://oakywood.shop/cdn/shop/files/standingdeskpro-walnut-black-01-szare.jpg?width=1400",
+      "source": "https://oakywood.shop/products/standing-desk-pro",
+      "description": "Elektromosan állítható íróasztal diófa lappal és fekete vázzal. A nyitóképen a modell fekete változata látható; a pontos kivitel a gyártói konfigurátorban választható ki.",
+      "facts": [
+        "Diófa asztallap",
+        "Elektromos magasságállítás",
+        "Fekete fém váz"
+      ]
+    },
+    {
+      "id": "link",
+      "name": "12 az 1-ben USB-C dokkoló",
+      "group": "docks",
+      "maker": "OEM / Alibaba referencia",
+      "model": "12-in-1 Vertical USB-C Docking Station",
+      "material": "gray",
+      "image": "https://c1.neweggimages.com/ProductImage/AD8FS23121704CUF9DF.jpg",
+      "source": "https://www.alibaba.com/product-introduction/Portable-Multifunctional-Docking-Station-for-Laptop_1600601294700.html",
+      "description": "Álló kialakítású, többportos USB-C dokkoló home office összeállításhoz. A bemutatott kép illusztráció; a pontos változatot és csatlakozókat beszerzés előtt ellenőrizni kell.",
+      "facts": [
+        "12 az 1-ben dokkoló terméktípus",
+        "USB-C, kijelző- és perifériacsatlakozók a beszállítói ajánlat szerint",
+        "Bemutatótermék, ellenőrizetlen magyar elérhetőség"
+      ],
+      "sourceLabel": "Alibaba beszállítói referencia"
+    },
+    {
+      "id": "line",
+      "name": "Line",
+      "group": "stands",
+      "maker": "Oakywood",
+      "model": "Desk Shelf",
+      "material": "wood",
+      "image": "https://oakywood.shop/cdn/shop/files/12_1800px_fe21bc19-4540-44ac-a4df-514b48293184.webp?width=1200",
+      "source": "https://oakywood.shop/products/desk-shelf-dual-monitor-stand",
+      "description": "Diófa monitorpolc fekete fémlábakkal. Megemeli a kijelzőt, alatta pedig helyet hagy a billentyűzetnek és a kisebb eszközöknek.",
+      "facts": [
+        "Fa polclap és fém lábak",
+        "Asztali monitorpolc",
+        "A fotón látható eszközök nem tartozékok"
+      ]
+    },
+    {
+      "id": "sail",
+      "name": "Sail",
+      "group": "chairs",
+      "maker": "Herman Miller",
+      "model": "Sayl",
+      "material": "black",
+      "image": "https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/sayl_chairs/ig_prd_ovw_sayl_chairs_07.jpg.rendition.480.480.jpg",
+      "source": "https://www.hermanmiller.com/products/seating/office-chairs/sayl-chairs/",
+      "description": "Jellegzetes, nyitott háttámlájú munkaszék. A Sayl könnyed szerkezete karaktert ad a térnek anélkül, hogy elnehezítené azt.",
+      "facts": [
+        "Rugalmas, nyitott háttámla",
+        "Állítható ülésmagasság",
+        "Fekete termékreferencia"
+      ]
+    },
+    {
+      "id": "form",
+      "name": "Form",
+      "group": "desks",
+      "maker": "Oakywood",
+      "model": "Classic Desk",
+      "material": "wood",
+      "image": "https://oakywood.shop/cdn/shop/products/220812_Oakywood_D5_0614_307b33d2-ca58-4934-bdfa-16aa253fa445.jpg?width=1200",
+      "source": "https://oakywood.shop/products/wooden-classic-desk",
+      "description": "Diófa íróasztal karcsú, ferdén álló lábakkal. Egyszerű vonalak, természetes anyag, fix magasság.",
+      "facts": [
+        "Tömör diófa kivitel",
+        "Fix magasságú íróasztal",
+        "A méret és felület a konfigurációtól függ"
+      ]
+    },
+    {
+      "id": "flow",
+      "name": "Flow",
+      "group": "tech",
+      "maker": "Logitech",
+      "model": "MX Master 3S",
+      "material": "gray",
+      "image": "https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png",
+      "source": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
+      "description": "Grafitszürke vezeték nélküli egér, formázott kéztámasszal és MagSpeed görgetőkerékkel. Precíz vezérlés egy visszafogott munkakörnyezethez.",
+      "facts": [
+        "MagSpeed görgetőkerék",
+        "8000 DPI érzékelő",
+        "A csomag tartalma régiónként eltérhet"
+      ]
+    },
+    {
+      "id": "curve",
+      "name": "Curve",
+      "group": "stands",
+      "maker": "Twelve South",
+      "model": "Curve Flex",
+      "material": "black",
+      "image": "https://www.twelvesouth.com/cdn/shop/files/TS_CurveFlex_Front_Empty_Black_HiRes_750x.jpg?v=1769626928",
+      "source": "https://www.twelvesouth.com/products/curve-flex-for-macbook",
+      "description": "Matt fekete, összecsukható laptopállvány. A magasság és a dőlésszög külön állítható, így könnyen a munkatérhez igazítható.",
+      "facts": [
+        "Állítható magasság és dőlésszög",
+        "Összecsukható alumíniumszerkezet",
+        "A laptop nem tartozék"
+      ]
+    },
+    {
+      "id": "contour",
+      "name": "Contour",
+      "group": "chairs",
+      "maker": "Herman Miller",
+      "model": "Embody",
+      "material": "black",
+      "image": "https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/embody_chairs/ig_prd_ovw_embody_chairs_10.jpg.rendition.480.480.jpg",
+      "source": "https://www.hermanmiller.com/products/seating/office-chairs/embody-chairs/",
+      "description": "Állítható munkaszék karakteres háttámlával és tagolt támasztószerkezettel. A fekete Embody hangsúlyos, mégis visszafogott darab.",
+      "facts": [
+        "Állítható háttámla",
+        "Formázott ülőfelület",
+        "A bemutatott változat fekete"
+      ]
+    },
+    {
+      "id": "move",
+      "name": "Move",
+      "group": "desks",
+      "maker": "Oakywood",
+      "model": "Standing Desk Touch",
+      "material": "black",
+      "image": "https://oakywood.shop/cdn/shop/files/configurator_roundsteep_black_view_01_black_a.jpg?width=1400",
+      "source": "https://oakywood.shop/products/wooden-standing-desk",
+      "description": "Letisztult, fekete ülő-álló íróasztal elektromos magasságállítással. Egységes, sötét felülete a munkára irányítja a figyelmet.",
+      "facts": [
+        "Elektromos állítás",
+        "Érintéses vezérlés",
+        "Fekete asztallap és váz"
+      ]
+    },
+    {
+      "id": "type",
+      "name": "Type",
+      "group": "tech",
+      "maker": "Satechi",
+      "model": "SM1 Slim Mechanical Keyboard",
+      "material": "gray",
+      "image": "https://satechi.com/cdn/shop/files/sm1-slim-mechanical-backlit-bluetooth-keyboard-keyboards-satechi-305662.png?v=1743714698&width=1200",
+      "source": "https://satechi.com/products/sm1-slim-mechanical-backlit-bluetooth-keyboard",
+      "description": "Kompakt, alacsony profilú mechanikus billentyűzet. A visszafogott billentyűk és az egyszerű ház a munkatér részeként hatnak.",
+      "facts": [
+        "Alacsony profilú mechanikus kapcsolók",
+        "Vezetékes és vezeték nélküli használat",
+        "A fotó nem magyar billentyűkiosztást mutat"
+      ]
+    },
+    {
+      "id": "beam",
+      "name": "Beam",
+      "group": "light",
+      "maker": "BenQ",
+      "model": "ScreenBar Pro",
+      "material": "black",
+      "image": "https://image.benq.com/is/image/benqco/screenbar-pro-v3-1?wid=1200&fmt=png-alpha",
+      "source": "https://www.benq.com/en-us/lighting/monitor-light/screenbar-pro.html",
+      "description": "Monitorra illeszthető asztali fényrúd. Helytakarékos megoldás, állítható megvilágítással és visszafogott fekete kialakítással.",
+      "facts": [
+        "50 cm széles lámpatest",
+        "USB-C tápellátás",
+        "A kompatibilitást a monitor méretei alapján kell ellenőrizni"
+      ]
+    },
+    {
+      "id": "arc",
+      "name": "Arc",
+      "group": "stands",
+      "maker": "Oakywood",
+      "model": "Laptop Stand",
+      "material": "wood",
+      "image": "https://oakywood.shop/cdn/shop/products/220812_Oakywood_D5_0941.jpg?width=1200",
+      "source": "https://oakywood.shop/products/solid-wood-laptop-stand",
+      "description": "Diófa felületű laptopállvány fekete fémtartóval. Egyszerű forma, megemelt képernyő és több szabad hely az asztalon.",
+      "facts": [
+        "Fa és porfestett fém",
+        "Döntött laptopfelület",
+        "Laptop nélkül értendő"
+      ]
+    },
+    {
+      "id": "bridge",
+      "name": "360°-os laptopállvány USB-C dokkolóval",
+      "group": "docks",
+      "maker": "OGHKO / Alibaba referencia",
+      "model": "GI-LS51 laptopállvány és USB-hub",
+      "material": "gray",
+      "image": "https://sc04.alicdn.com/kf/Hf733be6869a64bda96a2d9c872f53ab1f.jpg",
+      "source": "https://www.alibaba.com/product-introduction/360-rotation-Aluminium-4-in-one_1601014845288.html",
+      "description": "Forgatható, állítható laptopállvány beépített USB-hubbal a rendezett munkafelülethez. Bemutatótermék: a pontos portkiosztás és az elérhető változat ellenőrzést igényel.",
+      "facts": [
+        "360°-os elforgatást kínáló laptopállvány",
+        "Beépített többfunkciós USB-hub",
+        "Laptop nélkül; beszállítói minta és megfelelőség ellenőrzendő"
+      ],
+      "sourceLabel": "Alibaba beszállítói referencia"
+    },
+    {
+      "id": "soft",
+      "name": "Soft",
+      "group": "details",
+      "maker": "Oakywood",
+      "model": "Felt & Cork Desk Mat",
+      "material": "gray",
+      "image": "https://oakywood.shop/cdn/shop/products/IMG_0086.jpg?width=1200",
+      "source": "https://oakywood.shop/products/felt-cork-desk-mat",
+      "description": "Antracitszürke gyapjúfilc asztali alátét parafa alsó réteggel. Puha, egységes felület a napi munkához.",
+      "facts": [
+        "Merinógyapjú filc",
+        "Parafa alsó réteg",
+        "Többféle méretben készül"
+      ]
+    },
+    {
+      "id": "loop",
+      "name": "Loop",
+      "group": "details",
+      "maker": "Oakywood",
+      "model": "2-in-1 Headphone Stand",
+      "material": "wood",
+      "image": "https://oakywood.shop/cdn/shop/files/IMG_0019_2_0e7427a7-93c2-4d5c-bc1a-87b3093b2c8b.jpg?width=1200",
+      "source": "https://oakywood.shop/products/2-in-1-headphone-stand",
+      "description": "Fejhallgatótartó diófa talppal, fekete tartóelemmel és vezeték nélküli töltőfelülettel. Egy rendezett hely a mindennap használt eszközöknek.",
+      "facts": [
+        "Fa talp és fém tartó",
+        "Vezeték nélküli töltés",
+        "A fejhallgató és a telefon nem tartozék"
+      ]
+    },
+    {
+      "id": "keys",
+      "name": "Keys",
+      "group": "tech",
+      "maker": "Logitech",
+      "model": "MX Keys S",
+      "material": "gray",
+      "image": "https://resource.logitech.com/w_1200,h_1028,ar_7:6,c_pad,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-s/migration-assets-for-delorean-2025/gallery/mx-keys-s-top-view-graphite-us.png",
+      "source": "https://www.logitech.com/en-us/shop/p/mx-keys-s.920-011558",
+      "description": "Grafitszürke, teljes méretű vezeték nélküli billentyűzet. Alacsony profilú billentyűk, numerikus rész és automatikusan alkalmazkodó háttérvilágítás.",
+      "facts": [
+        "Teljes méretű kiosztás numerikus résszel",
+        "Vezeték nélküli kapcsolat és háttérvilágítás",
+        "A fotón amerikai kiosztás látható"
+      ]
+    },
+    {
+      "id": "port",
+      "name": "8 az 1-ben multifunkciós USB-C hub",
+      "group": "docks",
+      "maker": "OEM / Alibaba referencia",
+      "model": "8-in-1 USB-C Multiport Hub",
+      "material": "gray",
+      "image": "https://sc04.alicdn.com/kf/H9f76fe5c886540fe94a03e7c999b9c6f2.jpg",
+      "source": "https://www.alibaba.com/product-introduction/USB-C-Hub-8-in-1_1601221017852.html",
+      "description": "Kompakt USB-C elosztó a laptop csatlakozóinak bővítésére. A képen referencia-változat szerepel; a portok és a töltési teljesítmény kivitel szerint eltérhetnek.",
+      "facts": [
+        "Multifunkciós 8 az 1-ben USB-C hub",
+        "HDMI, USB és hálózati funkciók a beszállítói listázás szerint",
+        "Kompatibilitás és EU-megfelelőség ellenőrzendő"
+      ],
+      "sourceLabel": "Alibaba beszállítói referencia"
+    },
+    {
+      "id": "glow",
+      "name": "Glow",
+      "group": "light",
+      "maker": "BenQ",
+      "model": "e-Reading Desk Lamp",
+      "material": "gray",
+      "image": "https://image.benq.com/is/image/benqco/silver-6?wid=1200&fmt=png-alpha",
+      "source": "https://www.benq.eu/en-eu/lighting/e-reading-desk-lamp/e-reading.html",
+      "description": "Ezüstszínű asztali lámpa ívelt fejjel és mozgatható karral. Fényereje és színhőmérséklete a munkához igazítható.",
+      "facts": [
+        "Állítható fényerő és színhőmérséklet",
+        "Környezeti fényt érzékelő automatika",
+        "Fém lengőkar, asztali talp"
+      ]
+    },
+    {
+      "id": "mesh",
+      "name": "Mesh",
+      "group": "network",
+      "maker": "TP-Link",
+      "model": "Deco XE75 Pro",
+      "material": "white",
+      "image": "https://static.tp-link.com/upload/image-line/overview_01_normal_20220621025023r.jpg",
+      "source": "https://www.tp-link.com/us/deco-mesh-wifi/product-family/deco-xe75-pro/",
+      "description": "Letisztult, fehér mesh Wi-Fi rendszer fekete felső felülettel. Több egység közösen biztosíthat vezeték nélküli lefedettséget az otthoni munkához.",
+      "facts": [
+        "Háromsávos Wi-Fi 6E",
+        "2,5 Gbit/s Ethernet-csatlakozó",
+        "A fotón háromegységes összeállítás látható"
+      ]
+    },
+    {
+      "id": "twin",
+      "name": "Twin",
+      "group": "stands",
+      "maker": "Oakywood",
+      "model": "Dual Laptop Dock",
+      "material": "wood",
+      "image": "https://oakywood.shop/cdn/shop/files/002_77dfa361-ee26-4ec1-b000-6203d3997bac.jpg?width=1200",
+      "source": "https://oakywood.shop/products/dual-vertical-laptop-stand",
+      "description": "Diófa állvány két laptop vagy tablet függőleges tárolásához. Kevesebb elfoglalt asztalfelület, gondosan elhelyezett eszközök.",
+      "facts": [
+        "Két állítható tárolóhely",
+        "Filccel védett érintkezőfelületek",
+        "Passzív állvány, nem elektronikus dokkoló"
+      ]
+    },
+    {
+      "id": "charge",
+      "name": "Charge",
+      "group": "tech",
+      "maker": "Satechi",
+      "model": "3-in-1 Foldable Qi2 Wireless Charging Stand",
+      "material": "gray",
+      "image": "https://satechi.com/cdn/shop/files/3-in-1-foldable-qi2-wireless-charging-stand-wireless-chargers-satechi-603261.png?v=1740689418&width=1200",
+      "source": "https://satechi.com/products/3-in-1-foldable-qi2-wireless-charging-stand",
+      "description": "Összecsukható, háromrészes vezeték nélküli töltőállvány. Kompatibilis telefon, óra és fülhallgató töltését rendezi egyetlen helyre.",
+      "facts": [
+        "Qi2 mágneses töltőfelület",
+        "Összecsukható alumíniumkialakítás",
+        "A telefon, az óra és a fülhallgató nem tartozék"
+      ]
+    },
+    {
+      "id": "pad",
+      "name": "Pad",
+      "group": "details",
+      "maker": "Oakywood",
+      "model": "Felt & Cork Mouse Pad",
+      "material": "gray",
+      "image": "https://oakywood.shop/cdn/shop/products/IMG_0030_f838ed3b-a1e9-4438-a410-f5bbc0a3c8fc.jpg?width=1200",
+      "source": "https://oakywood.shop/products/felt-cork-mouse-pad",
+      "description": "Antracit filc egéralátét parafa alappal. Kis helyigényű, puha felület a mindennapi munkához.",
+      "facts": [
+        "Gyapjúfilc felső réteg",
+        "Parafa alsó réteg",
+        "Antracit színváltozat"
+      ]
+    },
+    {
+      "id": "float",
+      "name": "Float",
+      "group": "stands",
+      "maker": "Grovemade",
+      "model": "Single Monitor Arm",
+      "material": "black",
+      "image": "https://grovemade.com/shop-static/shop/variant/grovemade-monitor-arm-galA-D1.jpg?_v=1715374848.8885708",
+      "source": "https://grovemade.com/product/monitor-arm/?initial=978",
+      "description": "Matt fekete asztali monitorkar rugós rásegítéssel. Megemeli a képernyőt, és szabadon hagyja az alatta lévő munkafelületet.",
+      "facts": [
+        "17–35 hüvelykes kijelzőkhöz",
+        "VESA 75 × 75 és 100 × 100",
+        "Beépített kábelvezetés; monitor nélkül"
+      ]
+    },
+    {
+      "id": "volt",
+      "name": "Volt",
+      "group": "tech",
+      "maker": "Satechi",
+      "model": "165W USB-C 4-Port PD GaN Charger",
+      "material": "gray",
+      "image": "https://satechi.com/cdn/shop/products/165w-usb-c-4-port-pd-gan-charger-wall-chargers-satechi-us-414152.jpg?v=1762441064&width=1200",
+      "source": "https://satechi.com/products/165w-usb-c-4-port-pd-gan-charger",
+      "description": "Négy USB-C csatlakozós asztali GaN töltő. Több különálló adapter helyett egyetlen visszafogott egység.",
+      "facts": [
+        "Négy USB-C PD port",
+        "Legfeljebb 165 W összteljesítmény",
+        "A teljesítmény a csatlakoztatott eszközök között oszlik meg"
+      ]
+    },
+    {
+      "id": "focus",
+      "name": "Focus",
+      "group": "tech",
+      "maker": "Logitech",
+      "model": "MX Brio",
+      "material": "gray",
+      "image": "https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/mx-brio/buy/migration-assets-for-delorean-2025/gallery/mx-brio-3qtr-front-right-pale-gray.png",
+      "source": "https://www.logitech.com/de-ch/shop/p/mx-brio-4k-webcam",
+      "description": "Világosszürke webkamera a videóbeszélgetésekhez. A nagy optika és a kompakt fémes forma letisztult megjelenést ad a kijelző fölött.",
+      "facts": [
+        "4K felbontás 30 képkocka/másodperc mellett",
+        "1080p felbontás 60 képkocka/másodperc mellett",
+        "Világosszürke változat"
+      ]
+    },
+    {
+      "id": "nest",
+      "name": "Nest",
+      "group": "details",
+      "maker": "Oakywood",
+      "model": "Valet Tray",
+      "material": "wood",
+      "image": "https://oakywood.shop/cdn/shop/files/valettray-walnut-small-01.webp?width=1200",
+      "source": "https://oakywood.shop/products/valet-tray",
+      "description": "Kis diófa rendszerezőtálca a mindennap kéznél tartott tárgyaknak. Természetes felület és visszafogott perem, felesleges részletek nélkül.",
+      "facts": [
+        "Tömör diófa",
+        "Parafa alsó felület",
+        "Modulárisan egymásra helyezhető kialakítás"
+      ]
+    },
+    {
+      "id": "signal",
+      "name": "Signal",
+      "group": "network",
+      "maker": "TP-Link",
+      "model": "RE815XE",
+      "material": "white",
+      "image": "https://static.tp-link.com/upload/image-line/RE815XE_F_normal_20211227064817d.png",
+      "source": "https://www.tp-link.com/uk/home-networking/range-extender/re815xe/",
+      "description": "Fehér, háromsávos Wi-Fi 6E jelismétlő. A munkatér hálózati elérését bővítheti anélkül, hogy újabb kábelt kellene az asztalhoz vezetni.",
+      "facts": [
+        "Háromsávos Wi-Fi 6E",
+        "Ethernet-csatlakozó",
+        "A régiós kivitel és a routerkompatibilitás ellenőrzendő"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "hero",
+      "image": "https://oakywood.shop/cdn/shop/files/ZASOBY-0105-Z2001957-V2.jpg?width=1800",
+      "source": "https://oakywood.shop/products/standing-desk-pro",
+      "credit": "Oakywood Standing Desk Pro"
+    },
+    {
+      "id": "space",
+      "image": "https://oakywood.shop/cdn/shop/files/standingdeskpro-lifestyle2.jpg?width=1800",
+      "source": "https://oakywood.shop/products/standing-desk-pro",
+      "credit": "Oakywood Standing Desk Pro"
+    }
+  ]
 }
