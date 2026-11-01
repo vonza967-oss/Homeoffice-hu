@@ -73,7 +73,7 @@ async function retiredAbsent(page){
   await page.locator('#search').fill('zz-no-product');assert.equal(await page.locator('.product-card').count(),0);await page.keyboard.press('Escape');await page.locator('[data-reset]').click();
   await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('#cartCount').innerText(),'2');await page.goto(base,{waitUntil:'networkidle'});assert.equal(await page.locator('#cartCount').innerText(),'2');
   await page.goto(base+'shop.html?category=chairs',{waitUntil:'networkidle'});assert.equal(await page.locator('.product-card').count(),categoryCount('chairs'));
-  await page.goto(base+'shop.html#product/link',{waitUntil:'networkidle'});assert.match(await page.locator('#productTitle').innerText(),/Satechi/);await page.keyboard.press('Escape');
+  await page.goto(base+'shop.html#product/link',{waitUntil:'networkidle'});assert.match(await page.locator('#productTitle').innerText(),/12 az 1-ben USB-C dokkoló/);await page.keyboard.press('Escape');
   for(const group of retiredGroups){await page.goto(base+'shop.html?category='+group,{waitUntil:'networkidle'});assert.equal(await page.locator('.product-card').count(),productCount);await retiredAbsent(page);}
   for(const id of retiredIds){await page.goto(base+'shop.html#product/'+id,{waitUntil:'networkidle'});assert.equal(await page.locator('dialog[open]').count(),0);}
   await page.evaluate(()=>localStorage.setItem('homeoffice-studio-v3',JSON.stringify({cart:{speakershelf:1,shelfphone:1,beam:1},favorites:['speakershelf','shelfphone','beam']})));
