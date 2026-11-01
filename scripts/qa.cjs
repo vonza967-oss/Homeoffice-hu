@@ -26,15 +26,15 @@ async function shot(page,name){await images(page);await page.screenshot({path:pa
    assert.ok(deployed,'Exact commit published');checks.push('Public version.json matches this commit');
   }
   await page.goto(base,{waitUntil:'networkidle'});
-  assert.match(await page.title(),/Homeoffice/);assert.equal(await page.locator('h1').innerText(),'MX Master 3S');
+  assert.match(await page.title(),/Homeoffice/);assert.match(await page.locator('h1').innerText(),/A munkatered/);
   assert.equal(await page.locator('.feature-grid .tile').count(),6);assert.equal(await page.locator('#grid').count(),0,'Homepage must not contain the catalog grid');
   await overflow(page);await shot(page,'home-desktop');await page.screenshot({path:path.join(qa,'home-full.png'),fullPage:true});
   await page.locator('.feature-desk').evaluate(el=>el.scrollIntoView({block:'start'}));await shot(page,'desk-campaign');
   await page.locator('.feature-grid').evaluate(el=>el.scrollIntoView({block:'start'}));await shot(page,'feature-panels');
-  await page.locator('.feature-mouse .pill[data-open]').click();assert.match(await page.locator('#productTitle').innerText(),/MX Master 3S/);await shot(page,'home-product');await page.keyboard.press('Escape');
+  await page.locator('.feature-setup .pill').first().click();await page.waitForURL('**/shop.html');assert.equal(await page.locator('.product-card').count(),76);await page.goto(base,{waitUntil:'networkidle'});
   await page.locator('#searchTrigger').click();await page.locator('#search').fill('dokkolo');assert.ok(await page.locator('.quick-result').count()>0);
   await page.locator('.quick-result').first().click();assert.ok(await page.locator('#productDialog').isVisible());await page.keyboard.press('Escape');
-  checks.push('Home: compact navigation, 3 full-width campaigns, 6 paired panels, original images, details and quick search');
+  checks.push('Home: compact navigation, 2 full-width product campaigns plus the home office setup hero, 6 paired panels, original images, details and quick search');
   await page.goto(base+'shop.html',{waitUntil:'networkidle'});await images(page);assert.equal(await page.locator('.product-card').count(),76);await shot(page,'store-desktop');
   for(const group of ['all','creative',...new Set(catalog.products.map(p=>p.group))]){
    await page.locator('[data-filter="'+group+'"]').click();assert.equal(await page.locator('.product-card').count(),group==='all'?76:categoryCount(group));
