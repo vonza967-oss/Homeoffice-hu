@@ -937,6 +937,114 @@
         "Állítható magasság, dőlésszög és elfordítás; monitorok nélkül"
       ],
       "sourceLabel": "VIVO termékadatlap és fotó (Noon)"
+    },
+    {
+      "id": "yetigx",
+      "name": "Logitech Yeti GX USB-mikrofon",
+      "maker": "Logitech G",
+      "model": "Yeti GX",
+      "audioType": "microphones",
+      "material": "black",
+      "image": "https://resource.logitechg.com/content/dam/gaming/en/plp-microphones/pdp-yeti-gx-gaming-microphone/2025/gallery/yeti-gx-front-angle-black-gallery-1.png",
+      "source": "https://www.logitechg.com/hu-hu/shop/p/yeti-gx-gaming-microphone.988-000576",
+      "description": "Asztali USB-mikrofon dinamikus kapszulával, beszédhez, online hívásokhoz és felvételekhez. A tartóval elhelyezhető a munkaasztalon, a beállítások a gyártó szoftverében is kezelhetők.",
+      "facts": [
+        "Dinamikus USB-mikrofon",
+        "Asztali tartóval",
+        "Logitech G HUB szoftveres beállítások"
+      ],
+      "group": "audio",
+      "creative": false
+    },
+    {
+      "id": "yetiorb",
+      "name": "Logitech Yeti Orb USB-mikrofon",
+      "maker": "Logitech G",
+      "model": "Yeti Orb",
+      "audioType": "microphones",
+      "material": "black",
+      "image": "https://resource.logitechg.com/content/dam/gaming/en/plp-microphones/pdp-yeti-orb-gaming-microphone/2025/gallery/yeti-orb-back-angle-black-gallery-1.png",
+      "source": "https://www.logitechg.com/hu-hu/shop/p/yeti-orb-gaming-microphone.988-000558",
+      "description": "Gömb alakú, kompakt asztali USB-mikrofon. Online beszélgetésekhez és hangfelvételekhez használható; saját állványa kis helyet foglal a munkafelületen.",
+      "facts": [
+        "Kondenzátoros USB-mikrofon",
+        "Kompakt asztali állvány",
+        "Logitech G HUB támogatás"
+      ],
+      "group": "audio",
+      "creative": false
+    },
+    {
+      "id": "zonevibe",
+      "name": "Logitech Zone Vibe 100 vezeték nélküli fejhallgató",
+      "maker": "Logitech",
+      "model": "Zone Vibe 100",
+      "audioType": "headphones",
+      "material": "gray",
+      "image": "https://resource.logitech.com/content/dam/logitech/en/products/headsets/zone-vibe-100/gallery/zone-vibe-100-gallery-graphite-1.png",
+      "source": "https://www.logitech.com/en-us/shop/p/zone-vibe-100-wireless",
+      "description": "Könnyű, fül köré illeszkedő vezeték nélküli fejhallgató otthoni munkához és hívásokhoz. Felhajtható mikrofonja használaton kívül a fejhallgató mellé simul.",
+      "facts": [
+        "Bluetooth-kapcsolat",
+        "Beépített, felhajtható mikrofon",
+        "Graphite kivitel"
+      ],
+      "group": "audio",
+      "creative": false
+    },
+    {
+      "id": "zonewireless",
+      "name": "Logitech Zone Wireless 2 ES mikrofonos fejhallgató",
+      "maker": "Logitech",
+      "model": "Zone Wireless 2 ES",
+      "audioType": "headphones",
+      "material": "gray",
+      "image": "https://resource.logitech.com/content/dam/logitech/en/products/headsets/zone-wireless-2-es-b2c/gallery/graphite/b2c-zone-wireless-2-es-headset-graphite-3qtr-front-left-angle-gallery-1.png",
+      "source": "https://www.logitech.com/en-gb/shop/p/zone-wireless-2-es",
+      "description": "Vezeték nélküli mikrofonos fejhallgató a napi megbeszélésekhez. Aktív zajszűréssel és külön mikrofonkarral készül; a választható csatlakozási módot a pontos kivitelnél kell ellenőrizni.",
+      "facts": [
+        "Vezeték nélküli kapcsolat",
+        "Aktív zajszűrés",
+        "Külön mikrofonkar, Graphite kivitel"
+      ],
+      "group": "audio",
+      "creative": false
+    },
+    {
+      "id": "airpods5",
+      "name": "Apple AirPods 5 vezeték nélküli fülhallgató",
+      "maker": "Apple",
+      "model": "AirPods 5",
+      "audioType": "earbuds",
+      "material": "white",
+      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-5-hero-select-202609?wid=976&hei=916&fmt=jpeg&qlt=90&.v=RVU2SGpGc09oYXdoRmpNcmQ5OG9tR3VtVXdjeDQ5eHAyck91MG5EMElJTGkyVU55U21PWTMyajVGNTlWWnhwak14MXJScFRZN3Y5OWZsRXVrN1k4cFltcWM3RC92MW1IaTRiYkh6SThoUGc",
+      "source": "https://www.apple.com/hu/shop/buy-airpods/airpods-5",
+      "description": "Nyitott illeszkedésű, vezeték nélküli fülhallgató kompakt töltőtokkal. Zenehallgatáshoz és beszélgetésekhez is használható; az elérhető funkciók a párosított eszköztől függnek.",
+      "facts": [
+        "Vezeték nélküli Bluetooth-kapcsolat",
+        "Nyitott illeszkedésű kialakítás",
+        "Kompakt töltőtok"
+      ],
+      "group": "audio",
+      "creative": false
+    },
+    {
+      "id": "airpodspro",
+      "name": "Apple AirPods Pro 3 zajszűrős fülhallgató",
+      "maker": "Apple",
+      "model": "AirPods Pro 3",
+      "audioType": "earbuds",
+      "material": "white",
+      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-pro-3-hero-select-202509?wid=976&hei=916&fmt=jpeg&qlt=90&.v=1758077264484",
+      "source": "https://www.apple.com/hu/shop/buy-airpods/airpods-pro-3",
+      "description": "Szilikon fülillesztékes vezeték nélküli fülhallgató aktív zajkioltással. A tartozék töltőtokban tárolható és tölthető, a szolgáltatások köre a párosított eszköztől is függ.",
+      "facts": [
+        "Aktív zajkioltás",
+        "Cserélhető szilikon fülillesztékek",
+        "USB-C csatlakozós MagSafe töltőtok"
+      ],
+      "group": "audio",
+      "creative": false
     }
   ]
 }

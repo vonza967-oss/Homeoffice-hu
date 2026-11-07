@@ -18,3 +18,5 @@ The layout references the product-first architecture of Apple's homepage and sep
 The Fitnesz category presents a WalkingPad C2 walking pad and a DeskCycle 2 seated pedal exerciser. The former Aktív munka category and the Oakywood Classic desk are retired from published pages, search, favorites and the demo bag. Product references are not confirmed supplier agreements.
 
 The Docking category includes Satechi Thunderbolt 4 and CalDigit TS4 references; its category image and home panel use a standalone Satechi product photo. The Tools category thumbnail uses the Satechi SM1 keyboard, and the Satechi M1 mouse is included. Stands now include a VIVO dual monitor arm; the BALOLO tablet, Stream Deck Plus and rotating accessory holders, plus the Oakywood dual laptop holder, the Oakywood modular desktop drawer and the walnut organizer tray are retired.
+
+Audio contains Mikrofonok, Fejhallgatók and Fülhallgatók, with two sourced references in each type. Product-type filters retain their state in the URL and work with search and favorites.

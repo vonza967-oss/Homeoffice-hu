@@ -54,6 +54,13 @@ async function retiredAbsent(page){
   await page.locator('[data-filter="fitness"]').click();assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('#collectionTitle').innerText(),'Fitnesz.');await shot(page,'fitness-desktop');
   await page.locator('.product-open[data-open="deskcycle"]').click();assert.match(await page.locator('#productTitle').innerText(),/pedálozó/);await shot(page,'pedal-desktop');await page.keyboard.press('Escape');
   checks.push('Fitnesz contains walking pad and seated pedal exerciser; clean dock and SM1 category thumbnails are correct');
+  await page.locator('[data-filter="audio"]').click();assert.equal(await page.locator('.product-card').count(),6);assert.ok(await page.locator('#audioFilters').isVisible());await shot(page,'audio-desktop');
+  for(const [type,label] of Object.entries({microphones:'Mikrofonok',headphones:'Fejhallgatók',earbuds:'Fülhallgatók'})){
+   await page.locator('[data-audio-type="'+type+'"]').click();assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('#collectionTitle').innerText(),label+'.');assert.ok(page.url().includes('type='+type));
+   await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('[data-audio-type="'+type+'"]').getAttribute('aria-pressed'),'true');
+  }
+  await page.locator('[data-filter="tech"]').click();assert.ok(await page.locator('#audioFilters').isHidden());
+  checks.push('Audio has six references; plural type filters show two items each, retain URL/reload state and hide outside Audio');
   await page.locator('[data-filter="stands"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('stands'));await retiredAbsent(page);await shot(page,'stands-desktop');
   await page.locator('[data-filter="all"]').click();
   for(const term of ['hangfalpolc','polcra rögzíthető MagSafe','ScreenBar','Analog Weekly']){
@@ -97,6 +104,7 @@ async function retiredAbsent(page){
    }
    await p.goto(base+'shop.html',{waitUntil:'networkidle'});await images(p);await overflow(p);await retiredAbsent(p);if(width===390)await shot(p,'store-mobile');
    await p.locator('[data-filter="stands"]').click();assert.equal(await p.locator('.product-card').count(),categoryCount('stands'));await retiredAbsent(p);if(width===390)await shot(p,'stands-mobile');
+   await p.locator('[data-filter="audio"]').click();await p.locator('[data-audio-type="headphones"]').click();assert.equal(await p.locator('.product-card').count(),2);await overflow(p);if(width===390)await shot(p,'audio-mobile');
    await p.locator('[data-filter="all"]').click();
    await p.locator('.product-open[data-open="link"]').click();await images(p);await overflow(p);if(width===390)await shot(p,'product-mobile');
    await p.locator('#productDialog [data-close]').click();assert.equal(await p.locator('dialog[open]').count(),0);await p.close();

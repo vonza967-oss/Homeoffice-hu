@@ -28,3 +28,10 @@ test('Fitness, expanded docks and the additional mouse are available with update
  assert.match(shop,/data-category="tech"><img src="assets\/type.webp"/);
  for(const html of [home,shop])assert.match(html,/href="shop.html\?category=fitness">Fitnesz<\/a>/);
 });
+
+test('Audio offers plural type filters and multiple sourced products per type',()=>{
+ const audio=products.filter(p=>p.group==='audio');assert.equal(audio.length,6);
+ for(const type of ['microphones','headphones','earbuds']){assert.equal(audio.filter(p=>p.audioType===type).length,2);assert.ok(shop.includes('data-audio-type="'+type+'"'));}
+ for(const label of ['Mikrofonok','Fejhallgatók','Fülhallgatók'])assert.ok(shop.includes('>'+label+'</button>'));
+ for(const page of [home,shop])assert.ok(page.includes('href="shop.html?category=audio">Audio</a>'));
+});
