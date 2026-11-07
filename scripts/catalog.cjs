@@ -2,8 +2,8 @@
 const fs=require('node:fs'),path=require('node:path');
 const root=path.join(__dirname,'..');
 // Keep original references archived; exclude retired products from every published surface.
-const retiredProductIds=new Set(['speakershelf','shelfphone']);
-const retiredGroups=new Set(['focus','light']);
+const retiredProductIds=new Set(['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest']);
+const retiredGroups=new Set(['focus','light','active']);
 function loadCatalog(){
  const base=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8'));
  const extra=JSON.parse(fs.readFileSync(path.join(root,'catalog-expansion.json'),'utf8'));
@@ -40,3 +40,4 @@ function applyCatalogCount(html,count){
  return result;
 }
 module.exports={loadCatalog,applyCatalogCount};
+

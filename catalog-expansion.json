@@ -751,12 +751,12 @@
     },
     {
       "id": "walkingpad",
-      "name": "WalkingPad C2 összecsukható sétapad",
-      "group": "active",
+      "name": "WalkingPad C2 összecsukható sétálópad",
+      "group": "fitness",
       "maker": "WalkingPad",
       "model": "C2",
       "material": "black",
-      "creative": true,
+      "creative": false,
       "image": "https://cdn.shopify.com/s/files/1/0707/4752/1103/files/foldable-walking-treadmill-246463.png?v=1777232301&width=1200",
       "source": "https://ergonofis.com/products/foldable-walking-treadmill",
       "sourceLabel": "Ergonofis termékadatlap",
@@ -850,6 +850,91 @@
         "52 heti kártya",
         "Fekete eloxált alumínium tartó",
         "Csúszásgátló szilikon talp"
+      ]
+    },
+    {
+      "id": "deskcycle",
+      "name": "DeskCycle 2 asztal alatti pedálozó",
+      "group": "fitness",
+      "maker": "DeskCycle by VIVO",
+      "model": "DeskCycle 2",
+      "material": "white",
+      "creative": false,
+      "image": "https://cdn.shopify.com/s/files/1/1190/2562/files/ShopifyWhite_abc487ab-fb11-4f1c-91a9-e59530812957.jpg?v=1785491820&width=1200",
+      "source": "https://vivo-us.com/products/dsk-spo-deskcycle-2",
+      "description": "Padlóra helyezhető mini szobabicikli, amelyet széken ülve, lábbal lehet tekerni. Asztal alatti használat előtt ellenőrizd, hogy a térdednek és a pedáloknak elegendő hely maradjon.",
+      "facts": [
+        "8 fokozatú mágneses ellenállás",
+        "Állítható pedálpántok",
+        "Ülve, padlóra helyezve használható"
+      ]
+    },
+    {
+      "id": "satechidock",
+      "name": "Satechi Thunderbolt 4 dokkoló",
+      "group": "docks",
+      "maker": "Satechi",
+      "model": "Thunderbolt 4 Dock (ST-UCT4DM)",
+      "material": "gray",
+      "creative": false,
+      "image": "https://cdn.shopify.com/s/files/1/1520/4366/products/thunderbolt-4-dock-adapters-satechi-505087.jpg?v=1762441001&width=1200",
+      "source": "https://satechi.com/products/thunderbolt-4-dock",
+      "description": "Asztali Thunderbolt 4 dokkoló szürke alumíniumházzal. Kijelzők, USB-eszközök és vezetékes hálózat csatlakoztatásához; a használható funkciók a számítógép portjától függnek.",
+      "facts": [
+        "Thunderbolt 4 és USB-A csatlakozók",
+        "Gigabit Ethernet, UHS-II SD-kártyaolvasó és hangcsatlakozó",
+        "A régiós tápegység és a gép kompatibilitása ellenőrzendő"
+      ]
+    },
+    {
+      "id": "caldigit",
+      "name": "CalDigit TS4 Thunderbolt 4 dokkoló",
+      "group": "docks",
+      "maker": "CalDigit",
+      "model": "TS4 Thunderbolt Station 4",
+      "material": "gray",
+      "creative": false,
+      "image": "https://cdn.shopify.com/s/files/1/0959/6492/2147/files/TS4_VerticalRightFrontView_WhiteBG_c31d280b-3c9b-4982-bcf1-69a0638c5a68.jpg?v=1761207532&width=1200",
+      "source": "https://eu.caldigit.com/products/ts4",
+      "description": "Állítva és fektetve is használható, alumíniumházas asztali dokkoló. Egyetlen csatlakozási pont a kijelzőknek, adattárolóknak és más perifériáknak; teljes funkcionalitása a számítógéptől függ.",
+      "facts": [
+        "18 csatlakozó, Thunderbolt 4 kapcsolattal",
+        "Legfeljebb 98 W-os laptop-tápellátás",
+        "DisplayPort, SD és microSD kártyaolvasó"
+      ]
+    },
+    {
+      "id": "satechimouse",
+      "name": "Satechi M1 vezeték nélküli egér",
+      "group": "tech",
+      "maker": "Satechi",
+      "model": "M1 Bluetooth Mouse",
+      "material": "gray",
+      "creative": false,
+      "image": "https://cdn.shopify.com/s/files/1/1520/4366/products/m1-wireless-mouse-mice-satechi-space-gray-623815.png?v=1762440175&width=1200",
+      "source": "https://satechi.com/products/m1-wireless-mouse",
+      "description": "Kompakt, asztroszürke vezeték nélküli egér alumíniumfelülettel. Bluetooth-kapcsolattal használható, beépített akkumulátora USB-C kábellel tölthető.",
+      "facts": [
+        "Bluetooth 4.2 kapcsolat egy eszközhöz",
+        "USB-C töltőcsatlakozó",
+        "M1 Bluetooth Mouse, Space Gray kivitel"
+      ]
+    },
+    {
+      "id": "dualmonitorarm",
+      "name": "VIVO dupla monitorkar két kijelzőhöz",
+      "group": "stands",
+      "maker": "VIVO",
+      "model": "STAND-V002O",
+      "material": "black",
+      "creative": false,
+      "image": "https://cdn.shopify.com/s/files/1/1190/2562/files/STAND-V002O_Shopify.jpg?v=1782229497&width=1200",
+      "source": "https://vivo-us.com/products/stand-v002o",
+      "description": "Két külön állítható kar egyetlen asztali rögzítéssel. A két monitort egymás mellé emeli, az integrált kábelvezetés pedig segít rendezetten tartani a munkafelületet.",
+      "facts": [
+        "Két 17–32 hüvelykes monitorhoz",
+        "VESA 75 × 75 és 100 × 100 rögzítés",
+        "Állítható magasság, dőlésszög és elfordítás; monitorok nélkül"
       ]
     }
   ]

@@ -9,7 +9,7 @@ async function buildCampaign(){
   {id:'flow',name:'campaign-mouse',width:1100,height:1100,transparent:true,urls:['https://resource.logitech.com/content/dam/logitech/en/products/mice/mx-master-3s/2025-update/mx-master-3s-bluetooth-edition-top-view-graphite-new-1.png']},
   {id:'rise',name:'campaign-desk',width:1500,height:1000,background:'#efefef'},
   {id:'aero',name:'campaign-chair',width:1100,height:1200,background:'#fafafa',urls:['https://www.hermanmiller.com/content/dam/hmicom/page_assets/products/aeron_chair/2026_06/ig_prd_ovw_aeron_chair_06.jpg']},
-  {id:'link',name:'campaign-dock',width:1400,height:650,background:'#ffffff'},
+  {id:'satechidock',name:'campaign-dock',width:1400,height:650,background:'#ffffff'},
   {id:'keys',name:'campaign-keyboard',width:1400,height:700,background:'#f5f5f7'}
  ];
  const report=[];
@@ -35,3 +35,4 @@ async function buildCampaign(){
  await fs.writeFile(path.join(root,'qa/campaign-assets.json'),JSON.stringify(report,null,2));console.log('Campaign photographs ready:',report.length);
 }
 module.exports={buildCampaign};if(require.main===module)buildCampaign().catch(e=>{console.error(e);process.exitCode=1});
+

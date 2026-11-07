@@ -4,7 +4,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
 const root=path.join(__dirname,'..'),qa=path.resolve(root,process.env.QA_DIR||'qa');
 const catalog=require('./catalog.cjs').loadCatalog(),base=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
 const productCount=catalog.products.length,activeGroups=[...new Set(catalog.products.map(p=>p.group))];
-const retiredGroups=['focus','light','creative'],retiredIds=['speakershelf','shelfphone'];
+const retiredGroups=['focus','light','creative','active'],retiredIds=['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest'];
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 const categoryCount=group=>catalog.products.filter(p=>p.group===group).length;
 async function images(page){
@@ -18,7 +18,7 @@ async function retiredAbsent(page){
  for(const group of retiredGroups){assert.equal(await page.locator('[data-filter="'+group+'"],[data-category="'+group+'"],a[href*="category='+group+'"]').count(),0,'Retired category '+group);}
  for(const id of retiredIds)assert.equal(await page.locator('[data-open="'+id+'"]').count(),0,'Retired product '+id);
  const published=await page.evaluate(()=>window.CATALOG.products);
- assert.equal(published.length,productCount);assert.ok(published.every(p=>!retiredIds.includes(p.id)&&!['focus','light'].includes(p.group)&&!p.creative));
+ assert.equal(published.length,productCount);assert.ok(published.every(p=>!retiredIds.includes(p.id)&&!['focus','light','active'].includes(p.group)&&!p.creative));
 }
 (async()=>{
  await fs.mkdir(qa,{recursive:true});let server,browser;const checks=[],errors=[];
@@ -36,19 +36,24 @@ async function retiredAbsent(page){
   }
   await page.goto(base,{waitUntil:'networkidle'});
   assert.match(await page.title(),/Homeoffice/);assert.match(await page.locator('h1').innerText(),/AZ OTTHONI MUNKA/);
-  assert.equal(await page.locator('.feature-grid .tile').count(),3);assert.equal(await page.locator('#grid').count(),0);
+  assert.equal(await page.locator('.feature-grid .tile').count(),4);assert.equal(await page.locator('#grid').count(),0);
   assert.equal(await page.locator('#discoveryRail').count(),0);await retiredAbsent(page);
   assert.ok((await page.locator('.shop-invitation .pill').innerText()).includes(String(productCount)));
   await overflow(page);await shot(page,'home-desktop');await page.screenshot({path:path.join(qa,'home-full.png'),fullPage:true});
-  for(const id of ['link','keys','line']){await page.locator('.feature-grid .pill[data-open="'+id+'"]').click();assert.ok(await page.locator('#productDialog').isVisible());await page.keyboard.press('Escape');}
+  for(const id of ['satechidock','keys','line','walkingpad']){await page.locator('.feature-grid .pill[data-open="'+id+'"]').click();assert.ok(await page.locator('#productDialog').isVisible());await page.keyboard.press('Escape');}
   await page.locator('.feature-grid').evaluate(el=>el.scrollIntoView({block:'start'}));await shot(page,'feature-panels');
   await page.locator('.feature-setup .pill').first().click();await page.waitForURL('**/shop.html');await page.locator('.product-card').first().waitFor();assert.equal(await page.locator('.product-card').count(),productCount);await page.goto(base,{waitUntil:'networkidle'});
   await page.locator('#searchTrigger').click();await page.locator('#search').fill('dokkolo');assert.ok(await page.locator('.quick-result').count()>0);
   await page.locator('.quick-result').first().click();assert.ok(await page.locator('#productDialog').isVisible());await page.keyboard.press('Escape');
-  checks.push('Home keeps setup, desk, chair and three active product panels; removed discovery and category links are absent');
+  checks.push('Home keeps setup, desk, chair and four active product panels; removed discovery and category links are absent');
   await page.goto(base+'shop.html',{waitUntil:'networkidle'});await images(page);await retiredAbsent(page);assert.equal(await page.locator('.product-card').count(),productCount);await shot(page,'store-desktop');
   assert.ok((await page.locator('.store-tools').innerText()).includes(productCount+' valódi termék'));
   assert.ok((await page.locator('meta[name="description"]').getAttribute('content')).includes(productCount+' valódi termék'));
+  assert.equal(await page.locator('[data-category="docks"] img').getAttribute('src'),'assets/satechidock.webp');
+  assert.equal(await page.locator('[data-category="tech"] img').getAttribute('src'),'assets/type.webp');
+  await page.locator('[data-filter="fitness"]').click();assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('#collectionTitle').innerText(),'Fitnesz.');await shot(page,'fitness-desktop');
+  await page.locator('.product-open[data-open="deskcycle"]').click();assert.match(await page.locator('#productTitle').innerText(),/pedálozó/);await shot(page,'pedal-desktop');await page.keyboard.press('Escape');
+  checks.push('Fitnesz contains walking pad and seated pedal exerciser; clean dock and SM1 category thumbnails are correct');
   await page.locator('[data-filter="stands"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('stands'));await retiredAbsent(page);await shot(page,'stands-desktop');
   await page.locator('[data-filter="all"]').click();
   for(const term of ['hangfalpolc','polcra rögzíthető MagSafe','ScreenBar','Analog Weekly']){
@@ -101,3 +106,4 @@ async function retiredAbsent(page){
  }catch(e){await fs.writeFile(path.join(qa,'failure.txt'),String(e.stack||e));throw e}
  finally{if(browser)await browser.close();if(server)server.kill()}
 })().catch(e=>{console.error(e);process.exitCode=1});
+
