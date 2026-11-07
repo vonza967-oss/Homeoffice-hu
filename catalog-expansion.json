@@ -1001,11 +1001,11 @@
       "material": "gray",
       "image": "https://resource.logitech.com/content/dam/logitech/en/products/headsets/zone-wireless-2-es-b2c/gallery/graphite/b2c-zone-wireless-2-es-headset-graphite-3qtr-front-left-angle-gallery-1.png",
       "source": "https://www.logitech.com/en-gb/shop/p/zone-wireless-2-es",
-      "description": "Vezeték nélküli mikrofonos fejhallgató a napi megbeszélésekhez. Aktív zajszűréssel és külön mikrofonkarral készül; a választható csatlakozási módot a pontos kivitelnél kell ellenőrizni.",
+      "description": "Vezeték nélküli fejhallgató a napi megbeszélésekhez. Adaptív hibrid aktív zajszűréssel és beépített mikrofonokkal készül; a választható csatlakozási módot a pontos kivitelnél kell ellenőrizni.",
       "facts": [
         "Vezeték nélküli kapcsolat",
-        "Aktív zajszűrés",
-        "Külön mikrofonkar, Graphite kivitel"
+        "Adaptív hibrid aktív zajszűrés",
+        "Zajszűrő mikrofonok, Graphite kivitel"
       ],
       "group": "audio",
       "creative": false
