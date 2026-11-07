@@ -860,7 +860,7 @@
       "model": "DeskCycle 2",
       "material": "white",
       "creative": false,
-      "image": "https://cdn.shopify.com/s/files/1/1190/2562/files/ShopifyWhite_abc487ab-fb11-4f1c-91a9-e59530812957.jpg?v=1785491820&width=1200",
+      "image": "https://cdn.shopify.com/s/files/1/1190/2562/files/01_bcbb4cf3-46aa-4f3a-af0e-d0cacee7a9e7.jpg?v=1785491838&width=1200",
       "source": "https://vivo-us.com/products/dsk-spo-deskcycle-2",
       "description": "Padlóra helyezhető mini szobabicikli, amelyet széken ülve, lábbal lehet tekerni. Asztal alatti használat előtt ellenőrizd, hogy a térdednek és a pedáloknak elegendő hely maradjon.",
       "facts": [
@@ -928,14 +928,15 @@
       "model": "STAND-V002O",
       "material": "black",
       "creative": false,
-      "image": "https://cdn.shopify.com/s/files/1/1190/2562/files/STAND-V002O_Shopify.jpg?v=1782229497&width=1200",
-      "source": "https://vivo-us.com/products/stand-v002o",
+      "image": "https://f.nooncdn.com/p/pzsku/Z81A02DAD9F73717ADF62Z/45/1751888182/fc108c71-926b-4150-9057-a06db1a46fd3.jpg",
+      "source": "https://www.noon.com/uae-en/vivo-dual-arm-monitor-desk-mount-height-adjustable-tilt-swivel-counterbalance-pneumatic-stand-vesa-bracket-arm-fits-most-screens-up-to-32-inches-classic-stand-v002o/Z81A02DAD9F73717ADF62Z/p/",
       "description": "Két külön állítható kar egyetlen asztali rögzítéssel. A két monitort egymás mellé emeli, az integrált kábelvezetés pedig segít rendezetten tartani a munkafelületet.",
       "facts": [
         "Két 17–32 hüvelykes monitorhoz",
         "VESA 75 × 75 és 100 × 100 rögzítés",
         "Állítható magasság, dőlésszög és elfordítás; monitorok nélkül"
-      ]
+      ],
+      "sourceLabel": "VIVO termékadatlap és fotó (Noon)"
     }
   ]
 }
