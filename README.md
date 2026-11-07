@@ -19,6 +19,8 @@ The Fitnesz category presents a WalkingPad C2 walking pad and a DeskCycle 2 seat
 
 The Docking category includes Satechi Thunderbolt 4 and CalDigit TS4 references; its category image and home panel use a standalone Satechi product photo. The Tools category thumbnail uses the Satechi SM1 keyboard, and the Satechi M1 mouse is included. Stands now include a VIVO dual monitor arm; the BALOLO tablet, Stream Deck Plus and rotating accessory holders, plus the Oakywood dual laptop holder, the Oakywood modular desktop drawer and the walnut organizer tray are retired.
 
-Audio contains Mikrofonok, Fejhallgatók and Fülhallgatók, with two sourced references in each type. Product-type filters retain their state in the URL and work with search and favorites.
+Audio contains Mikrofonok, Fejhallgatók and Fülhallgatók, with one microphone, two headphones and one earbud reference. Product-type filters retain their state in the URL and work with search and favorites.
 
-Audio now uses six MYFUSION.EU supplier-catalog references (Onikuma, Lorgar, Borofone and Hoco), replacing the earlier Apple and Logitech audio references. Supplier category pages document EU-warehouse dropshipping; a Homeoffices partner agreement and Hungary-specific shipping terms have not been confirmed. The global Minden navigation entry, category thumbnail and main filter have been removed; individual categories, search and reset remain available.
+Audio now uses four MYFUSION.EU supplier-catalog references (Lorgar, Borofone and Hoco), replacing the earlier Apple and Logitech audio references. Supplier category pages document EU-warehouse dropshipping; a Homeoffices partner agreement and Hungary-specific shipping terms have not been confirmed. The global Minden navigation entry, category thumbnail and main filter have been removed; individual categories, search and reset remain available.
+
+The Onikuma M530 microphone and Hoco EQ28 earbuds are retired from all published catalog surfaces. The remaining audio selection contains Lorgar SMP40 Pro, Borofone BO39 and BO22, and Hoco EA8; no replacements have been added.

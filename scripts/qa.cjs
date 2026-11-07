@@ -4,9 +4,10 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
 const root=path.join(__dirname,'..'),qa=path.resolve(root,process.env.QA_DIR||'qa');
 const catalog=require('./catalog.cjs').loadCatalog(),base=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
 const productCount=catalog.products.length,activeGroups=[...new Set(catalog.products.map(p=>p.group))];
-const retiredGroups=['focus','light','creative','active'],retiredIds=['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','yetigx','yetiorb','zonevibe','zonewireless','airpods5','airpodspro'];
+const retiredGroups=['focus','light','creative','active'],retiredIds=['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','yetigx','yetiorb','zonevibe','zonewireless','airpods5','airpodspro','onikuma530','hocoeq28'];
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 const categoryCount=group=>catalog.products.filter(p=>p.group===group).length;
+const audioTypeCount=type=>catalog.products.filter(p=>p.group==='audio'&&p.audioType===type).length;
 async function images(page){
  await page.evaluate(()=>document.querySelectorAll('img').forEach(i=>i.loading='eager'));
  await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0),{},{timeout:30000});
@@ -58,13 +59,13 @@ async function retiredAbsent(page){
   await page.locator('[data-filter="fitness"]').click();assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('#collectionTitle').innerText(),'Fitnesz.');await shot(page,'fitness-desktop');
   await page.locator('.product-open[data-open="deskcycle"]').click();assert.match(await page.locator('#productTitle').innerText(),/pedálozó/);await shot(page,'pedal-desktop');await page.keyboard.press('Escape');
   checks.push('Fitnesz contains walking pad and seated pedal exerciser; clean dock and SM1 category thumbnails are correct');
-  await page.locator('[data-filter="audio"]').click();assert.equal(await page.locator('.product-card').count(),6);assert.ok(await page.locator('#audioFilters').isVisible());await shot(page,'audio-desktop');
+  await page.locator('[data-filter="audio"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('audio'));assert.ok(await page.locator('#audioFilters').isVisible());await shot(page,'audio-desktop');
   for(const [type,label] of Object.entries({microphones:'Mikrofonok',headphones:'Fejhallgatók',earbuds:'Fülhallgatók'})){
-   await page.locator('[data-audio-type="'+type+'"]').click();assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('#collectionTitle').innerText(),label+'.');assert.ok(page.url().includes('type='+type));
-   await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('[data-audio-type="'+type+'"]').getAttribute('aria-pressed'),'true');
+   await page.locator('[data-audio-type="'+type+'"]').click();assert.equal(await page.locator('.product-card').count(),audioTypeCount(type));assert.equal(await page.locator('#collectionTitle').innerText(),label+'.');assert.ok(page.url().includes('type='+type));
+   await page.reload({waitUntil:'networkidle'});assert.equal(await page.locator('.product-card').count(),audioTypeCount(type));assert.equal(await page.locator('[data-audio-type="'+type+'"]').getAttribute('aria-pressed'),'true');
   }
   await page.locator('[data-filter="tech"]').click();assert.ok(await page.locator('#audioFilters').isHidden());
-  checks.push('Audio has six references; plural type filters show two items each, retain URL/reload state and hide outside Audio');
+  checks.push('Audio has four references; plural type filters show the correct remaining items, retain URL/reload state and hide outside Audio');
   await page.locator('[data-filter="stands"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('stands'));await retiredAbsent(page);await shot(page,'stands-desktop');
   await resetFilters(page);
   for(const term of ['hangfalpolc','polcra rögzíthető MagSafe','ScreenBar','Analog Weekly']){
