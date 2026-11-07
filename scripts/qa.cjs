@@ -4,7 +4,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
 const root=path.join(__dirname,'..'),qa=path.resolve(root,process.env.QA_DIR||'qa');
 const catalog=require('./catalog.cjs').loadCatalog(),base=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
 const productCount=catalog.products.length,activeGroups=[...new Set(catalog.products.map(p=>p.group))];
-const retiredGroups=['focus','light','creative','active'],retiredIds=['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest'];
+const retiredGroups=['focus','light','creative','active'],retiredIds=['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','yetigx','yetiorb','zonevibe','zonewireless','airpods5','airpodspro'];
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 const categoryCount=group=>catalog.products.filter(p=>p.group===group).length;
 async function images(page){
@@ -12,12 +12,16 @@ async function images(page){
  await page.waitForFunction(()=>[...document.images].every(i=>i.complete&&i.naturalWidth>0),{},{timeout:30000});
  await page.evaluate(async()=>{await Promise.all([...document.images].filter(i=>{const r=i.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0}).map(i=>i.decode()));await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));});
 }
+async function resetFilters(page){if(await page.locator('#reset').isVisible())await page.locator('#reset').click();}
 async function overflow(page){assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Horizontal overflow');}
 async function shot(page,name){await images(page);await page.screenshot({path:path.join(qa,name+'.png')});}
 async function retiredAbsent(page){
+ assert.equal(await page.locator('[data-category="all"],[data-filter="all"]').count(),0,'Global all-category controls removed');
+ assert.equal(await page.locator('#mainNav a').filter({hasText:'Minden'}).count(),0,'Global Minden link removed');
  for(const group of retiredGroups){assert.equal(await page.locator('[data-filter="'+group+'"],[data-category="'+group+'"],a[href*="category='+group+'"]').count(),0,'Retired category '+group);}
  for(const id of retiredIds)assert.equal(await page.locator('[data-open="'+id+'"]').count(),0,'Retired product '+id);
  const published=await page.evaluate(()=>window.CATALOG.products);
+ assert.ok(published.filter(p=>p.group==='audio').every(p=>p.supplier==='MYFUSION.EU'&&!/Apple|Logitech|Yeti/i.test(p.maker+' '+p.model)),'Audio supplier replacements published');
  assert.equal(published.length,productCount);assert.ok(published.every(p=>!retiredIds.includes(p.id)&&!['focus','light','active'].includes(p.group)&&!p.creative));
 }
 (async()=>{
@@ -62,7 +66,7 @@ async function retiredAbsent(page){
   await page.locator('[data-filter="tech"]').click();assert.ok(await page.locator('#audioFilters').isHidden());
   checks.push('Audio has six references; plural type filters show two items each, retain URL/reload state and hide outside Audio');
   await page.locator('[data-filter="stands"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('stands'));await retiredAbsent(page);await shot(page,'stands-desktop');
-  await page.locator('[data-filter="all"]').click();
+  await resetFilters(page);
   for(const term of ['hangfalpolc','polcra rögzíthető MagSafe','ScreenBar','Analog Weekly']){
    await page.locator('#searchTrigger').click();await page.locator('#search').fill(term);
    assert.equal(await page.locator('.product-card').count(),0);assert.equal(await page.locator('.quick-result').count(),0);
@@ -70,9 +74,9 @@ async function retiredAbsent(page){
   }
   checks.push('Retired products and categories absent from full catalog, stands, navigation and search; totals match active products');
   for(const group of ['all',...activeGroups]){
-   await page.locator('[data-filter="'+group+'"]').click();assert.equal(await page.locator('.product-card').count(),group==='all'?productCount:categoryCount(group));
+   if(group==='all')await resetFilters(page);else await page.locator('[data-filter="'+group+'"]').click();assert.equal(await page.locator('.product-card').count(),group==='all'?productCount:categoryCount(group));
   }
-  await page.locator('[data-filter="all"]').click();
+  await resetFilters(page);
   for(const p of catalog.products){
    await page.locator('.product-open[data-open="'+p.id+'"]').click();assert.equal(await page.locator('#productTitle').innerText(),p.name);
    assert.equal(await page.locator('.source-link').getAttribute('href'),p.source);await images(page);await page.keyboard.press('Escape');assert.equal(await page.locator('dialog[open]').count(),0);
@@ -105,7 +109,7 @@ async function retiredAbsent(page){
    await p.goto(base+'shop.html',{waitUntil:'networkidle'});await images(p);await overflow(p);await retiredAbsent(p);if(width===390)await shot(p,'store-mobile');
    await p.locator('[data-filter="stands"]').click();assert.equal(await p.locator('.product-card').count(),categoryCount('stands'));await retiredAbsent(p);if(width===390)await shot(p,'stands-mobile');
    await p.locator('[data-filter="audio"]').click();await p.locator('[data-audio-type="headphones"]').click();assert.equal(await p.locator('.product-card').count(),2);await overflow(p);if(width===390)await shot(p,'audio-mobile');
-   await p.locator('[data-filter="all"]').click();
+   await resetFilters(p);
    await p.locator('.product-open[data-open="link"]').click();await images(p);await overflow(p);if(width===390)await shot(p,'product-mobile');
    await p.locator('#productDialog [data-close]').click();assert.equal(await p.locator('dialog[open]').count(),0);await p.close();
   }

@@ -939,112 +939,130 @@
       "sourceLabel": "VIVO termékadatlap és fotó (Noon)"
     },
     {
-      "id": "yetigx",
-      "name": "Logitech Yeti GX USB-mikrofon",
-      "maker": "Logitech G",
-      "model": "Yeti GX",
-      "audioType": "microphones",
-      "material": "black",
-      "image": "https://resource.logitechg.com/content/dam/gaming/en/plp-microphones/pdp-yeti-gx-gaming-microphone/2025/gallery/yeti-gx-front-angle-black-gallery-1.png",
-      "source": "https://www.logitechg.com/hu-hu/shop/p/yeti-gx-gaming-microphone.988-000576",
-      "description": "Asztali USB-mikrofon dinamikus kapszulával, beszédhez, online hívásokhoz és felvételekhez. A tartóval elhelyezhető a munkaasztalon, a beállítások a gyártó szoftverében is kezelhetők.",
-      "facts": [
-        "Dinamikus USB-mikrofon",
-        "Asztali tartóval",
-        "Logitech G HUB szoftveres beállítások"
-      ],
+      "id": "onikuma530",
+      "name": "Onikuma M530 USB-mikrofon tartókarral",
       "group": "audio",
-      "creative": false
+      "maker": "Onikuma",
+      "model": "M530",
+      "audioType": "microphones",
+      "material": "white",
+      "creative": false,
+      "image": "https://myfusion.eu/storage/images/thumb/0e2fdef2e3707094a6efe71e0f3b1679.webp",
+      "source": "https://myfusion.eu/en/595645/gaming-microphone-onikuma-m530-white",
+      "sourceLabel": "MYFUSION beszállítói termékadatlap",
+      "supplier": "MYFUSION.EU",
+      "supplierSku": "M530 White",
+      "description": "Fehér USB-s kondenzátormikrofon asztalra rögzíthető tartókarral. A kardioid felvételi iránykarakterisztika a mikrofon elé beszélő felhasználóra összpontosít.",
+      "facts": [
+        "USB-C csatlakozás",
+        "Kardioid kondenzátormikrofon",
+        "Állítható kar, popfilter és asztali rögzítő"
+      ]
     },
     {
-      "id": "yetiorb",
-      "name": "Logitech Yeti Orb USB-mikrofon",
-      "maker": "Logitech G",
-      "model": "Yeti Orb",
+      "id": "lorgarsmp40",
+      "name": "Lorgar SMP40 Pro asztali mikrofon",
+      "group": "audio",
+      "maker": "Lorgar",
+      "model": "SMP40 Pro",
       "audioType": "microphones",
       "material": "black",
-      "image": "https://resource.logitechg.com/content/dam/gaming/en/plp-microphones/pdp-yeti-orb-gaming-microphone/2025/gallery/yeti-orb-back-angle-black-gallery-1.png",
-      "source": "https://www.logitechg.com/hu-hu/shop/p/yeti-orb-gaming-microphone.988-000558",
-      "description": "Gömb alakú, kompakt asztali USB-mikrofon. Online beszélgetésekhez és hangfelvételekhez használható; saját állványa kis helyet foglal a munkafelületen.",
+      "creative": false,
+      "image": "https://myfusion.eu/storage/images/thumb/39aa0948f917e5c314b9dd846e025633.webp",
+      "source": "https://myfusion.eu/en/567706/lorgar-gaming-microphone-smp40-pro-mute-button-rgb-black",
+      "sourceLabel": "MYFUSION beszállítói termékadatlap",
+      "supplier": "MYFUSION.EU",
+      "supplierSku": "LRG-SMP40-BK",
+      "description": "Fekete mikrofon beszélgetésekhez és otthoni hangfelvételekhez. A némítógomb gyors kezelést ad, az RGB világítás pedig a készülék része.",
       "facts": [
-        "Kondenzátoros USB-mikrofon",
-        "Kompakt asztali állvány",
-        "Logitech G HUB támogatás"
-      ],
-      "group": "audio",
-      "creative": false
+        "Némítógomb",
+        "RGB világítás",
+        "Fekete SMP40 Pro kivitel"
+      ]
     },
     {
-      "id": "zonevibe",
-      "name": "Logitech Zone Vibe 100 vezeték nélküli fejhallgató",
-      "maker": "Logitech",
-      "model": "Zone Vibe 100",
+      "id": "borofonebo39",
+      "name": "Borofone BO39 vezeték nélküli fejhallgató",
+      "group": "audio",
+      "maker": "Borofone",
+      "model": "BO39 Melotide",
       "audioType": "headphones",
-      "material": "gray",
-      "image": "https://resource.logitech.com/content/dam/logitech/en/products/headsets/zone-vibe-100/gallery/zone-vibe-100-gallery-graphite-1.png",
-      "source": "https://www.logitech.com/en-us/shop/p/zone-vibe-100-wireless",
-      "description": "Könnyű, fül köré illeszkedő vezeték nélküli fejhallgató otthoni munkához és hívásokhoz. Felhajtható mikrofonja használaton kívül a fejhallgató mellé simul.",
+      "material": "black",
+      "creative": false,
+      "image": "https://myfusion.eu/storage/images/thumb/c303a3ec7c8abf422992afb340045528.webp",
+      "source": "https://myfusion.eu/en/586617/borofone-headphones-bo39-melotide-bluetooth-black",
+      "sourceLabel": "MYFUSION beszállítói termékadatlap",
+      "supplier": "MYFUSION.EU",
+      "supplierSku": "ZES126100",
+      "description": "Fekete, vezeték nélküli fejhallgató hétköznapi zenehallgatáshoz. Bluetooth-kapcsolata kompatibilis eszközökhöz csatlakozik, a fejpántos kialakítást párnázott fülrészek egészítik ki.",
       "facts": [
         "Bluetooth-kapcsolat",
-        "Beépített, felhajtható mikrofon",
-        "Graphite kivitel"
-      ],
-      "group": "audio",
-      "creative": false
+        "Beépített akkumulátor",
+        "Fekete Melotide kivitel"
+      ]
     },
     {
-      "id": "zonewireless",
-      "name": "Logitech Zone Wireless 2 ES mikrofonos fejhallgató",
-      "maker": "Logitech",
-      "model": "Zone Wireless 2 ES",
+      "id": "borofonebo22",
+      "name": "Borofone BO22 Bluetooth-fejhallgató",
+      "group": "audio",
+      "maker": "Borofone",
+      "model": "BO22 Elegant",
       "audioType": "headphones",
       "material": "gray",
-      "image": "https://resource.logitech.com/content/dam/logitech/en/products/headsets/zone-wireless-2-es-b2c/gallery/graphite/b2c-zone-wireless-2-es-headset-graphite-3qtr-front-left-angle-gallery-1.png",
-      "source": "https://www.logitech.com/en-gb/shop/p/zone-wireless-2-es",
-      "description": "Vezeték nélküli fejhallgató a napi megbeszélésekhez. Adaptív hibrid aktív zajszűréssel és beépített mikrofonokkal készül; a választható csatlakozási módot a pontos kivitelnél kell ellenőrizni.",
+      "creative": false,
+      "image": "https://myfusion.eu/storage/images/thumb/6221a493d985bd1adcb2a688faa8c9fa.webp",
+      "source": "https://myfusion.eu/en/586671/borofone-headphones-bo22-elegant-bluetooth-grey",
+      "sourceLabel": "MYFUSION beszállítói termékadatlap",
+      "supplier": "MYFUSION.EU",
+      "supplierSku": "ZES126097",
+      "description": "Szürke fejhallgató Bluetooth-kapcsolattal és AUX-bemenettel. TF-memóriakártyáról is képes lejátszani, így többféle hangforráshoz használható.",
       "facts": [
-        "Vezeték nélküli kapcsolat",
-        "Adaptív hibrid aktív zajszűrés",
-        "Zajszűrő mikrofonok, Graphite kivitel"
-      ],
-      "group": "audio",
-      "creative": false
+        "Bluetooth 5.3 kapcsolat",
+        "AUX-bemenet és TF-kártyás lejátszás",
+        "Szürke Elegant kivitel"
+      ]
     },
     {
-      "id": "airpods5",
-      "name": "Apple AirPods 5 vezeték nélküli fülhallgató",
-      "maker": "Apple",
-      "model": "AirPods 5",
-      "audioType": "earbuds",
-      "material": "white",
-      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-5-hero-select-202609?wid=976&hei=916&fmt=jpeg&qlt=90&.v=RVU2SGpGc09oYXdoRmpNcmQ5OG9tR3VtVXdjeDQ5eHAyck91MG5EMElJTGkyVU55U21PWTMyajVGNTlWWnhwak14MXJScFRZN3Y5OWZsRXVrN1k4cFltcWM3RC92MW1IaTRiYkh6SThoUGc",
-      "source": "https://www.apple.com/hu/shop/buy-airpods/airpods-5",
-      "description": "Nyitott illeszkedésű, vezeték nélküli fülhallgató kompakt töltőtokkal. Zenehallgatáshoz és beszélgetésekhez is használható; az elérhető funkciók a párosított eszköztől függnek.",
-      "facts": [
-        "Vezeték nélküli Bluetooth-kapcsolat",
-        "Nyitott illeszkedésű kialakítás",
-        "Kompakt töltőtok"
-      ],
+      "id": "hocoea8",
+      "name": "Hoco EA8 vezeték nélküli fülhallgató",
       "group": "audio",
-      "creative": false
+      "maker": "Hoco",
+      "model": "EA8",
+      "audioType": "earbuds",
+      "material": "black",
+      "creative": false,
+      "image": "https://myfusion.eu/storage/images/thumb/f3e355b714ea6d8fc668165904366ff2.webp",
+      "source": "https://myfusion.eu/en/552611/wireless-earphones-hoco-tws-ea8-metal-black",
+      "sourceLabel": "MYFUSION beszállítói termékadatlap",
+      "supplier": "MYFUSION.EU",
+      "supplierSku": "6942007668750",
+      "description": "Fekete TWS-fülhallgató kompakt töltőtokkal. Bluetooth-kapcsolattal használható zenehallgatáshoz és hívásokhoz; a tok a tárolás mellett az újratöltést is szolgálja.",
+      "facts": [
+        "Bluetooth 5.4 kapcsolat",
+        "TWS kialakítás töltőtokkal",
+        "Fekete kivitel"
+      ]
     },
     {
-      "id": "airpodspro",
-      "name": "Apple AirPods Pro 3 zajszűrős fülhallgató",
-      "maker": "Apple",
-      "model": "AirPods Pro 3",
-      "audioType": "earbuds",
-      "material": "white",
-      "image": "https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/airpods-pro-3-hero-select-202509?wid=976&hei=916&fmt=jpeg&qlt=90&.v=1758077264484",
-      "source": "https://www.apple.com/hu/shop/buy-airpods/airpods-pro-3",
-      "description": "Szilikon fülillesztékes vezeték nélküli fülhallgató aktív zajkioltással. A tartozék töltőtokban tárolható és tölthető, a szolgáltatások köre a párosított eszköztől is függ.",
-      "facts": [
-        "Aktív zajkioltás",
-        "Cserélhető szilikon fülillesztékek",
-        "USB-C csatlakozós MagSafe töltőtok"
-      ],
+      "id": "hocoeq28",
+      "name": "Hoco EQ28 zajszűrős fülhallgató",
       "group": "audio",
-      "creative": false
+      "maker": "Hoco",
+      "model": "EQ28 Bird",
+      "audioType": "earbuds",
+      "material": "gray",
+      "creative": false,
+      "image": "https://myfusion.eu/storage/images/thumb/aa8fa3511271bcbf3f28e34007a70e29.webp",
+      "source": "https://myfusion.eu/en/553359/wireless-earphones-hoco-tws-anc-enc-eq28-light-grey",
+      "sourceLabel": "MYFUSION beszállítói termékadatlap",
+      "supplier": "MYFUSION.EU",
+      "supplierSku": "6942007662673",
+      "description": "Világosszürke TWS-fülhallgató aktív zajszűréssel és hívás közbeni zajcsökkentéssel. USB-C csatlakozós tokjában tárolható és tölthető.",
+      "facts": [
+        "Aktív zajszűrés (ANC) és ENC",
+        "Bluetooth 5.4 kapcsolat",
+        "USB-C csatlakozós töltőtok"
+      ]
     }
   ]
 }

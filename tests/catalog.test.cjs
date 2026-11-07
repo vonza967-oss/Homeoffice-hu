@@ -35,3 +35,13 @@ test('Audio offers plural type filters and multiple sourced products per type',(
  for(const label of ['Mikrofonok','Fejhallgatók','Fülhallgatók'])assert.ok(shop.includes('>'+label+'</button>'));
  for(const page of [home,shop])assert.ok(page.includes('href="shop.html?category=audio">Audio</a>'));
 });
+
+test('Main navigation and category controls only contain individual categories',()=>{
+ for(const page of [home,shop])assert.doesNotMatch(page,/>Minden<\/a>|data-category="all"|data-filter="all"/);
+ for(const group of ['desks','chairs','stands','docks','tech','fitness','audio'])assert.ok(shop.includes('data-category="'+group+'"'));
+});
+
+test('Audio uses supplier-catalog products rather than Apple or Logitech references',()=>{
+ const audio=products.filter(p=>p.group==='audio');
+ for(const p of audio){assert.equal(p.supplier,'MYFUSION.EU');assert.ok(p.supplierSku);assert.match(p.source,/^https:\/\/myfusion\.eu\/en\//);assert.doesNotMatch(p.maker+' '+p.model,/Apple|Logitech|Yeti/i);}
+});
