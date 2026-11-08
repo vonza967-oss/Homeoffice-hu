@@ -1,33 +1,33 @@
 {
   "names": {
-    "aero": "Herman Miller Aeron irodaszék",
-    "rise": "Oakywood Pro diófa állóasztal",
-    "link": "12 az 1-ben USB-C dokkoló",
-    "line": "Oakywood diófa monitorpolc",
-    "sail": "Herman Miller Sayl irodaszék",
+    "aero": "Hálós irodaszék",
+    "rise": "Elektromos íróasztal",
+    "link": "USB-C dokkoló",
+    "line": "Oakywood monitorpolc",
+    "sail": "Rugalmas irodaszék",
     "form": "Oakywood Classic diófa íróasztal",
-    "flow": "Logitech MX Master 3S egér",
-    "curve": "Twelve South Curve Flex laptopállvány",
-    "contour": "Herman Miller Embody irodaszék",
-    "move": "Oakywood Touch fekete állóasztal",
-    "type": "Satechi SM1 mechanikus billentyűzet",
+    "flow": "Logitech egér",
+    "curve": "Állítható laptopállvány",
+    "contour": "Állítható irodaszék",
+    "move": "Fekete íróasztal",
+    "type": "Mechanikus billentyűzet",
     "beam": "BenQ ScreenBar Pro monitorlámpa",
-    "arc": "Oakywood diófa laptopállvány",
+    "arc": "Oakywood laptopállvány",
     "bridge": "360°-os laptopállvány USB-C dokkolóval",
-    "soft": "Oakywood filc–parafa asztali alátét",
+    "soft": "Oakywood asztalalátét",
     "loop": "Oakywood töltős fejhallgatóállvány",
-    "keys": "Logitech MX Keys S billentyűzet",
-    "port": "8 az 1-ben multifunkciós USB-C hub",
+    "keys": "Logitech billentyűzet",
+    "port": "USB-C elosztó",
     "glow": "BenQ e-Reading asztali lámpa",
-    "mesh": "TP-Link Deco XE75 Pro mesh rendszer",
+    "mesh": "Mesh rendszer",
     "twin": "Oakywood dupla laptoptartó",
     "charge": "Satechi 3 az 1-ben Qi2 töltő",
-    "pad": "Oakywood filc–parafa egérpad",
-    "float": "Grovemade állítható monitorkar",
-    "volt": "Satechi 165 W-os asztali töltő",
-    "focus": "Logitech MX Brio 4K webkamera",
+    "pad": "Oakywood egérpad",
+    "float": "Grovemade monitorkar",
+    "volt": "Asztali töltő",
+    "focus": "4K webkamera",
     "nest": "Oakywood diófa rendszerezőtálca",
-    "signal": "TP-Link RE815XE Wi-Fi-jelismétlő"
+    "signal": "Wi-Fi-jelismétlő"
   },
   "creativeExisting": [
     "bridge",
@@ -88,7 +88,7 @@
     },
     {
       "id": "headphonehook",
-      "name": "Oakywood asztali fejhallgatóakasztó",
+      "name": "Oakywood fejhallgatótartó",
       "group": "details",
       "maker": "Oakywood",
       "model": "Desk-Mounted Headphone Hook",
@@ -139,7 +139,7 @@
     },
     {
       "id": "cablegrid",
-      "name": "Oakywood asztal alatti kábelrács",
+      "name": "Oakywood kábelrendező",
       "group": "details",
       "maker": "Oakywood",
       "model": "Underdesk Organizer Grid",
@@ -190,7 +190,7 @@
     },
     {
       "id": "documentholder",
-      "name": "Oakywood diófa irattartó",
+      "name": "Oakywood irattartó",
       "group": "details",
       "maker": "Oakywood",
       "model": "A4 Document Holder",
@@ -479,7 +479,7 @@
     },
     {
       "id": "verticalstand",
-      "name": "Twelve South függőleges laptoptartó",
+      "name": "Függőleges laptoptartó",
       "group": "stands",
       "maker": "Twelve South",
       "model": "BookArc Flex",
@@ -496,7 +496,7 @@
     },
     {
       "id": "ventedriser",
-      "name": "Twelve South tárolórekeszes monitorállvány",
+      "name": "Tárolós monitorállvány",
       "group": "stands",
       "maker": "Twelve South",
       "model": "Curve Riser",
@@ -530,7 +530,7 @@
     },
     {
       "id": "travelcharger",
-      "name": "Twelve South összecsukható kettős töltő",
+      "name": "Összecsukható töltő",
       "group": "tech",
       "maker": "Twelve South",
       "model": "ButterFly 2-in-1 MagSafe Charger",
@@ -564,7 +564,7 @@
     },
     {
       "id": "ssdenclosure",
-      "name": "Satechi USB4 NVMe SSD-ház",
+      "name": "Külső SSD-ház",
       "group": "tech",
       "maker": "Satechi",
       "model": "USB4 Slim NVMe SSD Enclosure",
@@ -615,7 +615,7 @@
     },
     {
       "id": "ethernetadapter",
-      "name": "Satechi USB-C 2,5 GbE hálózati adapter",
+      "name": "Hálózati adapter",
       "group": "network",
       "maker": "Satechi",
       "model": "USB-C 2.5 Gigabit Ethernet Adapter",
@@ -649,7 +649,7 @@
     },
     {
       "id": "numberpad",
-      "name": "Satechi vezeték nélküli számbillentyűzet",
+      "name": "Vezeték nélküli számbillentyűzet",
       "group": "tech",
       "maker": "Satechi",
       "model": "Bluetooth Extended Keypad",
@@ -700,7 +700,7 @@
     },
     {
       "id": "walnutdesk",
-      "name": "Ergonofis Sway diófa állóasztal",
+      "name": "Diófa íróasztal",
       "group": "desks",
       "maker": "Ergonofis",
       "model": "Sway Standing Desk",
@@ -717,7 +717,7 @@
     },
     {
       "id": "mattedesk",
-      "name": "Ergonofis Shift matt fekete állóasztal",
+      "name": "Matt íróasztal",
       "group": "desks",
       "maker": "Ergonofis",
       "model": "Shift Standing Desk",
@@ -751,7 +751,7 @@
     },
     {
       "id": "walkingpad",
-      "name": "WalkingPad C2 összecsukható sétálópad",
+      "name": "Összecsukható sétálópad",
       "group": "fitness",
       "maker": "WalkingPad",
       "model": "C2",
@@ -803,7 +803,7 @@
     },
     {
       "id": "cablespine",
-      "name": "Ergonofis függőleges kábelvezető",
+      "name": "Függőleges kábelvezető",
       "group": "details",
       "maker": "Ergonofis",
       "model": "Cable Management Spine",
@@ -854,7 +854,7 @@
     },
     {
       "id": "deskcycle",
-      "name": "DeskCycle 2 asztal alatti pedálozó",
+      "name": "Mini szobabicikli",
       "group": "fitness",
       "maker": "DeskCycle by VIVO",
       "model": "DeskCycle 2",
@@ -871,7 +871,7 @@
     },
     {
       "id": "satechidock",
-      "name": "Satechi Thunderbolt 4 dokkoló",
+      "name": "Satechi dokkoló",
       "group": "docks",
       "maker": "Satechi",
       "model": "Thunderbolt 4 Dock (ST-UCT4DM)",
@@ -888,7 +888,7 @@
     },
     {
       "id": "caldigit",
-      "name": "CalDigit TS4 Thunderbolt 4 dokkoló",
+      "name": "CalDigit dokkoló",
       "group": "docks",
       "maker": "CalDigit",
       "model": "TS4 Thunderbolt Station 4",
@@ -905,7 +905,7 @@
     },
     {
       "id": "satechimouse",
-      "name": "Satechi M1 vezeték nélküli egér",
+      "name": "Satechi egér",
       "group": "tech",
       "maker": "Satechi",
       "model": "M1 Bluetooth Mouse",
@@ -922,7 +922,7 @@
     },
     {
       "id": "dualmonitorarm",
-      "name": "VIVO dupla monitorkar két kijelzőhöz",
+      "name": "Dupla monitorkar",
       "group": "stands",
       "maker": "VIVO",
       "model": "STAND-V002O",
@@ -961,7 +961,7 @@
     },
     {
       "id": "lorgarsmp40",
-      "name": "Lorgar SMP40 Pro asztali mikrofon",
+      "name": "Lorgar mikrofon",
       "group": "audio",
       "maker": "Lorgar",
       "model": "SMP40 Pro",
@@ -982,7 +982,7 @@
     },
     {
       "id": "borofonebo39",
-      "name": "Borofone BO39 vezeték nélküli fejhallgató",
+      "name": "Fekete fejhallgató",
       "group": "audio",
       "maker": "Borofone",
       "model": "BO39 Melotide",
@@ -1003,7 +1003,7 @@
     },
     {
       "id": "borofonebo22",
-      "name": "Borofone BO22 Bluetooth-fejhallgató",
+      "name": "Szürke fejhallgató",
       "group": "audio",
       "maker": "Borofone",
       "model": "BO22 Elegant",
@@ -1024,7 +1024,7 @@
     },
     {
       "id": "hocoea8",
-      "name": "Hoco EA8 vezeték nélküli fülhallgató",
+      "name": "Hoco fülhallgató",
       "group": "audio",
       "maker": "Hoco",
       "model": "EA8",

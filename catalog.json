@@ -3,7 +3,7 @@
   "products": [
     {
       "id": "aero",
-      "name": "Aero",
+      "name": "Hálós irodaszék",
       "group": "chairs",
       "maker": "Herman Miller",
       "model": "Aeron",
@@ -19,7 +19,7 @@
     },
     {
       "id": "rise",
-      "name": "Rise",
+      "name": "Elektromos íróasztal",
       "group": "desks",
       "maker": "Oakywood",
       "model": "Standing Desk Pro",
@@ -35,7 +35,7 @@
     },
     {
       "id": "link",
-      "name": "12 az 1-ben USB-C dokkoló",
+      "name": "USB-C dokkoló",
       "group": "docks",
       "maker": "OEM / Alibaba referencia",
       "model": "12-in-1 Vertical USB-C Docking Station",
@@ -52,7 +52,7 @@
     },
     {
       "id": "line",
-      "name": "Line",
+      "name": "Oakywood monitorpolc",
       "group": "stands",
       "maker": "Oakywood",
       "model": "Desk Shelf",
@@ -68,7 +68,7 @@
     },
     {
       "id": "sail",
-      "name": "Sail",
+      "name": "Rugalmas irodaszék",
       "group": "chairs",
       "maker": "Herman Miller",
       "model": "Sayl",
@@ -100,7 +100,7 @@
     },
     {
       "id": "flow",
-      "name": "Flow",
+      "name": "Logitech egér",
       "group": "tech",
       "maker": "Logitech",
       "model": "MX Master 3S",
@@ -116,7 +116,7 @@
     },
     {
       "id": "curve",
-      "name": "Curve",
+      "name": "Állítható laptopállvány",
       "group": "stands",
       "maker": "Twelve South",
       "model": "Curve Flex",
@@ -132,7 +132,7 @@
     },
     {
       "id": "contour",
-      "name": "Contour",
+      "name": "Állítható irodaszék",
       "group": "chairs",
       "maker": "Herman Miller",
       "model": "Embody",
@@ -148,7 +148,7 @@
     },
     {
       "id": "move",
-      "name": "Move",
+      "name": "Fekete íróasztal",
       "group": "desks",
       "maker": "Oakywood",
       "model": "Standing Desk Touch",
@@ -164,7 +164,7 @@
     },
     {
       "id": "type",
-      "name": "Type",
+      "name": "Mechanikus billentyűzet",
       "group": "tech",
       "maker": "Satechi",
       "model": "SM1 Slim Mechanical Keyboard",
@@ -196,7 +196,7 @@
     },
     {
       "id": "arc",
-      "name": "Arc",
+      "name": "Oakywood laptopállvány",
       "group": "stands",
       "maker": "Oakywood",
       "model": "Laptop Stand",
@@ -229,7 +229,7 @@
     },
     {
       "id": "soft",
-      "name": "Soft",
+      "name": "Oakywood asztalalátét",
       "group": "details",
       "maker": "Oakywood",
       "model": "Felt & Cork Desk Mat",
@@ -261,7 +261,7 @@
     },
     {
       "id": "keys",
-      "name": "Keys",
+      "name": "Logitech billentyűzet",
       "group": "tech",
       "maker": "Logitech",
       "model": "MX Keys S",
@@ -277,7 +277,7 @@
     },
     {
       "id": "port",
-      "name": "8 az 1-ben multifunkciós USB-C hub",
+      "name": "USB-C elosztó",
       "group": "docks",
       "maker": "OEM / Alibaba referencia",
       "model": "8-in-1 USB-C Multiport Hub",
@@ -310,7 +310,7 @@
     },
     {
       "id": "mesh",
-      "name": "Mesh",
+      "name": "Mesh rendszer",
       "group": "network",
       "maker": "TP-Link",
       "model": "Deco XE75 Pro",
@@ -358,7 +358,7 @@
     },
     {
       "id": "pad",
-      "name": "Pad",
+      "name": "Oakywood egérpad",
       "group": "details",
       "maker": "Oakywood",
       "model": "Felt & Cork Mouse Pad",
@@ -374,7 +374,7 @@
     },
     {
       "id": "float",
-      "name": "Float",
+      "name": "Grovemade monitorkar",
       "group": "stands",
       "maker": "Grovemade",
       "model": "Single Monitor Arm",
@@ -390,7 +390,7 @@
     },
     {
       "id": "volt",
-      "name": "Volt",
+      "name": "Asztali töltő",
       "group": "tech",
       "maker": "Satechi",
       "model": "165W USB-C 4-Port PD GaN Charger",
@@ -406,7 +406,7 @@
     },
     {
       "id": "focus",
-      "name": "Focus",
+      "name": "4K webkamera",
       "group": "tech",
       "maker": "Logitech",
       "model": "MX Brio",
@@ -438,7 +438,7 @@
     },
     {
       "id": "signal",
-      "name": "Signal",
+      "name": "Wi-Fi-jelismétlő",
       "group": "network",
       "maker": "TP-Link",
       "model": "RE815XE",
