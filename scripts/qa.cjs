@@ -4,7 +4,7 @@ const fs=require('node:fs/promises'),path=require('node:path'),assert=require('n
 const root=path.join(__dirname,'..'),qa=path.resolve(root,process.env.QA_DIR||'qa');
 const catalog=require('./catalog.cjs').loadCatalog(),base=process.env.SITE_URL||'http://127.0.0.1:4173/Homeoffice-hu/';
 const productCount=catalog.products.length,activeGroups=[...new Set(catalog.products.map(p=>p.group))];
-const retiredGroups=['focus','light','creative','active'],retiredIds=['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','yetigx','yetiorb','zonevibe','zonewireless','airpods5','airpodspro','onikuma530','hocoeq28'];
+const retiredGroups=['focus','light','creative','active'],retiredIds=['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','yetigx','yetiorb','zonevibe','zonewireless','airpods5','airpodspro','onikuma530','hocoeq28','travelcharger','numberpad','caldigit','headphonehook'];
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 const categoryCount=group=>catalog.products.filter(p=>p.group===group).length;
 const audioTypeCount=type=>catalog.products.filter(p=>p.group==='audio'&&p.audioType===type).length;
@@ -56,7 +56,7 @@ async function retiredAbsent(page){
   assert.ok((await page.locator('meta[name="description"]').getAttribute('content')).includes(productCount+' valódi termék'));
   assert.equal(await page.locator('[data-category="docks"] img').getAttribute('src'),'assets/satechidock.webp');
   assert.equal(await page.locator('[data-category="tech"] img').getAttribute('src'),'assets/type.webp');
-  await page.locator('[data-filter="fitness"]').click();assert.equal(await page.locator('.product-card').count(),2);assert.equal(await page.locator('#collectionTitle').innerText(),'Fitnesz.');await shot(page,'fitness-desktop');
+  await page.locator('[data-filter="fitness"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('fitness'));assert.equal(await page.locator('#collectionTitle').innerText(),'Fitnesz.');await shot(page,'fitness-desktop');
   await page.locator('.product-open[data-open="deskcycle"]').click();assert.equal(await page.locator('#productTitle').innerText(),catalog.products.find(p=>p.id==='deskcycle').name);await shot(page,'pedal-desktop');await page.keyboard.press('Escape');
   checks.push('Fitnesz contains walking pad and seated pedal exerciser; clean dock and SM1 category thumbnails are correct');
   await page.locator('[data-filter="audio"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('audio'));assert.ok(await page.locator('#audioFilters').isVisible());await shot(page,'audio-desktop');

@@ -1063,6 +1063,146 @@
         "Bluetooth 5.4 kapcsolat",
         "USB-C csatlakozós töltőtok"
       ]
+    },
+    {
+      "id": "whitedesk",
+      "name": "Fehér állóasztal",
+      "group": "desks",
+      "maker": "ModernHome",
+      "model": "JSD-C5-1-5",
+      "material": "white",
+      "creative": false,
+      "image": "https://www.multistore.pl/img/products/53/99/miniaturka_max.webp?v=1787135997",
+      "source": "https://www.multistore.pl/biurko-elektryczne-140x60-cm-podnoszone-regulacja-wysokosci-72-118-cm-bialy-blat-modernhome,id5399.html",
+      "sourceLabel": "Multistore termékoldal",
+      "description": "Fehér asztallapú íróasztal elektromos magasságállítással. A 140 × 60 cm-es munkafelületet három magasságot tároló vezérlő egészíti ki.",
+      "facts": [
+        "140 × 60 cm-es asztallap",
+        "Elektromos állítás: 72–118 cm",
+        "Három menthető magasság"
+      ],
+      "supplier": "Multistore",
+      "supplierSku": "JSD-C5-1-5"
+    },
+    {
+      "id": "foldingdesk",
+      "name": "Összecsukható íróasztal",
+      "group": "desks",
+      "maker": "ModernHome",
+      "model": "TH-FD-5",
+      "material": "white",
+      "creative": false,
+      "image": "https://www.multistore.pl/img/products/50/67/1a_max.webp?v=1767951731",
+      "source": "https://www.multistore.pl/biurko-komputerowe-skladane-80x45-cm-stolik-pod-laptopa-biale-modernhome,id5067.html",
+      "sourceLabel": "Multistore termékoldal",
+      "description": "Kompakt, fehér íróasztal összecsukható lábakkal. Fix magasságú munkafelület kis helyiségekhez; használat után laposra csukható.",
+      "facts": [
+        "80 × 45 cm-es asztallap",
+        "Fix magasság: 76 cm",
+        "Összecsukva 80 × 9 × 76 cm"
+      ],
+      "supplier": "Multistore",
+      "supplierSku": "TH-FD-5"
+    },
+    {
+      "id": "shelfdesk",
+      "name": "Polcos íróasztal",
+      "group": "desks",
+      "maker": "ModernHome",
+      "model": "TH-SD-5",
+      "material": "white",
+      "creative": false,
+      "image": "https://www.multistore.pl/img/products/50/72/1_max.webp?v=1768204599",
+      "source": "https://www.multistore.pl/biurko-komputerowe-szkolne-120x60-cm-regal-z-3-polkami-biale-modernhome,id5072.html",
+      "sourceLabel": "Multistore termékoldal",
+      "description": "Fehér íróasztal hárompolcos tárolóval és fém vázzal. A polcos elem a bal vagy a jobb oldalra is szerelhető.",
+      "facts": [
+        "120 × 60 cm-es munkafelület",
+        "Három polc, választható szerelési oldal",
+        "MDF asztallap, fém váz"
+      ],
+      "supplier": "Multistore",
+      "supplierSku": "TH-SD-5"
+    },
+    {
+      "id": "cornerdesk",
+      "name": "Sarokíróasztal",
+      "group": "desks",
+      "maker": "ModernHome",
+      "model": "TH-CD-1",
+      "material": "black",
+      "creative": false,
+      "image": "https://www.multistore.pl/img/products/50/85/1_max.webp?v=1770292424",
+      "source": "https://www.multistore.pl/biurko-narozne-z-regalem-4-polki-komputerowe-czarne-loftowe-modernhome,id5085.html",
+      "sourceLabel": "Multistore termékoldal",
+      "description": "Fekete sarokíróasztal négy polccal. Fix magasságú, MDF és fém szerkezetű modell; a tárolóelem két oldalra szerelhető.",
+      "facts": [
+        "145 × 145 cm-es teljes szélesség és mélység",
+        "Négy tárolópolc",
+        "Állítható szintezőlábak"
+      ],
+      "supplier": "Multistore",
+      "supplierSku": "TH-CD-1"
+    },
+    {
+      "id": "drawerdesk",
+      "name": "Fiókos íróasztal",
+      "group": "desks",
+      "maker": "ModernHome",
+      "model": "WYJ-095",
+      "material": "white",
+      "creative": false,
+      "image": "https://www.multistore.pl/img/products/43/19/1_max.jpg?v=1742369559",
+      "source": "https://www.multistore.pl/biurko-prostokatne-toaletka-stol-z-szuflada-i-polka-bialy-modernhome,id4319.html",
+      "sourceLabel": "Multistore termékoldal",
+      "description": "Fehér íróasztal fenyőfa lábakkal, széles fiókkal és nyitott tárolórekesszel. A fiók szereléskor bal vagy jobb oldalra helyezhető.",
+      "facts": [
+        "80 × 45 cm-es asztallap",
+        "Fix magasság: 77 cm",
+        "Fiók és nyitott tárolórekesz"
+      ],
+      "supplier": "Multistore",
+      "supplierSku": "WYJ-095"
+    },
+    {
+      "id": "adjustabledumbbell",
+      "name": "Állítható súlyzó",
+      "group": "fitness",
+      "maker": "MOVEPRO",
+      "model": "GB-FW207-24KG",
+      "material": "black",
+      "creative": false,
+      "image": "https://www.multistore.pl/img/products/49/05/1_max.webp?v=1761832721",
+      "source": "https://www.multistore.pl/hantel-regulowany-zeliwny-z-podstawka-obciazenie-2-5-24-kg-movepro,id4905.html",
+      "sourceLabel": "Multistore termékoldal",
+      "description": "Egykezes súlyzó állítható terheléssel, otthoni edzéshez. A súly a mellékelt talpba helyezve választható ki.",
+      "facts": [
+        "2,5–24 kg között állítható",
+        "15 terhelési fokozat",
+        "Talppal, vas és műanyag kivitel"
+      ],
+      "supplier": "Multistore",
+      "supplierSku": "GB-FW207-24KG"
+    },
+    {
+      "id": "exercisemat",
+      "name": "Tornaszőnyeg",
+      "group": "fitness",
+      "maker": "MOVEPRO",
+      "model": "GB-GYM",
+      "material": "black",
+      "creative": false,
+      "image": "https://www.multistore.pl/img/products/26/98/8_max.jpg?v=1727252006",
+      "source": "https://www.multistore.pl/materac-gimnastyczny-czarny-do-cwiczen-fitness-182x60-cm-movepro,id2698.html",
+      "sourceLabel": "Multistore termékoldal",
+      "description": "Fekete, háromrét hajtható tornaszőnyeg otthoni talajgyakorlatokhoz. Műbőr huzattal és EPE hab töltettel készül.",
+      "facts": [
+        "182 × 60 × 5 cm",
+        "Összehajtható kialakítás",
+        "PU huzat, EPE hab töltet"
+      ],
+      "supplier": "Multistore",
+      "supplierSku": "GB-GYM"
     }
   ]
 }

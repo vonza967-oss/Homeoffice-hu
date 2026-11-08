@@ -5,7 +5,7 @@ const home=applyCatalogCount(fs.readFileSync(path.join(root,'index.html'),'utf8'
 test('Active references retain descriptive names and original identities',()=>{assert.ok(products.length>0&&products.length<75);for(const k of ['id','source','name'])assert.equal(new Set(products.map(p=>p[k])).size,products.length);for(const p of products){assert.ok(p.name.length>8&&p.maker&&p.model&&p.description&&p.facts.length>=2);assert.match(p.source,/^https:\/\//);assert.match(p.image,/^https:\/\//);assert.equal(p.price,undefined)}});
 test('Only requested categories and products are retired',()=>{
  const base=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8')),extra=JSON.parse(fs.readFileSync(path.join(root,'catalog-expansion.json'),'utf8'));
- const expected=[...base.products,...extra.products].filter(p=>!['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','onikuma530','hocoeq28'].includes(p.id)&&!['focus','light','active'].includes(p.group)&&!p.creative&&!extra.creativeExisting.includes(p.id)).map(p=>p.id).sort();
+ const expected=[...base.products,...extra.products].filter(p=>!['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','onikuma530','hocoeq28','travelcharger','numberpad','caldigit','headphonehook'].includes(p.id)&&!['focus','light','active'].includes(p.group)&&!p.creative&&!extra.creativeExisting.includes(p.id)).map(p=>p.id).sort();
  assert.deepEqual(products.map(p=>p.id).sort(),expected);
  for(const id of ['aero','rise','link','float','mesh','signal','focus'])assert.ok(products.some(p=>p.id===id),'Essential product retained: '+id);
  assert.ok(products.every(p=>!p.creative&&!['focus','light','active'].includes(p.group)));
@@ -20,8 +20,8 @@ test('Build includes separate store and catalog-aware HTML compilation',()=>{con
 
 
 test('Fitness, expanded docks and the additional mouse are available with updated category images',()=>{
- assert.deepEqual(products.filter(p=>p.group==='fitness').map(p=>p.id).sort(),['deskcycle','walkingpad']);
- assert.ok(products.filter(p=>p.group==='docks').length>=4);
+ assert.deepEqual(products.filter(p=>p.group==='fitness').map(p=>p.id).sort(),['adjustabledumbbell','deskcycle','exercisemat','walkingpad']);
+ assert.equal(products.filter(p=>p.group==='docks').length,3);
  assert.ok(products.some(p=>p.id==='dualmonitorarm'&&p.group==='stands'));
  assert.ok(products.some(p=>p.id==='satechimouse'&&p.group==='tech'));
  assert.match(shop,/data-category="docks"><img src="assets\/satechidock.webp"/);

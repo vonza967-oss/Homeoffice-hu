@@ -2,7 +2,7 @@
 const fs=require('node:fs'),path=require('node:path');
 const root=path.join(__dirname,'..');
 // Keep original references archived; exclude retired products from every published surface.
-const retiredProductIds=new Set(['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','onikuma530','hocoeq28']);
+const retiredProductIds=new Set(['speakershelf','shelfphone','form','shelftablet','streamdeckmount','accessorymount','twin','deskdrawer','nest','onikuma530','hocoeq28','travelcharger','numberpad','caldigit','headphonehook']);
 const retiredGroups=new Set(['focus','light','active']);
 function loadCatalog(){
  const base=JSON.parse(fs.readFileSync(path.join(root,'catalog.json'),'utf8'));
