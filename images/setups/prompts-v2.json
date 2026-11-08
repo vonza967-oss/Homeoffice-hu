@@ -1,0 +1,17 @@
+[
+  {
+    "id": "corner-v2",
+    "prompt": "Use case: precise-object-edit. Edit target: supplied bright home-office scene. Replace the straight white desk with a black fixed-height L-shaped corner desk with a generous return along the adjoining wall, so the L and right-angle desktop are clearly visible. Reframe slightly wider only if needed to show the return. Retain the bright apartment, daylight, plants, grey ergonomic chair, one external monitor, laptop on stand, keyboard, mouse and dock; rearrange objects naturally on the L desk. Both arms of the desktop must have coherent supporting legs. This is a generic workspace inspiration illustration, not a reproduction of a branded product. No logos, text, labels, watermark or people. Editorial natural interior photography, landscape 3:2.",
+    "editSource": "light.webp"
+  },
+  {
+    "id": "dual",
+    "prompt": "Use case: photorealistic-natural. Asset: landscape 3:2 editorial home office inspiration illustration. A distinct compact bright modern home workspace with a white fixed-height rectangular desk approximately 120cm wide, slim white square legs and small side storage shelves, viewed from the front at a slight angle. EXACTLY TWO external computer monitors, each about 22 inches, side by side in landscape orientation on a realistic black double monitor arm. NO laptop or additional display. Wireless slim keyboard and mouse, a compact dock, tidy cables, a grey ergonomic chair. Cool soft daylight, light oak floor, pale muted blue wall, one small plant and simple bookshelf. Desk must clearly be fixed height with non-telescoping legs, no electric controls. Convincing proportions so both screens fit the desk. Frame the whole desk and chair. Realistic lived-in texture, restrained styling. Generic objects, not replicas of branded catalog products. No people, text, logos or watermarks.",
+    "editSource": null
+  },
+  {
+    "id": "triple",
+    "prompt": "Use case: photorealistic-natural. Asset: landscape 3:2 editorial home office inspiration illustration. A distinct sophisticated dark graphite home study with a large black fixed-height L-shaped corner desk, both arms of desktop clearly visible, and EXACTLY THREE external computer monitors in a gently angled horizontal row wrapping around the inside corner: central landscape monitor and two landscape side monitors. All three screens individually visible, no laptop or other displays. Realistic stable supports for all monitors, tidy cable management, slim keyboard, mouse, compact USB-C dock, black ergonomic chair. Warm restrained desk lamp, dim neutral room with daylight from side window, charcoal and oak materials. No colorful gaming RGB. Frame the full L desk and chair with believable geometry and solid fixed non-telescoping legs; NO electric adjustment panel. This is generic aspirational interior imagery, not a branded SKU photograph. No people, text, logos or watermark.",
+    "editSource": null
+  }
+]

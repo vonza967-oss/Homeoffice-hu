@@ -45,9 +45,15 @@ async function retiredAbsent(page){
   assert.equal(await page.locator('#discoveryRail').count(),0);await retiredAbsent(page);
   assert.ok((await page.locator('.shop-invitation .pill').innerText()).includes(String(productCount)));
   await overflow(page);await shot(page,'home-desktop');await page.screenshot({path:path.join(qa,'home-full.png'),fullPage:true});
-  assert.equal(await page.locator('.setup-example').count(),3);
+  assert.equal(await page.locator('.setup-example').count(),5);
+  assert.equal(await page.locator('.setup-example[data-monitors="2"]').count(),1);
+  assert.equal(await page.locator('.setup-example[data-monitors="3"]').count(),1);
+  assert.equal(await page.locator('.setup-example[data-desk="electric"]').count(),2);
+  assert.equal(await page.locator('.setup-example h3,.setup-example p').count(),0);
+  assert.ok((await page.locator('.feature-setup').boundingBox()).height<=440);
+
   assert.ok(await page.evaluate(()=>document.querySelector('#setups').compareDocumentPosition(document.querySelector('.feature-desk'))&Node.DOCUMENT_POSITION_FOLLOWING));
-  await page.locator('#setups').scrollIntoViewIfNeeded();await shot(page,'setups-desktop');
+  await page.locator('#setups').scrollIntoViewIfNeeded();await shot(page,'setups-desktop');await page.locator('#setups').screenshot({path:path.join(qa,'setups-full-desktop.png')});
   for(const example of await page.locator('.setup-example').all()){
    await example.locator('summary').click();
    for(const button of await example.locator('[data-open]').all()){
@@ -57,7 +63,7 @@ async function retiredAbsent(page){
    }
    await example.locator('summary').click();
   }
-  checks.push('Three distinct setup examples precede products; all recommended items open the correct original product');
+  checks.push('Five image-only setup examples precede products; all recommended items open the correct original product');
   for(const id of ['satechidock','keys','line','walkingpad']){await page.locator('.feature-grid .pill[data-open="'+id+'"]').click();assert.ok(await page.locator('#productDialog').isVisible());await page.keyboard.press('Escape');}
   await page.locator('.feature-grid').evaluate(el=>el.scrollIntoView({block:'start'}));await shot(page,'feature-panels');
   await page.locator('.feature-setup .pill').first().click();await page.waitForURL('**/shop.html');await page.locator('.product-card').first().waitFor();assert.equal(await page.locator('.product-card').count(),productCount);await page.goto(base,{waitUntil:'networkidle'});
@@ -118,7 +124,7 @@ async function retiredAbsent(page){
   checks.push('Search, favorites, cart, persistence, stale category/product links and retired saved items pass');
   for(const width of [1024,768,390,320]){
    const p=await browser.newPage({viewport:{width,height:844},isMobile:width<768,hasTouch:width<768,reducedMotion:'reduce'});p.on('pageerror',e=>errors.push(String(e)));
-   await p.goto(base,{waitUntil:'networkidle'});await images(p);await overflow(p);await retiredAbsent(p);
+   await p.goto(base,{waitUntil:'networkidle'});await images(p);await overflow(p);await retiredAbsent(p);assert.ok((await p.locator('.feature-setup').boundingBox()).height<=(width<768?380:440));
    if(width===390){await p.locator('#setups').scrollIntoViewIfNeeded();await shot(p,'setups-mobile');await p.locator('.setup-example summary').first().click();await overflow(p);await p.locator('.setup-example [data-open]').first().click();assert.ok(await p.locator('#productDialog').isVisible());await p.keyboard.press('Escape');await p.locator('.setup-example summary').first().click();await p.evaluate(()=>scrollTo(0,0));await shot(p,'home-mobile');await p.screenshot({path:path.join(qa,'home-mobile-full.png'),fullPage:true});}
    if(width<768){
     await p.locator('#menuTrigger').click();assert.equal(await p.locator('#menuTrigger').getAttribute('aria-expanded'),'true');
