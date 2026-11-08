@@ -45,6 +45,19 @@ async function retiredAbsent(page){
   assert.equal(await page.locator('#discoveryRail').count(),0);await retiredAbsent(page);
   assert.ok((await page.locator('.shop-invitation .pill').innerText()).includes(String(productCount)));
   await overflow(page);await shot(page,'home-desktop');await page.screenshot({path:path.join(qa,'home-full.png'),fullPage:true});
+  assert.equal(await page.locator('.setup-example').count(),3);
+  assert.ok(await page.evaluate(()=>document.querySelector('#setups').compareDocumentPosition(document.querySelector('.feature-desk'))&Node.DOCUMENT_POSITION_FOLLOWING));
+  await page.locator('#setups').scrollIntoViewIfNeeded();await shot(page,'setups-desktop');
+  for(const example of await page.locator('.setup-example').all()){
+   await example.locator('summary').click();
+   for(const button of await example.locator('[data-open]').all()){
+    const id=await button.getAttribute('data-open');await button.click();
+    assert.equal(await page.locator('#productTitle').innerText(),catalog.products.find(p=>p.id===id).name);
+    await page.keyboard.press('Escape');
+   }
+   await example.locator('summary').click();
+  }
+  checks.push('Three distinct setup examples precede products; all recommended items open the correct original product');
   for(const id of ['satechidock','keys','line','walkingpad']){await page.locator('.feature-grid .pill[data-open="'+id+'"]').click();assert.ok(await page.locator('#productDialog').isVisible());await page.keyboard.press('Escape');}
   await page.locator('.feature-grid').evaluate(el=>el.scrollIntoView({block:'start'}));await shot(page,'feature-panels');
   await page.locator('.feature-setup .pill').first().click();await page.waitForURL('**/shop.html');await page.locator('.product-card').first().waitFor();assert.equal(await page.locator('.product-card').count(),productCount);await page.goto(base,{waitUntil:'networkidle'});
@@ -56,6 +69,12 @@ async function retiredAbsent(page){
   assert.ok((await page.locator('meta[name="description"]').getAttribute('content')).includes(productCount+' valódi termék'));
   assert.equal(await page.locator('[data-category="docks"] img').getAttribute('src'),'assets/satechidock.webp');
   assert.equal(await page.locator('[data-category="tech"] img').getAttribute('src'),'assets/type.webp');
+  await page.locator('[data-filter="desks"]').click();
+  assert.equal(await page.locator('.product-adjustment').count(),5);
+  for(const item of catalog.products.filter(p=>p.adjustmentLabel))assert.match(await page.locator('.product-open[data-open="'+item.id+'"]').innerText(),/Elektromosan állítható magasság/);
+  await shot(page,'desks-desktop');
+  await page.locator('[data-filter="chairs"]').click();await shot(page,'chairs-desktop');
+  checks.push('All five electric desks show adjustment on catalog cards; chairs retain clear original model names');
   await page.locator('[data-filter="fitness"]').click();assert.equal(await page.locator('.product-card').count(),categoryCount('fitness'));assert.equal(await page.locator('#collectionTitle').innerText(),'Fitnesz.');await shot(page,'fitness-desktop');
   await page.locator('.product-open[data-open="deskcycle"]').click();assert.equal(await page.locator('#productTitle').innerText(),catalog.products.find(p=>p.id==='deskcycle').name);await shot(page,'pedal-desktop');await page.keyboard.press('Escape');
   checks.push('Fitnesz contains walking pad and seated pedal exerciser; clean dock and SM1 category thumbnails are correct');
@@ -100,7 +119,7 @@ async function retiredAbsent(page){
   for(const width of [1024,768,390,320]){
    const p=await browser.newPage({viewport:{width,height:844},isMobile:width<768,hasTouch:width<768,reducedMotion:'reduce'});p.on('pageerror',e=>errors.push(String(e)));
    await p.goto(base,{waitUntil:'networkidle'});await images(p);await overflow(p);await retiredAbsent(p);
-   if(width===390){await shot(p,'home-mobile');await p.screenshot({path:path.join(qa,'home-mobile-full.png'),fullPage:true});}
+   if(width===390){await p.locator('#setups').scrollIntoViewIfNeeded();await shot(p,'setups-mobile');await p.locator('.setup-example summary').first().click();await overflow(p);await p.locator('.setup-example [data-open]').first().click();assert.ok(await p.locator('#productDialog').isVisible());await p.keyboard.press('Escape');await p.locator('.setup-example summary').first().click();await p.evaluate(()=>scrollTo(0,0));await shot(p,'home-mobile');await p.screenshot({path:path.join(qa,'home-mobile-full.png'),fullPage:true});}
    if(width<768){
     await p.locator('#menuTrigger').click();assert.equal(await p.locator('#menuTrigger').getAttribute('aria-expanded'),'true');
     await p.locator('#mainNav a[href="shop.html?category=chairs"]').click();

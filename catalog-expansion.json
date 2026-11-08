@@ -1,15 +1,15 @@
 {
   "names": {
-    "aero": "Hálós irodaszék",
-    "rise": "Elektromos íróasztal",
+    "aero": "Aeron irodaszék",
+    "rise": "Oakywood elektromos íróasztal",
     "link": "USB-C dokkoló",
     "line": "Oakywood monitorpolc",
-    "sail": "Rugalmas irodaszék",
+    "sail": "Sayl irodaszék",
     "form": "Oakywood Classic diófa íróasztal",
     "flow": "Logitech egér",
     "curve": "Állítható laptopállvány",
-    "contour": "Állítható irodaszék",
-    "move": "Fekete íróasztal",
+    "contour": "Embody irodaszék",
+    "move": "Fekete elektromos íróasztal",
     "type": "Mechanikus billentyűzet",
     "beam": "BenQ ScreenBar Pro monitorlámpa",
     "arc": "Oakywood laptopállvány",
@@ -700,7 +700,7 @@
     },
     {
       "id": "walnutdesk",
-      "name": "Diófa íróasztal",
+      "name": "Diófa elektromos íróasztal",
       "group": "desks",
       "maker": "Ergonofis",
       "model": "Sway Standing Desk",
@@ -717,7 +717,7 @@
     },
     {
       "id": "mattedesk",
-      "name": "Matt íróasztal",
+      "name": "Matt elektromos íróasztal",
       "group": "desks",
       "maker": "Ergonofis",
       "model": "Shift Standing Desk",
@@ -1066,7 +1066,7 @@
     },
     {
       "id": "whitedesk",
-      "name": "Fehér állóasztal",
+      "name": "Fehér elektromos íróasztal",
       "group": "desks",
       "maker": "ModernHome",
       "model": "JSD-C5-1-5",

@@ -45,3 +45,17 @@ test('Audio uses supplier-catalog products rather than Apple or Logitech referen
  const audio=products.filter(p=>p.group==='audio');
  for(const p of audio){assert.equal(p.supplier,'MYFUSION.EU');assert.ok(p.supplierSku);assert.match(p.source,/^https:\/\/myfusion\.eu\/en\//);assert.doesNotMatch(p.maker+' '+p.model,/Apple|Logitech|Yeti/i);}
 });
+
+test('Electric adjustment remains visible and chair names identify the original model',()=>{
+ const electric=['rise','walnutdesk','move','mattedesk','whitedesk'];
+ assert.deepEqual(products.filter(p=>p.adjustmentLabel).map(p=>p.id).sort(),[...electric].sort());
+ for(const id of electric){const p=products.find(p=>p.id===id);assert.match(p.name,/elektromos/i);assert.equal(p.adjustmentLabel,'Elektromosan állítható magasság');}
+ for(const p of products.filter(p=>p.group==='chairs'))assert.equal(p.name,p.model+' irodaszék');
+});
+test('Three complete workspace selections precede individual products and link to active references',()=>{
+ assert.ok(home.indexOf('id="setups"')<home.indexOf('class="feature feature-desk"'));
+ const examples=[...home.matchAll(/<article class="setup-example"[\s\S]*?<\/article>/g)];assert.equal(examples.length,3);
+ const selections=[];
+ for(const [article] of examples){const ids=[...article.matchAll(/data-open="([^"]+)"/g)].map(m=>m[1]);const selected=ids.map(id=>products.find(p=>p.id===id));assert.ok(selected.every(Boolean));for(const group of ['desks','chairs','stands','tech','docks'])assert.ok(selected.some(p=>p.group===group));selections.push(ids.join(','));const image=article.match(/src="assets\/([^\"]+)"/)[1];assert.ok(fs.statSync(path.join(root,'images',image)).size>10000);}
+ assert.equal(new Set(selections).size,3);assert.match(home,/A képek illusztrációk/);
+});

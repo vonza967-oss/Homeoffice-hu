@@ -12,6 +12,7 @@ function loadCatalog(){
  for(const key of ['id','name','source'])if(new Set(all.map(p=>p[key])).size!==all.length)throw Error('Duplicate catalog '+key);
  const first=['aero','rise','link','flow','sail','walnutdesk','soft','keys'];
  const byId=new Map(all.map(p=>[p.id,p]));
+ for(const p of all)if(['rise','walnutdesk','move','mattedesk','whitedesk'].includes(p.id))p.adjustmentLabel='Elektromosan állítható magasság';
  const products=[...first.filter(id=>byId.has(id)).map(id=>byId.get(id)),...all.filter(p=>!first.includes(p.id))];
  return {...base,products};
 }
