@@ -114,6 +114,20 @@ async function retiredAbsent(page){
    await p.locator('.product-open[data-open="link"]').click();await images(p);await overflow(p);if(width===390)await shot(p,'product-mobile');
    await p.locator('#productDialog [data-close]').click();assert.equal(await p.locator('dialog[open]').count(),0);await p.close();
   }
+  await page.goto(base,{waitUntil:'networkidle'});
+  await page.locator('#mainNav a[href="contact.html"]').click();
+  await page.waitForURL('**/contact.html');
+  assert.equal(await page.locator('.contact-email').getAttribute('href'),'mailto:contact@homeoffices.hu');
+  assert.equal(await page.locator('.contact-email').innerText(),'contact@homeoffices.hu');
+  assert.equal(await page.locator('#mainNav [aria-current="page"]').innerText(),'Kapcsolat');
+  for(const width of [1440,1024,768,390,320]){
+   await page.setViewportSize({width,height:900});await overflow(page);
+   if(width===1440||width===390)await shot(page,'contact-'+(width===1440?'desktop':'mobile'));
+  }
+  await page.locator('#menuTrigger').click();
+  assert.equal(await page.locator('#menuTrigger').getAttribute('aria-expanded'),'true');
+  await page.keyboard.press('Escape');assert.equal(await page.locator('#menuTrigger').getAttribute('aria-expanded'),'false');
+  checks.push('Contact page is published, linked from navigation, uses the requested mailto address and fits all five viewport widths');
   assert.deepEqual(errors,[]);checks.push('1440/1024/768/390/320px: meaningful home/store content, loaded images, mobile menu, product dialogs, no runtime errors or horizontal overflow');
   await fs.writeFile(path.join(qa,'report.json'),JSON.stringify({success:true,url:base,commit:process.env.GITHUB_SHA||'local',products:productCount,categories:activeGroups,removedCategories:retiredGroups,removedProducts:retiredIds,browser:'Playwright Chromium; Browser plugin not available',checks,errors},null,2));console.log(JSON.stringify({success:true,products:productCount,checks}));
  }catch(e){await fs.writeFile(path.join(qa,'failure.txt'),String(e.stack||e));throw e}

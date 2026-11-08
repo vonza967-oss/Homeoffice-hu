@@ -52,3 +52,6 @@ dialog{border:0;color:var(--ink);background:#fff;padding:0;max-width:calc(100vw 
 
 /* Audio product types share the catalog filter controls. */
 .audio-filters{margin:-8px 0 28px;gap:24px}.audio-filters button{white-space:nowrap}
+
+/* Keep the shared navigation compact with the contact link. */
+@media(min-width:768px) and (max-width:1100px){.globalnav nav{gap:12px}.nav-inner{gap:16px}.globalnav nav a{font-size:10px}.nav-tools{gap:10px}}
