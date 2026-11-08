@@ -1082,7 +1082,8 @@
         "Három menthető magasság"
       ],
       "supplier": "Multistore",
-      "supplierSku": "JSD-C5-1-5"
+      "supplierSku": "JSD-C5-1-5",
+      "localImage": "images/products/whitedesk.webp"
     },
     {
       "id": "foldingdesk",
@@ -1102,7 +1103,8 @@
         "Összecsukva 80 × 9 × 76 cm"
       ],
       "supplier": "Multistore",
-      "supplierSku": "TH-FD-5"
+      "supplierSku": "TH-FD-5",
+      "localImage": "images/products/foldingdesk.webp"
     },
     {
       "id": "shelfdesk",
@@ -1122,7 +1124,8 @@
         "MDF asztallap, fém váz"
       ],
       "supplier": "Multistore",
-      "supplierSku": "TH-SD-5"
+      "supplierSku": "TH-SD-5",
+      "localImage": "images/products/shelfdesk.webp"
     },
     {
       "id": "cornerdesk",
@@ -1142,7 +1145,8 @@
         "Állítható szintezőlábak"
       ],
       "supplier": "Multistore",
-      "supplierSku": "TH-CD-1"
+      "supplierSku": "TH-CD-1",
+      "localImage": "images/products/cornerdesk.webp"
     },
     {
       "id": "drawerdesk",
@@ -1162,7 +1166,8 @@
         "Fiók és nyitott tárolórekesz"
       ],
       "supplier": "Multistore",
-      "supplierSku": "WYJ-095"
+      "supplierSku": "WYJ-095",
+      "localImage": "images/products/drawerdesk.jpg"
     },
     {
       "id": "adjustabledumbbell",
@@ -1182,7 +1187,8 @@
         "Talppal, vas és műanyag kivitel"
       ],
       "supplier": "Multistore",
-      "supplierSku": "GB-FW207-24KG"
+      "supplierSku": "GB-FW207-24KG",
+      "localImage": "images/products/adjustabledumbbell.webp"
     },
     {
       "id": "exercisemat",
@@ -1202,7 +1208,8 @@
         "PU huzat, EPE hab töltet"
       ],
       "supplier": "Multistore",
-      "supplierSku": "GB-GYM"
+      "supplierSku": "GB-GYM",
+      "localImage": "images/products/exercisemat.jpg"
     }
   ]
 }
