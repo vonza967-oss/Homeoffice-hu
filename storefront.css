@@ -55,3 +55,6 @@ dialog{border:0;color:var(--ink);background:#fff;padding:0;max-width:calc(100vw 
 
 /* Keep the shared navigation compact with the contact link. */
 @media(min-width:768px) and (max-width:1100px){.globalnav nav{gap:12px}.nav-inner{gap:16px}.globalnav nav a{font-size:10px}.nav-tools{gap:10px}}
+
+/* Product photography sits on white across cards, details and campaigns. */
+.detail-photo,.feature-desk,.feature-chair,.tile-dock,.tile-keys,.tile-shelf,.tile-active{background:#fff}
